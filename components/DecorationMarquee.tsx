@@ -10,7 +10,7 @@ const DecorationMarquee = (props : any) => {
   };
 
   const decorationImages = [
-    'decoration_1.svg',
+    'decoration_6.svg',
     'decoration_2.svg',
     'decoration_3.svg',
     'decoration_4.svg',
@@ -28,7 +28,7 @@ const DecorationMarquee = (props : any) => {
   
   return (
     <StyledDecorationMarquee className="decoration-marquee">
-      <Marquee gradient={false}>
+      <Marquee speed={40} gradient={false} direction={'right'}>
         {decorationImages.map((imageURL, index) => (
           <Flex {...marqueeProps} key={index}>
             <img src={`/img/decorations/${imageURL}`} />

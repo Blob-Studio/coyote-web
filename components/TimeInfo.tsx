@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Box, Flex } from 'rebass';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { transparentize } from 'polished';
 
 const TimeInfo = (props : any) => {
   const [time, setTime] = useState('');
@@ -64,6 +65,7 @@ const StyledTimeInfo = styled(Flex)`
   .time {
     font-size: 3rem;
     font-weight: 600;
+    background: ${props => transparentize(0.95, props.theme.color.primary)};
   }
 `;
 

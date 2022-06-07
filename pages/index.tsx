@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { Flex, Box } from 'rebass'
+
+import { useState } from 'react';
 
 import Header from './../components/Header';
 import Sidebar from './../components/Sidebar';
@@ -8,11 +9,16 @@ import DecorationMarquee from './../components/DecorationMarquee';
 import TimeInfo from './../components/TimeInfo';
 
 export default function Home() {
+  type IPanel = 'work-list' | 'work-content' | 'posts' | 'about' | 'our-vision' | 'services' | 'unselected';
+
+  const [panel, setPanel] = useState<IPanel>('unselected');
+  const [selectedWork, setSelectedWork] = useState(0);
+
   return (
     <StyledHomepage>
-      <Header />
+      <Header panel={panel} setPanel={setPanel} selectedWork={selectedWork} setSelectedWork={setSelectedWork}/>
       <Sidebar />
-      <MainView />
+      <MainView panel={panel} setPanel={setPanel} selectedWork={selectedWork} setSelectedWork={setSelectedWork}/>
       <TimeInfo />
       <DecorationMarquee />
     </StyledHomepage>

@@ -2,101 +2,33 @@ import styled from "styled-components";
 import { Box, Flex } from "rebass";
 import { Input } from "@rebass/forms";
 import Button from "./../components/Button";
+import { useRouter } from "next/router";
+import getLocales from "../utils/getLocales";
 
-import * as THREE from 'three'
-import ReactDOM from 'react-dom'
-import React, { Suspense } from 'react'
-import { Canvas, useLoader, useFrame } from 'react-three-fiber'
-
-function Image() {
-  const texture = useLoader(THREE.TextureLoader, '/img/grids/grid_1.png');
-  return (
-    <mesh rotation-x={Math.PI * -0.5}>
-      <planeBufferGeometry attach="geometry" args={[3, 3]} />
-      <meshBasicMaterial attach="material" map={texture} />
-    </mesh>
-  )
-}
-
-function Stars() {
-  const texture = useLoader(THREE.TextureLoader, '/img/grids/stars.png');
-  return (
-    <mesh rotation-y={Math.PI * 0.5} position={new Vector3(-50, -20, -1)}>
-      <planeBufferGeometry attach="geometry" args={[1000, 1000]} />
-      <meshBasicMaterial attach="material" map={texture} />
-    </mesh>
-  )
-}
-
-function Badge() {
-  const texture = useLoader(THREE.TextureLoader, '/img/grids/badge.png');
-  return (
-    <mesh rotation-y={Math.PI * 0.5} position={new Vector3(0.75, 1, -1)}>
-      <planeBufferGeometry attach="geometry" args={[1, 1]} />
-      <meshBasicMaterial attach="material" map={texture} opacity={1} transparent/>
-    </mesh>
-  )
-}
-
-function Window() {
-  const texture = useLoader(THREE.TextureLoader, '/img/grids/window.png');
-  return (
-    <mesh rotation-y={Math.PI * 0.5} position={new Vector3(0.25, 0.75, 0)}>
-      <planeBufferGeometry attach="geometry" args={[2, 1]} />
-      <meshBasicMaterial attach="material" map={texture} opacity={1} transparent/>
-    </mesh>
-  )
-}
-
-function Atom() {
-  const texture = useLoader(THREE.TextureLoader, '/img/grids/atom.png');
-  return (
-    <mesh rotation-y={Math.PI * 0.5} position={new Vector3(-0.5, 1.5, 1)}>
-      <planeBufferGeometry attach="geometry" args={[1, 1]} />
-      <meshBasicMaterial attach="material" map={texture} opacity={1} transparent/>
-    </mesh>
-  )
-}
-
-// import Sphere from "./../components/Sphere.Component";
-// import Plane from "./../components/Plane.Component";
-import Controls from "./../components/Controls.Component";
-import { Vector3 } from "three";
+import ThreeJSPageScene from './../components/ThreeJSPageScene'
 
 const Sidebar = (props: any) => {
+  const router = useRouter();
+  const locale = getLocales(router.locale as 'en' | 'es');
 
   return (
     <StyledSidebar className="side-bar" flexDirection={"column"}>
       <Flex alignItems="center" justifyContent="center" className="breakdown">
         <Box
           as={"p"}
-          sx={{ textAlign: "center", p: "2rem" }}
+          sx={{ textAlign: "center", p: "3rem 2rem 0" }}
           className="breakdown-text"
         >
-          WE ARE A <strong>WEB DESIGN</strong> AND <strong>DEVELOPMENT</strong> AGENCY FROM <strong>BUENOS AIRES,
-          ARGENTINA.</strong>
+          {locale.sidebar.headerText}
         </Box>
       </Flex>
       <Box className="graphic">
-        <Canvas camera={{ position: [2.5, 1.5, 2] }}>
-          <Controls />
-          <Suspense fallback={null}>
-            <Image />
-            <Badge />
-            <Window />
-            <Atom />
-            {/* <Stars /> */}
-          </Suspense>
-          {/* <fog attach="fog" args={["#041830", 5, 10]} /> */}
-          {/* <Sphere /> */}
-          {/* <Plane /> */}
-          {/* <gridHelper /> */}
-        </Canvas>
+        <ThreeJSPageScene />
       </Box>
-      <Flex className="contact-form" mt="auto" height="3rem">
-        <Input className="side-bar-input" />
+      {/* <Flex className="contact-form" mt="auto" height="3rem">
+        <Input className="side-bar-input" placeholder={"example@mail.com"}/>
         <Button className="side-bar-submit">Contact</Button>
-      </Flex>
+      </Flex> */}
     </StyledSidebar>
   );
 };
@@ -106,10 +38,10 @@ const StyledSidebar = styled(Flex)`
   border-right: calc(1rem / 16) solid ${(props) => props.theme.color.primary};
   border-bottom: calc(1rem / 16) solid ${(props) => props.theme.color.primary};
   .breakdown {
-    border-bottom: calc(1rem / 16) solid ${(props) => props.theme.color.primary};
+    /* border-bottom: calc(1rem / 16) solid ${(props) => props.theme.color.primary}; */
     .breakdown-text {
       font-size: 2rem;
-      line-height: 2rem;
+      line-height: 2.3rem;
       font-weight: 200;
     }
   }
