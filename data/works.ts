@@ -1,39 +1,37 @@
-const Works = [
+const Works : any = [
     {
       name: 'Carrot',
       workType: ['Development'],
       url: 'https://carrot.org',
-      content: 
-`
-# Carrot 
-![Image](/img/works/carrot.png)
-The design for the page was done by Entrecasa Studio.
+      content: `
+        # Carrot 
+        ![Image](/img/works/carrot.png)
+        The design for the page was done by Entrecasa Studio.
 
-This is the stuff that will be inside the page.
+        This is the stuff that will be inside the page.
 
-It will be really good to read this, in fact, it will be amazing.
+        It will be really good to read this, in fact, it will be amazing.
 
-It will be really good to read this, in fact, it will be amazing. It will be really good to read this, in fact, it will be amazing.
-It will be really good to read this, in fact, it will be amazing.
-`
+        It will be really good to read this, in fact, it will be amazing. It will be really good to read this, in fact, it will be amazing.
+        It will be really good to read this, in fact, it will be amazing.
+      `
     },
     {
       name: 'API3',
       workType: ['Development'],
       url: 'https://api3.org',
-      content: 
-`
-# API3
-![Image](/img/works/api3.png)
-The design for the page was done by Entrecasa Studio.
+      content: `
+        # API3
+        ![Image](/img/works/api3.png)
+        The design for the page was done by Entrecasa Studio.
 
-This is the stuff that will be inside the page.
+        This is the stuff that will be inside the page.
 
-It will be really good to read this, in fact, it will be amazing.
+        It will be really good to read this, in fact, it will be amazing.
 
-It will be really good to read this, in fact, it will be amazing. It will be really good to read this, in fact, it will be amazing.
-It will be really good to read this, in fact, it will be amazing.
-`
+        It will be really good to read this, in fact, it will be amazing. It will be really good to read this, in fact, it will be amazing.
+        It will be really good to read this, in fact, it will be amazing.
+      `
     },
     {
       name: 'Decentraland Foundation',

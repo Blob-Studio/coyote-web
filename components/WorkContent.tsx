@@ -26,7 +26,7 @@ const WorkContent = (props: any) => {
       </Flex>
       <Flex className="content-body" flexDirection={"column"} width={"100%"}>
         <Box width={"40rem"} mx={"auto"} pt="2rem">
-          {works[props.selectedWork].content != undefined && (
+          {works[props.selectedWork] && works[props.selectedWork].content !== undefined && (
             <ReactMarkdown>{works[props.selectedWork].content}</ReactMarkdown>
           )}
         </Box>
