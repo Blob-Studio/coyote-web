@@ -78,7 +78,7 @@ function Atom() {
 const ThreeJSPageScene = (props: any) => {
   return (
     <StyledThreeJSPageScene camera={{ position: [2.5, 1.5, 2] }}>
-      <Controls />
+      {/* <Controls /> */}
       <Suspense fallback={null}>
         <Image />
         <Badge />

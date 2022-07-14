@@ -8,7 +8,7 @@ const Controls : any = () => {
   const { camera, gl } = useThree();
 
   return (
-    <orbitControls
+    <OrbitControls
       enableZoom={true}
       maxPolarAngle={Math.PI / 3}
       minPolarAngle={Math.PI / 3}
