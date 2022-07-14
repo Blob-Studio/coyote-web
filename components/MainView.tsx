@@ -51,10 +51,10 @@ const MainView = (props : any) => {
         )}
         {props.panel == 'services' && (
           <Box flexDirection={'column'} alignItems={'center'} width={"100%"}>
-            <Box width="40rem" py={"2rem"} mx={"auto"}>
-              <Box className="content-block">
+            <Box width="40rem" py={"2rem"} mx={"auto"} sx={{textAlign: 'center'}}>
+              <Box className="content-block" >
                 <h1>We provide the following services</h1>
-                <Flex flexDirection={"column"}>
+                <Flex flexDirection={"column"} >
                   <Flex as="ul" mx={"-0.5rem"}>
                     <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Website</Box>
                     <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Website + CMS</Box>
@@ -76,9 +76,14 @@ const MainView = (props : any) => {
                     <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Strapi</Box>
                   </Flex>
                   <Flex as="ul" mx={"-0.5rem"}>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>React</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Next.js</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Strapi</Box>
+                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>node.js</Box>
+                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Gatsby</Box>
+                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Express</Box>
+                  </Flex>
+                  <Flex as="ul" mx={"-0.5rem"}>
+                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>mongodb</Box>
+                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Google Cloud</Box>
+                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>AWS</Box>
                   </Flex>
                 </Flex>
               </Box>

@@ -18,7 +18,12 @@ export default function Home() {
     <StyledHomepage>
       <Header panel={panel} setPanel={setPanel} selectedWork={selectedWork} setSelectedWork={setSelectedWork}/>
       <Sidebar />
-      <MainView panel={panel} setPanel={setPanel} selectedWork={selectedWork} setSelectedWork={setSelectedWork}/>
+      <MainView 
+        panel={panel} 
+        setPanel={setPanel} 
+        selectedWork={selectedWork} 
+        setSelectedWork={setSelectedWork}
+      />
       <TimeInfo />
       <DecorationMarquee />
     </StyledHomepage>

@@ -13,7 +13,7 @@ const en = {
                 <h1>Who are we?</h1>
                 <p>Coyote Web Studio is the name given by Guido La Rosa to this .</p>
                 <p>We work with design studios and freelance designers, depending on the needs of your project.</p>
-                <h1>Our Partners</h1>
+                <h1>Our team</h1>
                 <Box className="content-block" mb={"3rem"}>
                     <h2>Frontend Development and Project Manager</h2>
                     <Box p={'1rem'} className="content-card">
