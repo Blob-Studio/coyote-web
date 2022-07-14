@@ -16,7 +16,7 @@ const WorkList = (props: any) => {
         flexDirection={"column"}
         width={"100%"}
       >
-        {works.map((work, index) => (
+        {works.map((work : any, index : number) => (
           <Flex
             as={"li"}
             key={index}
@@ -30,7 +30,7 @@ const WorkList = (props: any) => {
             <strong>{work.name}</strong>
             <span className="divider"> - </span>
             <span>
-              {work.workType.map((type, index) => (
+              {work.workType.map((type : any, index : number) => (
                 <Fragment key={index}>
                   <span>{type}</span>
                   {index != work.workType.length - 1 && ", "}

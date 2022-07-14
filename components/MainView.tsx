@@ -102,7 +102,7 @@ const MainView = (props : any) => {
         {props.panel == 'posts' && (
           <Box flexDirection={'column'} alignItems={'center'} width={"100%"}>
             <Flex as={"ul"} className="post-list" flexDirection={"column"}>
-              {posts.map((post, index) => (
+              {posts.map((post : any, index : number) => (
                 <Flex as={"li"} flexDirection={"column"} className={"post-list-item"} key={index}>
                   <h2>{post.name}</h2>
                   <p>{post.shortDescription}</p>
