@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Flex, Box } from "rebass";
 import works from './../data/works';
+import { Fragment } from "react";
 
 const WorkList = (props: any) => {
   return (
@@ -30,10 +31,10 @@ const WorkList = (props: any) => {
             <span className="divider"> - </span>
             <span>
               {work.workType.map((type, index) => (
-                <>
+                <Fragment key={index}>
                   <span>{type}</span>
                   {index != work.workType.length - 1 && ", "}
-                </>
+                </Fragment>
               ))}
             </span>
           </Flex>
