@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Box, Flex, Link } from 'rebass';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
@@ -9,28 +9,24 @@ import WorkContent from './WorkContent';
 import { useRouter } from 'next/router';
 import getLocales from '../utils/getLocales';
 import { transparentize } from 'polished';
-import posts from './../data/posts';
+import Starfield from './Starfield';
+
+const ServicesList = ({ children }: any) => <Flex as="ul" mx={"-0.5rem"}>{children}</Flex>;
+const ServicesItem = ({ children }: any) => <Box as={"li"} mx={"0.5rem"} className={"content-card"}>{children}</Box>;
 
 const MainView = (props : any) => {
   const router = useRouter();
   const locale = getLocales(router.locale as 'en' | 'es');
-  console.log(posts);
+
   return (
     <StyledMainView className={`main-view ${props.panel}`}>
       <Flex className="main-view-navigation" flexDirection={"column"}>
-        {props.panel == 'unselected' && (
-          <>
-            <Box as="h2" sx={{textAlign: 'center', mb: '1rem'}}>¡WELCOME FRIEND!</Box>
-          </>
-        )}
+        {/* {props.panel == 'unselected' && <Box as="h2" sx={{textAlign: 'center', mb: '1rem'}}>¡WELCOME FRIEND!</Box>} */}
         <Box className={`main-navigation-button ${props.panel == 'about' ? 'selected' : null}`} onClick={() => {props.setPanel('about')}}>
           <span>{locale.mainNavigation.about}</span>
         </Box>
         <Box className={`main-navigation-button ${props.panel == 'work-list' ? 'selected' : null}`} onClick={() => {props.setPanel('work-list')}}>
           <span>{locale.mainNavigation.work}</span>
-        </Box>
-        <Box className={`main-navigation-button ${props.panel == 'posts' ? 'selected' : null}`} onClick={() => {props.setPanel('posts')}}>
-          <span>{locale.mainNavigation.posts}</span>
         </Box>
         <Box className={`main-navigation-button ${props.panel == 'services' ? 'selected' : null}`} onClick={() => {props.setPanel('services')}}>
           <span>{locale.mainNavigation.services}</span>
@@ -55,89 +51,48 @@ const MainView = (props : any) => {
               <Box className="content-block" >
                 <h1>We provide the following services</h1>
                 <Flex flexDirection={"column"} >
-                  <Flex as="ul" mx={"-0.5rem"}>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Website</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Website + CMS</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Shopify</Box>
-                  </Flex>
-                  <Flex as="ul" mx={"-0.5rem"}>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Wordpress</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>SEO Optimization</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}></Box>
-                  </Flex>
+                  <ServicesList>
+                    <ServicesItem>Website</ServicesItem>
+                    <ServicesItem>Website + CMS</ServicesItem>
+                    <ServicesItem>Shopify</ServicesItem>
+                  </ServicesList>
+                  <ServicesList>
+                    <ServicesItem>Wordpress (?)</ServicesItem>
+                    <ServicesItem>Website Design (?)</ServicesItem>
+                    <ServicesItem>SEO Optimization</ServicesItem>
+                  </ServicesList>
                 </Flex>
               </Box>
               <Box className="content-block">
                 <h1>We love modern tools</h1>
                 <Flex flexDirection={"column"}>
-                  <Flex as="ul" mx={"-0.5rem"}>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>React</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Next.js</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Strapi</Box>
-                  </Flex>
-                  <Flex as="ul" mx={"-0.5rem"}>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>node.js</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Gatsby</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Express</Box>
-                  </Flex>
-                  <Flex as="ul" mx={"-0.5rem"}>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>mongodb</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>Google Cloud</Box>
-                    <Box as={"li"} mx={"0.5rem"} className={"content-card"}>AWS</Box>
-                  </Flex>
+                  <ServicesList>
+                    <ServicesItem>React</ServicesItem>
+                    <ServicesItem>Next.js</ServicesItem>
+                    <ServicesItem>Strapi</ServicesItem>
+                  </ServicesList>
+                  <ServicesList>
+                    <ServicesItem>node.js</ServicesItem>
+                    <ServicesItem>Gatsby</ServicesItem>
+                    <ServicesItem>Express</ServicesItem>
+                  </ServicesList>
+                  <ServicesList>
+                    <ServicesItem>mongodb</ServicesItem>
+                    <ServicesItem>Google Cloud</ServicesItem>
+                    <ServicesItem>AWS</ServicesItem>
+                  </ServicesList>
                 </Flex>
               </Box>
             </Box>
           </Box>
         )}
-        {props.panel == 'unselected' && (
-          <Box className="starfield">
-            <div className="stars"></div>
-            <div className="stars"></div>
-            <div className="stars"></div>
-            <div className="stars"></div>
-            <div className="stars"></div>
-          </Box>
-        )}
-        {props.panel == 'posts' && (
-          <Box flexDirection={'column'} alignItems={'center'} width={"100%"}>
-            <Flex as={"ul"} className="post-list" flexDirection={"column"}>
-              {posts.map((post : any, index : number) => (
-                <Flex as={"li"} flexDirection={"column"} className={"post-list-item"} key={index}>
-                  <h2>{post.name}</h2>
-                  <p>{post.shortDescription}</p>
-                  <span className={"author"}>By {post.author}</span>
-                </Flex>
-              ))}
-            </Flex>
-          </Box>
-        )}
+        {/* {props.panel == 'unselected' && (
+          <Starfield />
+        )} */}
       </Flex>
-      <Box className="main-view-side">
-        <span>
-          We create compelling web experiences
-        </span>
-      </Box>
     </StyledMainView>
   )
 }
-
-const zoom = keyframes`
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-    animation-timing-function: ease-in;
-  } 
-  85% {
-    opacity: 1;
-    transform: scale(2.8);
-    animation-timing-function: linear;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(3.5);
-  }
-`;
 
 const StyledMainView = styled(Flex)`
   grid-area: main-view;
@@ -179,52 +134,6 @@ const StyledMainView = styled(Flex)`
     flex-direction: center;
     justify-content: center;
     line-height: 1.5rem;
-  }
-  .starfield {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    .stars {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(1px 1px at 20px 30px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 40px 70px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 50px 160px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 90px 40px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 130px 80px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 160px 120px, ${props => props.theme.color.primary}, rgba(0,0,0,0));
-      background-repeat: repeat;
-      background-size: 200px 200px;
-      animation: ${zoom} 5s infinite;
-      opacity: 0;
-      &:nth-child(1) {
-        background-position: 50% 50%;
-        animation-delay: 0s;
-      }
-      &:nth-child(2) {
-        background-position: 20% 60%;
-        animation-delay: 1s;
-      }
-      &:nth-child(3) {
-        background-position: -20% -30%;
-        animation-delay: 2s;
-      }
-      &:nth-child(4) {
-        background-position: 40% -80%;
-        animation-delay: 3s;
-      }
-      &:nth-child(5) {
-        background-position: -20% 30%;
-        animation-delay: 4s;
-      }
-    }
   }
   .main-view-navigation {
     width: 4rem;

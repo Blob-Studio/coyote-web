@@ -4,7 +4,6 @@ const es = {
     mainNavigation: {
         about: 'NOSOTROS',
         work: 'TRABAJOS',
-        posts: 'POSTS',
         services: 'SERVICIOS',
     },
     about: {

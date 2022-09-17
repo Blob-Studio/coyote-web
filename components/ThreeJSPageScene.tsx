@@ -5,8 +5,6 @@ import ReactDOM from "react-dom";
 import React, { Suspense } from "react";
 import { Canvas, useLoader, useFrame } from "react-three-fiber";
 
-// import Sphere from "./../components/Sphere.Component";
-// import Plane from "./../components/Plane.Component";
 import { Vector3 } from "three";
 
 function Image() {

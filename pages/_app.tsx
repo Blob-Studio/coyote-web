@@ -6,13 +6,12 @@ import { ThemeProvider } from 'styled-components'
 import theme from "../utils/theme";
 import styled from "styled-components";
 
-// Store Strapi Global object in context
 export const GlobalContext = createContext({});
 export const MainNavigationContext = createContext({});
 
 const MyApp = ({ Component, pageProps } : any) => {
   const { 
-    global, 
+    global,
     mainNavigation 
   } = pageProps;
   return (
