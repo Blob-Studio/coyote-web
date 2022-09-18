@@ -12,7 +12,14 @@ import { transparentize } from 'polished';
 import Starfield from './Starfield';
 
 const ServicesList = ({ children }: any) => <Flex as="ul" mx={"-0.5rem"}>{children}</Flex>;
-const ServicesItem = ({ children }: any) => <Box as={"li"} mx={"0.5rem"} className={"content-card"}>{children}</Box>;
+const Service = ({ children }: any) => <Box as={"li"} mx={"0.5rem"} className={"content-card"}>{children}</Box>;
+
+const InitialNavButton = ({ children, thisPanel, ...props }: any) => {
+  return (
+  <Box className={`main-navigation-button ${props.panel == thisPanel ? 'selected' : null}`} onClick={() => {props.setPanel(thisPanel)}}>
+    <span>{ children }</span>
+  </Box>
+)};
 
 const MainView = (props : any) => {
   const router = useRouter();
@@ -21,16 +28,9 @@ const MainView = (props : any) => {
   return (
     <StyledMainView className={`main-view ${props.panel}`}>
       <Flex className="main-view-navigation" flexDirection={"column"}>
-        {/* {props.panel == 'unselected' && <Box as="h2" sx={{textAlign: 'center', mb: '1rem'}}>¡WELCOME FRIEND!</Box>} */}
-        <Box className={`main-navigation-button ${props.panel == 'about' ? 'selected' : null}`} onClick={() => {props.setPanel('about')}}>
-          <span>{locale.mainNavigation.about}</span>
-        </Box>
-        <Box className={`main-navigation-button ${props.panel == 'work-list' ? 'selected' : null}`} onClick={() => {props.setPanel('work-list')}}>
-          <span>{locale.mainNavigation.work}</span>
-        </Box>
-        <Box className={`main-navigation-button ${props.panel == 'services' ? 'selected' : null}`} onClick={() => {props.setPanel('services')}}>
-          <span>{locale.mainNavigation.services}</span>
-        </Box>
+        <InitialNavButton {...props} thisPanel="about">{locale.mainNavigation.about}</InitialNavButton>
+        <InitialNavButton {...props} thisPanel="work-list">{locale.mainNavigation.work}</InitialNavButton>
+        <InitialNavButton {...props} thisPanel="services">{locale.mainNavigation.services}</InitialNavButton>
       </Flex>
       <Flex width="100%" className="main-view-content" height={"100%"}>
         {props.panel == 'work-list' && (
@@ -52,14 +52,14 @@ const MainView = (props : any) => {
                 <h1>We provide the following services</h1>
                 <Flex flexDirection={"column"} >
                   <ServicesList>
-                    <ServicesItem>Website</ServicesItem>
-                    <ServicesItem>Website + CMS</ServicesItem>
-                    <ServicesItem>Shopify</ServicesItem>
+                    <Service>Website</Service>
+                    <Service>Website + CMS</Service>
+                    <Service>Shopify</Service>
                   </ServicesList>
                   <ServicesList>
-                    <ServicesItem>Wordpress (?)</ServicesItem>
-                    <ServicesItem>Website Design (?)</ServicesItem>
-                    <ServicesItem>SEO Optimization</ServicesItem>
+                    <Service>Wordpress (?)</Service>
+                    <Service>Website Design (?)</Service>
+                    <Service>SEO Optimization</Service>
                   </ServicesList>
                 </Flex>
               </Box>
@@ -67,19 +67,19 @@ const MainView = (props : any) => {
                 <h1>We love modern tools</h1>
                 <Flex flexDirection={"column"}>
                   <ServicesList>
-                    <ServicesItem>React</ServicesItem>
-                    <ServicesItem>Next.js</ServicesItem>
-                    <ServicesItem>Strapi</ServicesItem>
+                    <Service>React</Service>
+                    <Service>Next.js</Service>
+                    <Service>Strapi</Service>
                   </ServicesList>
                   <ServicesList>
-                    <ServicesItem>node.js</ServicesItem>
-                    <ServicesItem>Gatsby</ServicesItem>
-                    <ServicesItem>Express</ServicesItem>
+                    <Service>node.js</Service>
+                    <Service>Gatsby</Service>
+                    <Service>Express</Service>
                   </ServicesList>
                   <ServicesList>
-                    <ServicesItem>mongodb</ServicesItem>
-                    <ServicesItem>Google Cloud</ServicesItem>
-                    <ServicesItem>AWS</ServicesItem>
+                    <Service>mongodb</Service>
+                    <Service>Google Cloud</Service>
+                    <Service>AWS</Service>
                   </ServicesList>
                 </Flex>
               </Box>

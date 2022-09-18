@@ -44,7 +44,7 @@ const StyledHeader = styled(Flex)`
     .title-bar {
         height: 8rem;
         .title {
-            font-size: 6vmin;
+            font-size: 6vw;
         }
         .jp-text {
             filter: drop-shadow(1rem 1rem 30rem ${props => props.theme.color.primary});
