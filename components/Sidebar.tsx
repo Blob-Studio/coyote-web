@@ -4,10 +4,11 @@ import { Input } from "@rebass/forms";
 import Button from "./../components/Button";
 import { useRouter } from "next/router";
 import getLocales from "../utils/getLocales";
+import ThreeJSPageScene from "./ThreeJSPageScene";
 
 const Sidebar = (props: any) => {
   const router = useRouter();
-  const locale = getLocales(router.locale as 'en' | 'es');
+  const locale = getLocales(router.locale as "en" | "es");
 
   return (
     <StyledSidebar className="side-bar" flexDirection={"column"}>
@@ -20,7 +21,9 @@ const Sidebar = (props: any) => {
           {locale.sidebar.headerText}
         </Box>
       </Flex>
-      <Box className="graphic"></Box>
+      <Box className="graphic">
+        <ThreeJSPageScene />
+      </Box>
       {/* <Flex className="contact-form" mt="auto" height="3rem">
         <Input className="side-bar-input" placeholder={"example@mail.com"}/>
         <Button className="side-bar-submit">Contact</Button>
@@ -31,10 +34,10 @@ const Sidebar = (props: any) => {
 
 const StyledSidebar = styled(Flex)`
   grid-area: side-bar;
-  border-right: calc(1rem / 16) solid ${(props) => props.theme.color.primary};
-  border-bottom: calc(1rem / 16) solid ${(props) => props.theme.color.primary};
+  border-right: ${(props) => props.theme.border.width} solid ${(props) => props.theme.color.primary};
+  border-bottom: ${(props) => props.theme.border.width} solid ${(props) => props.theme.color.primary};
   .breakdown {
-    border-bottom: calc(1rem / 16) solid ${(props) => props.theme.color.primary};
+    border-bottom: ${(props) => props.theme.border.width} solid ${(props) => props.theme.color.primary};
     .breakdown-text {
       font-size: 1rem;
       line-height: 2.3rem;

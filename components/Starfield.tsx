@@ -1,14 +1,14 @@
-import { Box } from 'rebass';
-import styled, { keyframes } from 'styled-components';
+import { Box } from "rebass";
+import styled, { keyframes } from "styled-components";
 
 const Starfield = () => (
-    <StarfieldCont>
-      <div className="stars"></div>
-      <div className="stars"></div>
-      <div className="stars"></div>
-      <div className="stars"></div>
-      <div className="stars"></div>
-    </StarfieldCont>
+  <StarfieldCont>
+    <div className="stars"></div>
+    <div className="stars"></div>
+    <div className="stars"></div>
+    <div className="stars"></div>
+    <div className="stars"></div>
+  </StarfieldCont>
 );
 
 const zoom = keyframes`
@@ -41,13 +41,36 @@ const StarfieldCont = styled.div`
     right: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-      radial-gradient(1px 1px at 20px 30px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 40px 70px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 50px 160px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 90px 40px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 130px 80px, ${props => props.theme.color.primary}, rgba(0,0,0,0)),
-      radial-gradient(1px 1px at 160px 120px, ${props => props.theme.color.primary}, rgba(0,0,0,0));
+    background-image: radial-gradient(
+        1px 1px at 20px 30px,
+        ${(props) => props.theme.color.primary},
+        rgba(0, 0, 0, 0)
+      ),
+      radial-gradient(
+        1px 1px at 40px 70px,
+        ${(props) => props.theme.color.primary},
+        rgba(0, 0, 0, 0)
+      ),
+      radial-gradient(
+        1px 1px at 50px 160px,
+        ${(props) => props.theme.color.primary},
+        rgba(0, 0, 0, 0)
+      ),
+      radial-gradient(
+        1px 1px at 90px 40px,
+        ${(props) => props.theme.color.primary},
+        rgba(0, 0, 0, 0)
+      ),
+      radial-gradient(
+        1px 1px at 130px 80px,
+        ${(props) => props.theme.color.primary},
+        rgba(0, 0, 0, 0)
+      ),
+      radial-gradient(
+        1px 1px at 160px 120px,
+        ${(props) => props.theme.color.primary},
+        rgba(0, 0, 0, 0)
+      );
     background-repeat: repeat;
     background-size: 200px 200px;
     animation: ${zoom} 5s infinite;
@@ -73,6 +96,6 @@ const StarfieldCont = styled.div`
       animation-delay: 4s;
     }
   }
-`
+`;
 
 export default Starfield;

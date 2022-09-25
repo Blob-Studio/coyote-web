@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Flex, Box, Link } from "rebass";
 import works from "./../data/works";
-import Markdown from 'react-markdown';
+import Markdown from "react-markdown";
 
 const WorkContent = (props: any) => {
   return (
@@ -21,14 +21,17 @@ const WorkContent = (props: any) => {
           ← Back
         </Box>
         <Box className="url-bar" mx={"auto"}>
-          <Link target="_blank" href={works[props.selectedWork].url}>{works[props.selectedWork].url}</Link>
+          <Link target="_blank" href={works[props.selectedWork].url}>
+            {works[props.selectedWork].url}
+          </Link>
         </Box>
       </Flex>
       <Flex className="content-body" flexDirection={"column"} width={"100%"}>
         <Box width={"40rem"} mx={"auto"} pt="2rem">
-          {works[props.selectedWork] && works[props.selectedWork].content !== undefined && (
-            <Markdown>{works[props.selectedWork].content}</Markdown>
-          )}
+          {works[props.selectedWork] &&
+            works[props.selectedWork].content !== undefined && (
+              <Markdown>{works[props.selectedWork].content}</Markdown>
+            )}
         </Box>
       </Flex>
     </Flex>
