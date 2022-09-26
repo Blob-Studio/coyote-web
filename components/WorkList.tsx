@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Flex, Box } from "rebass";
+import { Flex, Text } from "rebass";
 import works from "./../data/works";
 import { Fragment } from "react";
 
@@ -27,16 +27,23 @@ const WorkList = (props: any) => {
               props.setPanel("work-content");
             }}
           >
-            <strong>{work.name}</strong>
-            <span className="divider"> - </span>
-            <span>
+            <Text as="strong">
+              {work.name}
+            </Text>
+            <Text as="span" sx={{
+              color: 'white', 
+              fontSize: '1rem',
+              opacity: '1',
+              // ml: '0.5rem'
+            }}>
+              <span className="divider">/</span>
               {work.workType.map((type: any, index: number) => (
                 <Fragment key={index}>
                   <span>{type}</span>
                   {index != work.workType.length - 1 && ", "}
                 </Fragment>
               ))}
-            </span>
+            </Text>
           </Flex>
         ))}
       </Flex>
