@@ -2,11 +2,10 @@
 import styled from "styled-components";
 
 import ReactDOM from "react-dom";
-import React, { Suspense, useEffect, useState, useMemo } from "react";
+import React, { Suspense, useEffect, useState, useMemo, useRef } from "react";
 import { Canvas, useLoader, useFrame, useThree } from "@react-three/fiber";
-import { Vector3, TextureLoader, Vector2 } from "three";
-import { OrbitControls } from "@react-three/drei";
-// import { EffectComposer, SMAA} from '@react-three/postprocessing';
+import { Vector3, TextureLoader, Vector2, PointLightHelper, DoubleSide } from "three";
+import { OrbitControls, useHelper } from "@react-three/drei";
 import {
   EffectComposer,
   RenderPass,
@@ -100,13 +99,13 @@ const Effect = ({ children }: any) => {
         camera,
         new ChromaticAberrationEffect({
           radialModulation: true,
-          modulationOffset: 0.25,
-          offset: new Vector2(0.007, 0.007),
+          modulationOffset: 0.15,
+          offset: new Vector2(0.01, 0.01),
         })
       )
     );
     // comp.addPass(new EffectPass(camera, new NoiseEffect({ premultiply: true, blendFunction: BlendFunction.SOFT_LIGHT })));
-    // comp.addPass(new EffectPass(camera, new DotScreenEffect({ scale: 20, blendFunction: BlendFunction.LIGHTEN })));
+    comp.addPass(new EffectPass(camera, new DotScreenEffect({ scale: 20, blendFunction: BlendFunction.LIGHTEN })));
     // comp.addPass(new EffectPass(camera, new ScanlineEffect({ blendFunction: BlendFunction.DARKEN })));
     return comp;
   }, [gl, scene, camera]);
@@ -117,9 +116,24 @@ const Effect = ({ children }: any) => {
 
   useFrame(() => {
     composer.render();
-  }, 1);
+  }, -1);
   return <></>;
 };
+
+const CustomPointLight = ({ color, intensity, position }: any) => {
+  const pLight = useRef();
+  useHelper(pLight, PointLightHelper, intensity || 1, color);
+  return (
+    <pointLight
+      castShadow
+      shadow-mapSize-height={1024}
+      shadow-mapSize-width={1024}
+      args={[color, 10]}
+      ref={pLight}
+      position={position}
+    />
+  );
+}
 
 const ThreeJSPageScene = (props: any) => {
   return (
@@ -130,21 +144,32 @@ const ThreeJSPageScene = (props: any) => {
         stencil: false,
         depth: false,
       }}
-      camera={{ position: [2.5, 1.5, 2] }}
+      shadows
+      // shadowMap={[2000, 2000]}
+      camera={{ position: [-10, -5, 10] }}
     >
       <Suspense fallback={null}>
         <OrbitControls />
-        <Image />
+        <CustomPointLight color={"#9cb1b1"} position={[2, 5, 5]}/>
+        <CustomPointLight color={"#b8cfd4"} position={[-2, -5, 5]}/>
+        <mesh receiveShadow position={[0, 0, -2]}>
+          <planeBufferGeometry attach="geometry" args={[10, 10]} />
+          <meshStandardMaterial attach="material" color="#000000" />
+        </mesh>
+        <mesh castShadow>
+          <sphereBufferGeometry attach="geometry" args={[1, 40, 40]}/>
+          <meshStandardMaterial attach="material" color="#383838" />
+        </mesh>
+        {/* <Image />
         <Badge />
         <Window />
         <Atom />
-        <Banner />
-        <Effect />
+        <Banner /> */}
+        {/* <Effect /> */}
       </Suspense>
       {/* <fog attach="fog" args={["#4b4d50", 0, 12]} /> */}
-      {/* <Sphere /> */}
-      {/* <Plane /> */}
       {/* <gridHelper /> */}
+      {/* <axesHelper /> */}
     </Canvas>
   );
 };
