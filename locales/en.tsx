@@ -1,4 +1,4 @@
-import { Box, Flex } from "rebass";
+import { Box, Flex, Link } from "rebass";
 
 const en = {
   mainNavigation: {
@@ -13,7 +13,7 @@ const en = {
         <p>
           Coyote Web Studio is a <strong>web design</strong> and{" "}
           <strong>development</strong> studio. We offer integral solutions for
-          your web needs, from design to production.
+          your web needs, from idea to production.
         </p>
         <p>
           We work with design studios and freelance designers, depending on the
@@ -34,16 +34,22 @@ const en = {
         <Box className="content-block" mb={"3rem"}>
           <h2>Design</h2>
           <Box p={"1rem"} className="content-card">
-            <h3>Entrecasa</h3>
-            <p>Design Studio</p>
+            <Link href="https://entrecasa.studio/" target="_blank">
+              <h3>Entrecasa</h3>
+              <p>Design Studio</p>
+            </Link>
           </Box>
           <Box className="content-card">
-            <h3>Metamensaje</h3>
-            <p>Design Studio</p>
+            <Link href="https://metamensaje.studio/" target="_blank">
+              <h3>Metamensaje</h3>
+              <p>Design Studio</p>
+            </Link>
           </Box>
           <Box className="content-card">
-            <h3>Guillermina Teves Bejar</h3>
-            <p>Freelance Designer</p>
+            <Link href="https://guilleteves.myportfolio.com/" target="_blank">
+              <h3>Guillermina Teves Bejar</h3>
+              <p>Freelance Designer</p>
+            </Link>
           </Box>
         </Box>
         <Box className="content-block">

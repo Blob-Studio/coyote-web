@@ -25,7 +25,7 @@ const TimeInfo = (props: any) => {
   return (
     <StyledTimeInfo className="time-info">
       <Flex className="time-selector" flexDirection={"column"}>
-        <Box height={"100%"} className="country">
+        <Box height={"100%"} className="country" sx={{fontSize: '1.2rem'}}>
           Argentina
         </Box>
       </Flex>
@@ -35,7 +35,7 @@ const TimeInfo = (props: any) => {
         justifyContent={"center"}
         alignItems="center"
       >
-        <Box>{time}</Box>
+        <Box sx={{fontSize: '1.8rem'}}>{time}</Box>
       </Flex>
     </StyledTimeInfo>
   );
@@ -43,10 +43,9 @@ const TimeInfo = (props: any) => {
 
 const StyledTimeInfo = styled(Flex)`
   grid-area: bottom-info;
-  height: 2rem;
   border-right: ${(props) => props.theme.border.width} solid ${(props) => props.theme.color.primary};
   .time-selector {
-    width: 8rem;
+    width: 12rem;
     border-right: ${(props) => props.theme.border.width} solid ${(props) => props.theme.color.primary};
   }
   .country {

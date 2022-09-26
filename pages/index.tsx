@@ -45,7 +45,7 @@ const StyledHomepage = styled.main`
   display: grid;
   overflow: hidden;
   grid-template-columns: calc((100vw / 12) * 4) calc((100vw / 12) * 8);
-  grid-template-rows: calc(10rem + ${(props) => props.theme.border.width} * 2) calc(100vh - 12rem) 2rem;
+  grid-template-rows: calc(11rem + ${(props) => props.theme.border.width} * 2) calc(100vh - 15rem) 4rem;
   height: 100vh;
   grid-template-areas:
     "header header"

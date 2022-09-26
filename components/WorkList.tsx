@@ -20,7 +20,7 @@ const WorkList = (props: any) => {
           <Flex
             as={"li"}
             key={index}
-            sx={{ height: ["2rem"], px: ["1rem"] }}
+            sx={{ height: ["4rem"], px: ["1rem"], fontSize: '1.4rem' }}
             alignItems={"center"}
             onClick={() => {
               props.setSelectedWork(index);

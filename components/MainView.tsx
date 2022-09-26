@@ -1,26 +1,14 @@
-import styled, { keyframes } from "styled-components";
-import { Box, Flex, Link } from "rebass";
-import { useState } from "react";
-import ReactMarkdown from "react-markdown";
+import styled from "styled-components";
+import { Box, Flex } from "rebass";
 import About from "./../components/About";
 import WorkList from "./WorkList";
 import OurVision from "./OurVision";
+import Services from './Services';
 import WorkContent from "./WorkContent";
 import { useRouter } from "next/router";
 import getLocales from "../utils/getLocales";
 import { transparentize } from "polished";
 import Starfield from "./Starfield";
-
-const ServicesList = ({ children }: any) => (
-  <Flex as="ul" mx={"-0.5rem"}>
-    {children}
-  </Flex>
-);
-const Service = ({ children }: any) => (
-  <Box as={"li"} mx={"0.5rem"} className={"content-card"}>
-    {children}
-  </Box>
-);
 
 const InitialNavButton = ({ children, thisPanel, ...props }: any) => {
   return (
@@ -70,55 +58,11 @@ const MainView = (props: any) => {
         {props.panel == "about" && <About />}
         {props.panel == "our-vision" && <OurVision />}
         {props.panel == "services" && (
-          <Box flexDirection={"column"} alignItems={"center"} width={"100%"}>
-            <Box
-              width="40rem"
-              py={"2rem"}
-              mx={"auto"}
-              sx={{ textAlign: "center" }}
-            >
-              <Box className="content-block">
-                <h1>We provide the following services</h1>
-                <Flex flexDirection={"column"}>
-                  <ServicesList>
-                    <Service>Website</Service>
-                    <Service>Website + CMS</Service>
-                    <Service>Shopify</Service>
-                  </ServicesList>
-                  <ServicesList>
-                    <Service>Wordpress</Service>
-                    <Service>Website Design</Service>
-                    <Service>SEO Optimization</Service>
-                  </ServicesList>
-                </Flex>
-              </Box>
-              WANT ANYTHING ELSE? CONTACT US
-              <Box className="content-block">
-                <h1>We love modern tools</h1>
-                <Flex flexDirection={"column"}>
-                  <ServicesList>
-                    <Service>React</Service>
-                    <Service>Next.js</Service>
-                    <Service>Strapi</Service>
-                  </ServicesList>
-                  <ServicesList>
-                    <Service>node.js</Service>
-                    <Service>Gatsby</Service>
-                    <Service>Express</Service>
-                  </ServicesList>
-                  <ServicesList>
-                    <Service>mongodb</Service>
-                    <Service>Google Cloud</Service>
-                    <Service>AWS</Service>
-                  </ServicesList>
-                </Flex>
-              </Box>
-            </Box>
-          </Box>
+          <Services />
         )}
-        {/* {props.panel == 'unselected' && (
+        {props.panel == 'unselected' && (
           <Starfield />
-        )} */}
+        )}
       </Flex>
     </StyledMainView>
   );
@@ -141,13 +85,8 @@ const StyledMainView = styled(Flex)`
       .main-navigation-button {
         border: 0;
         border: 1px solid ${(props) => props.theme.color.primary} !important;
-        /* border-bottom: 0 !important; */
         background: ${(props) => props.theme.color.background};
         margin-bottom: 2rem;
-        &:last-child {
-          /* border-bottom: 1px solid ${(props) =>
-            props.theme.color.primary} !important; */
-        }
         span {
           font-size: 4rem;
           transform: rotate(0deg);
@@ -168,8 +107,11 @@ const StyledMainView = styled(Flex)`
   }
   .main-view-navigation {
     width: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .main-navigation-button {
-      height: calc(100% / 3);
+      height: 8rem;
       border-right: ${(props) => props.theme.border.width} solid
         ${(props) => props.theme.color.primary};
       border-bottom: ${(props) => props.theme.border.width} solid
@@ -238,10 +180,6 @@ const StyledMainView = styled(Flex)`
       &:hover {
         background: ${(props) =>
           transparentize(0.9, props.theme.color.primary)};
-        /* color: black; */
-        p {
-          /* color: black; */
-        }
       }
       h3,
       p {
@@ -268,7 +206,6 @@ const StyledMainView = styled(Flex)`
         font-weight: 200;
         cursor: pointer;
         &:hover {
-          /* color: ${(props) => props.theme.color.font}; */
           background: ${(props) =>
             transparentize(0.9, props.theme.color.primary)};
         }
