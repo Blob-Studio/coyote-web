@@ -25,17 +25,20 @@ const TimeInfo = (props: any) => {
   return (
     <StyledTimeInfo className="time-info">
       <Flex className="time-selector" flexDirection={"column"}>
-        <Box height={"100%"} className="country" sx={{fontSize: '1.2rem'}}>
-          Argentina
+        <Box height={"100%"} className="country" sx={{fontSize: '1.2rem', fontWeight: 600}}>
+          Argentina Time
         </Box>
       </Flex>
       <Flex
         className="time"
-        width="100%"
+        // width="100%"
         justifyContent={"center"}
         alignItems="center"
+        flexGrow={1}
       >
-        <Box sx={{fontSize: '1.8rem'}}>{time}</Box>
+        <Box sx={{fontSize: '1.8rem', fontWeight: 600 }}>
+          {time}
+        </Box>
       </Flex>
     </StyledTimeInfo>
   );

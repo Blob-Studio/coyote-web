@@ -83,6 +83,7 @@ const StyledMainView = styled(Flex)`
       height: 100%;
       z-index: 10;
       .main-navigation-button {
+        height: 8rem;
         border: 0;
         border: 1px solid ${(props) => props.theme.color.primary} !important;
         background: ${(props) => props.theme.color.background};
@@ -111,7 +112,7 @@ const StyledMainView = styled(Flex)`
     flex-direction: column;
     justify-content: center;
     .main-navigation-button {
-      height: 8rem;
+      height: calc(100% / 3);
       border-right: ${(props) => props.theme.border.width} solid
         ${(props) => props.theme.color.primary};
       border-bottom: ${(props) => props.theme.border.width} solid
