@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Box, Flex, Text } from "rebass";
 import Marquee from "react-fast-marquee";
+import theme from "../utils/theme";
 
 import Theme from "../utils/theme";
 
@@ -9,7 +10,14 @@ const br = Theme.breakpoints;
 const Header = (props: any) => {
   return (
     <StyledHeader flexDirection={"column"}>
-      <Flex className="top-bar" alignItems="center">
+      <Flex 
+        className="top-bar" 
+        alignItems="center" 
+        sx={{
+          background: theme.color.primary,
+          color: theme.color.font
+        }}
+      >
         <Marquee gradient={false} speed={25} direction={'right'}>
           - WE CREATE COMPELLING WEB EXPERIENCES -
           サイバースペースを通じて共鳴する - WE CRAFT SEAMLESS INTERACTIVE
