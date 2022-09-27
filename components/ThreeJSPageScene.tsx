@@ -2,10 +2,11 @@
 import styled from "styled-components";
 
 import ReactDOM from "react-dom";
+import _ from 'lodash';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Vector2, PointLightHelper } from "three";
-import { OrbitControls, useHelper, MeshDistortMaterial, Environment } from "@react-three/drei";
+import { Vector2, PointLightHelper, Vector3, MathUtils } from "three";
+import { OrbitControls, useHelper, MeshDistortMaterial, Environment, SpotLight, useDepthBuffer } from "@react-three/drei";
 import {
   EffectComposer,
   RenderPass,
@@ -27,9 +28,6 @@ const Effect = ({ children }: any) => {
     const comp = new EffectComposer(gl);
     comp.addPass(new RenderPass(scene, camera));
     comp.addPass(
-      new EffectPass(camera, new SMAAEffect({ preset: SMAAPreset.ULTRA }))
-    );
-    comp.addPass(
       new EffectPass(
         camera,
         new ChromaticAberrationEffect({
@@ -39,8 +37,11 @@ const Effect = ({ children }: any) => {
         })
       )
     );
+    comp.addPass(
+      new EffectPass(camera, new SMAAEffect({ preset: SMAAPreset.ULTRA }))
+    );
     // comp.addPass(new EffectPass(camera, new NoiseEffect({ premultiply: true, blendFunction: BlendFunction.SOFT_LIGHT })));
-    comp.addPass(new EffectPass(camera, new DotScreenEffect({ scale: 20, blendFunction: BlendFunction.LIGHTEN })));
+    // comp.addPass(new EffectPass(camera, new DotScreenEffect({ scale: 20, blendFunction: BlendFunction.LIGHTEN })));
     // comp.addPass(new EffectPass(camera, new ScanlineEffect({ blendFunction: BlendFunction.DARKEN })));
     return comp;
   }, [gl, scene, camera]);
@@ -57,12 +58,15 @@ const Effect = ({ children }: any) => {
 
 const CustomPointLight = ({ color, intensity, position }: any) => {
   const pLight = useRef();
+  useEffect(() => {
+    console.log(pLight);
+  });
   // useHelper(pLight, PointLightHelper, intensity || 1, color);
   return (
     <pointLight
       castShadow
-      shadow-mapSize-height={1024}
-      shadow-mapSize-width={1024}
+      shadow-mapSize={new Vector2(1024, 1024)}
+      shadow-needsUpdate={true}
       args={[color, 10]}
       ref={pLight}
       position={position}
@@ -71,36 +75,58 @@ const CustomPointLight = ({ color, intensity, position }: any) => {
 }
 
 const DistortedSphereMesh = () => {
-  const BASE_DISTORT = 0.65;
+  const BASE_DISTORT = 0.45;
   const MAX_DISTORT = 1.2;
   const BASE_SPEED = 1.15;
   const MAX_SPEED = 4;
   const [mouseOver, setMouseOver] = useState<boolean>(false);
-  const mesh = useRef();
+  const meshRef = useRef();
+  const meshDistortMatRef = useRef();
+  const scene = useThree();
 
   useEffect(() => {
-    console.log(mesh);
-  }, [mesh])
+    console.log(scene);
+    console.log(meshDistortMatRef);
+  }, [scene, meshDistortMatRef])
 
-  /*
-    Ideas:
-    - Interpolate values over time so the shape doesn't change abruptly
-  */
-  useFrame(() => {
-    let curVal = mesh.current._distort.value;
-    // console.log(curVal, MAX_DISTORT);
-    if (mouseOver && curVal <= MAX_DISTORT) {
-      mesh.current._distort.value = curVal + 0.05;
-      console.log(curVal);
-    }
-    else if (!mouseOver && curVal > BASE_DISTORT) {
-      mesh.current._distort.value = curVal - 0.05;
-      console.log(curVal);
-    }
+  const logThrottled = _.throttle((...vals: any) => {
+    console.log(...vals);
+  }, 1000);
+
+  useFrame((state, delta) => {
+    // meshDistortMatRef.current.distort = MathUtils.lerp(
+    //   meshDistortMatRef.current.distort,
+    //   mouseOver ? MAX_DISTORT : BASE_DISTORT,
+    //   mouseOver ? 0.15 : 0.05
+    // )
+    
+    meshDistortMatRef.current.distort = MathUtils.damp(
+      meshDistortMatRef.current.distort,
+      mouseOver ? MAX_DISTORT : BASE_DISTORT,
+      mouseOver ? 4 : 1.5,
+      delta
+    );
   });
+
+  // useFrame(() => {
+  //   // logThrottled(mesh.current._time);
+  //   if (meshDistortMatRef.current._distort.value) {
+  //     let curVal = meshDistortMatRef.current._distort.value;
+  //     // console.log(curVal, MAX_DISTORT);
+  //     if (mouseOver && curVal <= MAX_DISTORT) {
+  //       meshDistortMatRef.current._distort.value = curVal + 0.05;
+  //       // console.log(curVal);
+  //     }
+  //     else if (!mouseOver && curVal > BASE_DISTORT) {
+  //       meshDistortMatRef.current._distort.value = curVal - 0.05;
+  //       // console.log(curVal);
+  //     }
+  //   }
+  // });
 
   return (
     <mesh
+      ref={meshRef}
       castShadow
       receiveShadow
       onPointerEnter={e => {
@@ -121,7 +147,8 @@ const DistortedSphereMesh = () => {
         roughness={0.25}
       /> */}
       <MeshDistortMaterial
-        ref={mesh}
+        needsUpdate={true}
+        ref={meshDistortMatRef}
         color="#666666"
         distort={BASE_DISTORT}
         speed={BASE_SPEED}
@@ -130,7 +157,26 @@ const DistortedSphereMesh = () => {
       />
     </mesh>
   );
-} 
+}
+
+const VolSpotLight = () => {
+  return (
+    <SpotLight
+      castShadow
+      // shadow-mapSize-width={1024}
+      // shadow-mapSize-height={1024}
+      shadow-mapSize={new Vector2(1024, 1024)}
+      penumbra={1}
+      distance={20}
+      angle={1}
+      attenuation={20}
+      anglePower={20}
+      color="#6b6"
+      position={[4, -2, 8]}
+      intensity={4}
+    />
+  );
+}
 
 const ThreeJSPageScene = (props: any) => {
   // const [distort, setDistort] = useState<number>(0.65);
@@ -149,15 +195,15 @@ const ThreeJSPageScene = (props: any) => {
         stencil: false,
         depth: false,
       }}
-      shadows
-      // shadowMap={[2000, 2000]}
+      shadows={{ enabled: true, needsUpdate: true }}
       camera={{ position: [-2, -5, 2] }}
     >
       <Suspense fallback={null}>
-        {/* <OrbitControls /> */}
-        <ambientLight intensity={1.5} />
+        <OrbitControls />
+        <ambientLight intensity={0.5} />
         <CustomPointLight color={"#68a1c7"} position={[2, 5, 5]}/>
         <CustomPointLight color={"#c6d1d3"} position={[-2, -2, -2]}/>
+        <VolSpotLight />
         <Environment
           background={false}
           // files={undefined}
