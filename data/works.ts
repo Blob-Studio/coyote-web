@@ -26,6 +26,7 @@ This is the stuff that will be inside the page.
   {
     name: "Decentraland Foundation",
     workType: ["Web Design", "Development"],
+    url: 'https://decentralandfoundation.org',
     content: `
 # Decentraland Foundation
 ![Image](/img/works/decentraland_foundation.png)

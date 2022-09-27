@@ -61,7 +61,16 @@ const MainView = (props: any) => {
           <Services />
         )}
         {props.panel == 'unselected' && (
-          <Starfield />
+            <Flex alignItems="center" justifyContent="center" className="breakdown">
+              <Box
+                as={"p"}
+                sx={{ textAlign: "center", p: "1rem", fontSize: '2rem'}}
+                className="breakdown-text"
+              >
+                {locale.sidebar.headerText}
+              </Box>
+            </Flex>
+          // <Starfield />
         )}
       </Flex>
     </StyledMainView>
@@ -75,14 +84,14 @@ const StyledMainView = styled(Flex)`
     position: relative;
     .main-view-navigation {
       position: absolute;
-      width: 40rem;
-      margin: 0 calc(50% - 20rem);
+      margin: 0  calc(50% - 20rem);
       padding: 2rem 0;
       top: 0;
-      height: 0;
       height: 100%;
+      width: 100%;
       z-index: 10;
       .main-navigation-button {
+        width: 60%;
         height: 8rem;
         border: 0;
         border: 1px solid ${(props) => props.theme.color.primary} !important;
@@ -92,6 +101,44 @@ const StyledMainView = styled(Flex)`
           font-size: 4rem;
           transform: rotate(0deg);
           width: 100%;
+        }
+      }
+    }
+    .breakdown {
+      display: none;
+    }
+    @media screen and (max-width: 680px) {
+      flex-direction: column-reverse;
+      border-bottom: 0;
+      .main-view-navigation {
+        padding: 0;
+        justify-content: center;
+        margin: 0;
+        align-items: center;
+        position: relative;
+        height: auto;
+        flex-grow: 1;
+        .main-navigation-button {
+          width: 80%;
+          height: 4rem;
+          span {
+            font-size: 2rem;
+          }
+        }
+      }
+      .main-view-content {
+        flex-grow: unset;
+        height: fit-content;
+      }
+      .breakdown {
+        border-bottom: ${(props) => props.theme.border.width} solid ${(props) => props.theme.color.primary};
+        display: block;
+        height: fit-content;
+        .breakdown-text {
+          line-height: 2.3rem;
+          font-weight: 200;
+          color: ${(props) => props.theme.color.primary};
+          font-size: 1.4rem;
         }
       }
     }
@@ -199,21 +246,6 @@ const StyledMainView = styled(Flex)`
     }
     .content-block {
       margin-bottom: 3rem;
-    }
-    .work-list {
-      li {
-        border-bottom: calc((1rem / 16)) solid
-          ${(props) => props.theme.color.primary};
-        font-weight: 200;
-        cursor: pointer;
-        &:hover {
-          background: ${(props) =>
-            transparentize(0.7, props.theme.color.primary)};
-        }
-        .divider {
-          margin: 0 0.5rem;
-        }
-      }
     }
     .work-content {
       overflow-y: hidden;
