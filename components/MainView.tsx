@@ -124,7 +124,7 @@ const StyledMainView = styled(Flex)`
       cursor: pointer;
       &:hover {
         background: ${(props) =>
-          transparentize(0.9, props.theme.color.primary)};
+          transparentize(0.7, props.theme.color.primary)};
       }
       &.selected {
         background: ${(props) => props.theme.color.primary};
@@ -180,7 +180,7 @@ const StyledMainView = styled(Flex)`
       list-style: none;
       &:hover {
         background: ${(props) =>
-          transparentize(0.9, props.theme.color.primary)};
+          transparentize(0.4, props.theme.color.primary)};
       }
       h3,
       p {
@@ -208,7 +208,7 @@ const StyledMainView = styled(Flex)`
         cursor: pointer;
         &:hover {
           background: ${(props) =>
-            transparentize(0.9, props.theme.color.primary)};
+            transparentize(0.7, props.theme.color.primary)};
         }
         .divider {
           margin: 0 0.5rem;

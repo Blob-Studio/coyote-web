@@ -25,7 +25,7 @@ const theme: Theme = {
     primary: `hsla(160, 100%, 50%, 1)`,
     // primary: `slateblue`,
     // primary: `yellow`,
-    // primary: `limegreen`,
+    // primary: `lime`,
     font: `rgb(0, 2, 8)`,
     fontInverted: `rgb(230, 218, 218)`,
     buttonBackgroundDefault: `hsla(180, 9%, 32%, 1)`,

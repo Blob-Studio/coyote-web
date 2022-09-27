@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { Flex, Box, Link } from "rebass";
 import works from "./../data/works";
 import Markdown from "react-markdown";
+import { transparentize } from "polished";
 
 const WorkContent = (props: any) => {
   return (
-    <Flex flexDirection={"column"} className="work-content" width="100%">
+    <StyledWorkContent flexDirection={"column"} className="work-content" width="100%">
       <Flex
         className="content-header"
         height={"3rem"}
@@ -34,10 +35,20 @@ const WorkContent = (props: any) => {
             )}
         </Box>
       </Flex>
-    </Flex>
+    </StyledWorkContent>
   );
 };
 
-const StyledWorkContent = styled(Flex)``;
+const StyledWorkContent = styled(Flex)`
+  .url-bar {
+    background: ${(props) => transparentize(0.8, props.theme.color.primary)};
+    width: 80%;
+    text-align: center;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
 
 export default WorkContent;
