@@ -85,6 +85,10 @@ const StyledHeader = styled(Flex)`
   }
   .title-bar {
     height: 8rem;
+    @media screen and (max-width: 680px) {
+      padding: 0;
+      height: 6rem;
+    }
   }
   .title {
     font-size: 6rem;

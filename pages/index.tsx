@@ -51,6 +51,13 @@ const StyledHomepage = styled.main`
     "header header"
     "side-bar main-view"
     "bottom-info main-view";
+  @media screen and (max-width: 680px) {
+    grid-template-columns: 100%;
+    grid-template-rows: calc(calc(9rem + ${(props) => props.theme.border.width} * 2)) calc(100vh - 11rem);
+    grid-template-areas:
+      "header"
+      "main-view"
+  }
   .outlined {
     -webkit-text-stroke-width: ${(props) => props.theme.border.width};
     -webkit-text-stroke-color: ${(props) => props.theme.color.primary};
