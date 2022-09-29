@@ -160,11 +160,11 @@ const ThreeJSPageScene = (props: any) => {
           position={[6, -8, -8]}
           intensity={4}
         />
-        <CustomPointLight
+        {/* <CustomPointLight
           color="#d82525"
           position={[6, 4, 4]}
           intensity={10}
-        />
+        /> */}
         <DistortedSphereMesh />
         <Effect />
       </Suspense>

@@ -18,6 +18,9 @@ const About = (props: any) => {
 
 const StyledAbout = styled(Flex)`
   overflow-y: auto;
+  .about-block {
+    margin-bottom: 3rem;
+  }
 `;
 
 export default About;

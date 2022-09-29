@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Flex, Text } from "rebass";
 import works from "./../data/works";
 import { Fragment } from "react";
+import { transparentize } from "polished";
 
 const WorkList = (props: any) => {
   return (
@@ -31,9 +32,6 @@ const WorkList = (props: any) => {
               {work.name}
             </Text>
             <Text as="span" sx={{
-              color: 'white', 
-              fontSize: '1rem',
-              opacity: '1',
               // ml: '0.5rem'
             }}>
               <span className="divider">/</span>
@@ -51,6 +49,43 @@ const WorkList = (props: any) => {
   );
 };
 
-const StyledWorkList = styled(Flex)``;
+const StyledWorkList = styled(Flex)`
+  li {
+    border-bottom: calc((1rem / 16)) solid
+      ${(props) => props.theme.color.primary};
+    font-weight: 200;
+    cursor: pointer;
+    &:hover {
+      background: ${(props) =>
+        transparentize(0.7, props.theme.color.primary)};
+    }
+    .divider {
+      margin: 0 0.5rem;
+    }
+    span {
+      color: white,;
+      font-size: 1rem;
+      opacity: 1;
+    }
+  }
+  @media screen and (max-width: 680px) {
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      justify-content: center;
+      .divider {
+        display: none;
+      }
+      strong {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+      }
+      span {
+        font-size: 0.8rem;
+      }
+    }
+  }
+`;
 
 export default WorkList;

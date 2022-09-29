@@ -26,9 +26,10 @@ This is the stuff that will be inside the page.
   {
     name: "Decentraland Foundation",
     workType: ["Web Design", "Development"],
+    url: 'https://decentralandfoundation.org',
     content: `
 # Decentraland Foundation
-![Image](/img/works/api3.png)
+![Image](/img/works/decentraland_foundation.png)
 The design for the page was done by Entrecasa Studio.
 
 This is the stuff that will be inside the page.
@@ -37,9 +38,10 @@ This is the stuff that will be inside the page.
   {
     name: "Decentraland Fashion Week",
     workType: ["Web Design", "Development"],
+    url: 'https://mvfw.org/',
     content: `
 # Decentraland Fashion Week
-![Image](/img/works/api3.png)
+![Image](/img/works/mvfw.png)
 The design for the page was done by Entrecasa Studio.
 
 This is the stuff that will be inside the page.
@@ -48,9 +50,10 @@ This is the stuff that will be inside the page.
   {
     name: "DXDAO",
     workType: ["Development"],
+    url: 'https://dxdao.eth.link/',
     content: `
 # DXDAO
-![Image](/img/works/api3.png)
+![Image](/img/works/dxdao.png)
 The design for the page was done by Entrecasa Studio.
 
 This is the stuff that will be inside the page.
@@ -61,7 +64,7 @@ This is the stuff that will be inside the page.
     workType: ["Development"],
     content: `
 # SWAPR
-![Image](/img/works/api3.png)
+![Image](/img/works/swapr.png)
 The design for the page was done by Entrecasa Studio.
 
 This is the stuff that will be inside the page.
@@ -72,7 +75,7 @@ This is the stuff that will be inside the page.
     workType: ["Web Design", "Development"],
     content: `
 # Decentraland Metaverse Festival
-![Image](/img/works/api3.png)
+![Image](/img/works/metaverse_festival.png)
 The design for the page was done by Entrecasa Studio.
 
 This is the stuff that will be inside the page.
