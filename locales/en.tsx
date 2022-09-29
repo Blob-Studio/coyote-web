@@ -9,18 +9,20 @@ const en = {
   about: {
     content: (
       <>
-        <h1>Who are we?</h1>
-        <p>
-          Coyote Web Studio is a <strong>web design</strong> and{" "}
-          <strong>development</strong> studio. We offer integral solutions for
-          your web needs, from idea to production.
-        </p>
-        <p>
-          We work with design studios and freelance designers, depending on the
-          needs of your project.
-        </p>
+        <div className="about-block">
+          <h1>Who are we?</h1>
+          <p>
+            Coyote Web Studio is a <strong>web design</strong> and{" "}
+            <strong>development</strong> studio. We offer integral solutions for
+            your web needs, from idea to production.
+          </p>
+          <p>
+            We work with design studios and freelance designers, depending on the
+            needs of your project.
+          </p>
+        </div>
         <h1>Our team</h1>
-        <Box className="content-block" mb={"3rem"}>
+        <Box className="about-block" mb={"3rem"}>
           <h2>Frontend Development and Project Management</h2>
           <Box p={"1rem"} className="content-card">
             <h3>Guido La Rosa</h3>
@@ -31,7 +33,7 @@ const en = {
             <p>Coyote Web Studio Associate</p>
           </Box>
         </Box>
-        <Box className="content-block" mb={"3rem"}>
+        <Box className="about-block" mb={"3rem"}>
           <h2>Design</h2>
           <Box p={"1rem"} className="content-card">
             <Link href="https://entrecasa.studio/" target="_blank">
@@ -52,7 +54,7 @@ const en = {
             </Link>
           </Box>
         </Box>
-        <Box className="content-block">
+        <Box className="about-block">
           <h2>Backend Development</h2>
           <Box className="content-card">
             <h3>María de los Ángeles Fortelli</h3>

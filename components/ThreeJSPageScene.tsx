@@ -2,10 +2,11 @@
 import styled from "styled-components";
 
 import ReactDOM from "react-dom";
+import _ from 'lodash';
 import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Vector2, PointLightHelper } from "three";
-import { OrbitControls, useHelper, MeshDistortMaterial, Environment } from "@react-three/drei";
+import { Vector2, PointLightHelper, Vector3, MathUtils } from "three";
+import { OrbitControls, useHelper, MeshDistortMaterial, Environment, SpotLight, useDepthBuffer } from "@react-three/drei";
 import {
   EffectComposer,
   RenderPass,
@@ -35,14 +36,11 @@ const Effect = ({ children }: any) => {
         camera,
         new ChromaticAberrationEffect({
           radialModulation: true,
-          modulationOffset: 0.05,
-          offset: new Vector2(0.01, 0.01),
+          modulationOffset: 0.1,
+          offset: new Vector2(0.02, 0.02),
         })
       )
     );
-    // comp.addPass(new EffectPass(camera, new NoiseEffect({ premultiply: true, blendFunction: BlendFunction.SOFT_LIGHT })));
-    comp.addPass(new EffectPass(camera, new DotScreenEffect({ scale: 20, blendFunction: BlendFunction.LIGHTEN })));
-    // comp.addPass(new EffectPass(camera, new ScanlineEffect({ blendFunction: BlendFunction.DARKEN })));
     return comp;
   }, [gl, scene, camera]);
 
@@ -52,20 +50,14 @@ const Effect = ({ children }: any) => {
 
   useFrame(() => {
     composer.render();
-  }, -1);
+  }, 1);
   return <></>;
 };
 
 const CustomPointLight = ({ color, intensity, position }: any) => {
-  const pLight = useRef();
-  // useHelper(pLight, PointLightHelper, intensity || 1, color);
   return (
     <pointLight
-      castShadow
-      shadow-mapSize-height={1024}
-      shadow-mapSize-width={1024}
-      args={[color, 10]}
-      ref={pLight}
+      args={[color, 3]}
       position={position}
     />
   );
@@ -73,76 +65,76 @@ const CustomPointLight = ({ color, intensity, position }: any) => {
 
 const DistortedSphereMesh = () => {
   const BASE_DISTORT = 0.65;
-  const MAX_DISTORT = 1.2;
-  const BASE_SPEED = 1.15;
-  const MAX_SPEED = 4;
+  const MAX_DISTORT = 1.25;
+
+  const BASE_SPEED = 1.1;
+
+  const meshRef = useRef();
+  const meshDistortMatRef = useRef();
+
   const [mouseOver, setMouseOver] = useState<boolean>(false);
-  const mesh : any = useRef();
+  const [clicking, setClicking] = useState<boolean>(false);
 
-  useEffect(() => {
-    // console.log(mesh);
-  }, [mesh])
-
-  /*
-    Ideas:
-    - Interpolate values over time so the shape doesn't change abruptly
-  */
-  useFrame(() => {
-    let curVal = mesh.current._distort.value;
-    // console.log(curVal, MAX_DISTORT);
-    if (mouseOver && curVal <= MAX_DISTORT) {
-      mesh.current._distort.value = curVal + 0.05;
-      // console.log(curVal);
-    }
-    else if (!mouseOver && curVal > BASE_DISTORT) {
-      mesh.current._distort.value = curVal - 0.05;
-      // console.log(curVal);
-    }
+  useFrame((state, delta) => {
+    meshDistortMatRef.current.distort = MathUtils.damp(
+      meshDistortMatRef.current.distort,
+      mouseOver ? MAX_DISTORT : BASE_DISTORT,
+      mouseOver ? 4 : 12,
+      delta
+    );
   });
 
   return (
     <mesh
+      ref={meshRef}
       castShadow
       receiveShadow
       onPointerEnter={e => {
-        // setDistort(0.65);
-        // setDistortSpeed(2);
         setMouseOver(true);
       }}
       onPointerLeave={e => {
-        // resetDistort();
         setMouseOver(false);
       }}
+      onPointerDown={e => {
+        setClicking(true)
+      }}
+      onPointerUp={e => {
+        setClicking(false)
+      }}
     >
-      <OrbitControls/>
-      <sphereBufferGeometry attach="geometry" args={[1.77, 100, 100]}/>
-      {/* <meshStandardMaterial
-        attach="material"
-        color="#383838"
-        metalness={0.8}
-        roughness={0.25}
-      /> */}
+      <sphereBufferGeometry attach="geometry" args={[1, 200, 200]}/>
       <MeshDistortMaterial
-        ref={mesh}
-        color={theme.color.primary}
+        ref={meshDistortMatRef}
+        color="#666666"
         distort={BASE_DISTORT}
         speed={BASE_SPEED}
-        metalness={0.5}
-        roughness={0.5}
+        metalness={0.3}
+        roughness={0.8}
       />
     </mesh>
   );
-} 
+}
+
+const VolSpotLight = () => {
+  return (
+    <SpotLight
+      castShadow
+      // shadow-mapSize-width={1024}
+      // shadow-mapSize-height={1024}
+      shadow-mapSize={new Vector2(1024, 1024)}
+      penumbra={1}
+      distance={20}
+      angle={1}
+      attenuation={20}
+      anglePower={20}
+      color="#6b6"
+      position={[4, -2, 8]}
+      intensity={4}
+    />
+  );
+}
 
 const ThreeJSPageScene = (props: any) => {
-  // const [distort, setDistort] = useState<number>(0.65);
-  // const [distortSpeed, setDistortSpeed] = useState<number>(1.15);
-
-  // const resetDistort = () => {
-  //   setDistort(0.65);
-  //   setDistortSpeed(1.15);
-  // };
-
   return (
     <Canvas
       gl={{
@@ -151,40 +143,31 @@ const ThreeJSPageScene = (props: any) => {
         stencil: false,
         depth: false,
       }}
-      shadows
-      // shadowMap={[2000, 2000]}
-      camera={{ position: [-2, -5, 2] }}
+      shadows={{ enabled: true, needsUpdate: true }}
+      camera={{ position: [4.2, 0, 0] }}
     >
       <Suspense fallback={null}>
         {/* <OrbitControls /> */}
-        <ambientLight 
-          intensity={0.2} 
-          color={theme.color.primary} 
+        {/* <axesHelper args={[2]} /> */}
+        <ambientLight intensity={4} color={theme.color.primary} />
+        <CustomPointLight
+          color={theme.color.primary}
+          position={[-4, 4, 8]}
+          intensity={12}
         />
-        <CustomPointLight 
-          color={theme.color.primary} 
-          position={[2, 5, 5]}
+        <CustomPointLight
+          color="#4e42b9"
+          position={[6, -8, -8]}
+          intensity={4}
         />
-        <CustomPointLight 
-          color={theme.color.font} 
-          position={[-2, -2, -2]}
-        />
-        <Environment
-          background={false}
-          // files={undefined}
-          // path="/"
-          preset='dawn'
-        />
-        {/* <mesh receiveShadow position={[0, 0, -2]}>
-          <planeBufferGeometry attach="geometry" args={[10, 10]} />
-          <meshStandardMaterial attach="material" color="#000000" />
-        </mesh> */}
+        {/* <CustomPointLight
+          color="#d82525"
+          position={[6, 4, 4]}
+          intensity={10}
+        /> */}
         <DistortedSphereMesh />
         <Effect />
       </Suspense>
-      {/* <fog attach="fog" args={["#4b4d50", 0, 12]} /> */}
-      {/* <gridHelper /> */}
-      {/* <axesHelper /> */}
     </Canvas>
   );
 };

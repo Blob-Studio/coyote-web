@@ -193,45 +193,28 @@ const StyledMainView = styled(Flex)`
   }
   .main-view-content {
     flex-grow: 1;
-    .post-list {
-      .post-list-item {
-        width: 100%;
-        border-bottom: 1px solid ${(props) => props.theme.color.primary};
-        padding: 1rem;
-        p {
-          margin: 0;
-        }
-        h2 {
-          margin-bottom: 0.5rem;
-        }
-        .author {
-          font-size: 0.75rem;
-          margin-top: 0.5rem;
-          opacity: 0.7;
-        }
-      }
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
       margin-bottom: 1rem;
     }
     .content-card {
       margin-bottom: 1rem;
       padding: 1rem;
       border: 1px solid ${(props) => props.theme.color.primary};
-      width: 75%;
+      /* width: 70%; */
       list-style: none;
+      display: flex;
+      transition: 0.1s ease-in-out all;
       &:hover {
         background: ${(props) =>
-          transparentize(0.4, props.theme.color.primary)};
+          transparentize(0.7, props.theme.color.primary)};
       }
-      h3,
-      p {
+      h3, p {
+        /* display: inline-block; */
         margin: 0 !important;
+        margin-right: 1rem !important;
+      }
+      p {
+        font-size: 0.8rem;
       }
     }
     img {
@@ -243,9 +226,6 @@ const StyledMainView = styled(Flex)`
       color: white;
       margin-bottom: 1rem;
       line-height: 1.75rem;
-    }
-    .content-block {
-      margin-bottom: 3rem;
     }
     .work-content {
       overflow-y: hidden;

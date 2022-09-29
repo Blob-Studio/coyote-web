@@ -32,9 +32,6 @@ const WorkList = (props: any) => {
               {work.name}
             </Text>
             <Text as="span" sx={{
-              color: 'white', 
-              fontSize: '1rem',
-              opacity: '1',
               // ml: '0.5rem'
             }}>
               <span className="divider">/</span>
@@ -64,6 +61,29 @@ const StyledWorkList = styled(Flex)`
     }
     .divider {
       margin: 0 0.5rem;
+    }
+    span {
+      color: white,;
+      font-size: 1rem;
+      opacity: 1;
+    }
+  }
+  @media screen and (max-width: 680px) {
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      justify-content: center;
+      .divider {
+        display: none;
+      }
+      strong {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+      }
+      span {
+        font-size: 0.8rem;
+      }
     }
   }
 `;
