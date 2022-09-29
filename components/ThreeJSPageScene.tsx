@@ -69,19 +69,21 @@ const DistortedSphereMesh = () => {
 
   const BASE_SPEED = 1.1;
 
-  const meshRef = useRef();
-  const meshDistortMatRef = useRef();
+  const meshRef = useRef<any>();
+  const meshDistortMatRef = useRef<any>();
 
   const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [clicking, setClicking] = useState<boolean>(false);
 
   useFrame((state, delta) => {
-    meshDistortMatRef.current.distort = MathUtils.damp(
-      meshDistortMatRef.current.distort,
-      mouseOver ? MAX_DISTORT : BASE_DISTORT,
-      mouseOver ? 4 : 12,
-      delta
-    );
+    if (meshDistortMatRef.current) {
+      meshDistortMatRef.current.distort = MathUtils.damp(
+        meshDistortMatRef.current.distort,
+        mouseOver ? MAX_DISTORT : BASE_DISTORT,
+        mouseOver ? 4 : 12,
+        delta
+      );
+    }
   });
 
   return (

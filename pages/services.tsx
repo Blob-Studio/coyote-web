@@ -1,5 +1,5 @@
 import { Box, Flex, Link } from 'rebass';
-import theme from './../utils/theme';
+import theme from '../utils/theme';
 
 const ServicesList = ({ children }: any) => (
   <Flex as="ul" mx={"-0.5rem"}>

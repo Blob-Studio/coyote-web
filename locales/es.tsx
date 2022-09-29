@@ -58,8 +58,8 @@ const es = {
   sidebar: {
     headerText: (
       <>
-        SOMOS UN ESTUDIO DE <strong>DISEÑO WEB</strong> Y{" "}
-        <strong>DESARROLLO</strong> DE <strong>BUENOS AIRES, ARGENTINA.</strong>
+        SOMOS UN ESTUDIO DE <strong>DISEÑO</strong> Y{" "}
+        <strong>DESARROLLO WEB</strong> DE <strong>BUENOS AIRES, ARGENTINA.</strong>
       </>
     ),
   },

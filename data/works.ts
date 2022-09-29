@@ -2,6 +2,7 @@ const Works: any = [
   {
     name: "Carrot",
     workType: ["Development"],
+    workSafeURL: "carrot",
     url: "https://carrot.org",
     content: `
 # Carrot
@@ -14,6 +15,7 @@ This was thought as a simple landing page, but it had some challenges regarding 
   {
     name: "API3",
     workType: ["Development"],
+    workSafeURL: "api3",
     url: "https://api3.org",
     content: `
 # API3
@@ -26,6 +28,7 @@ This is the stuff that will be inside the page.
   {
     name: "Decentraland Foundation",
     workType: ["Web Design", "Development"],
+    workSafeURL: "decentraland-foundation",
     url: 'https://decentralandfoundation.org',
     content: `
 # Decentraland Foundation

@@ -1,66 +1,13 @@
 import styled from "styled-components";
 
-import { useState } from "react";
-
-import Header from "./../components/Header";
-import Sidebar from "./../components/Sidebar";
-import MainView from "./../components/MainView";
-import TimeInfo from "./../components/TimeInfo";
-
 export default function Home() {
-  type IPanel =
-    | "work-list"
-    | "work-content"
-    | "about"
-    | "our-vision"
-    | "services"
-    | "unselected";
-
-  // Should this be in the MainView component? Or should it be global state?
-  const [panel, setPanel] = useState<IPanel>("unselected");
-  const [selectedWork, setSelectedWork] = useState(0);
+  
 
   return (
     <StyledHomepage>
-      <Header
-        panel={panel}
-        setPanel={setPanel}
-        selectedWork={selectedWork}
-        setSelectedWork={setSelectedWork}
-      />
-      <Sidebar />
-      <MainView
-        // Should this be in the MainView component? Or should it be global state?
-        panel={panel}
-        setPanel={setPanel}
-        selectedWork={selectedWork}
-        setSelectedWork={setSelectedWork}
-      />
-      <TimeInfo />
+      
     </StyledHomepage>
   );
 }
 
-const StyledHomepage = styled.main`
-  display: grid;
-  overflow: hidden;
-  grid-template-columns: calc((100vw / 12) * 4) calc((100vw / 12) * 8);
-  grid-template-rows: calc(11rem + ${(props) => props.theme.border.width} * 2) calc(100vh - 15rem) 4rem;
-  height: 100vh;
-  grid-template-areas:
-    "header header"
-    "side-bar main-view"
-    "bottom-info main-view";
-  @media screen and (max-width: 680px) {
-    grid-template-columns: 100%;
-    grid-template-rows: calc(calc(9rem + ${(props) => props.theme.border.width} * 2)) calc(100vh - 11rem);
-    grid-template-areas:
-      "header"
-      "main-view"
-  }
-  .outlined {
-    -webkit-text-stroke-width: ${(props) => props.theme.border.width};
-    -webkit-text-stroke-color: ${(props) => props.theme.color.primary};
-    -webkit-text-fill-color: ${(props) => props.theme.color.background};
-  }
-`;
+const StyledHomepage = styled.div``;
