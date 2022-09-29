@@ -1,47 +1,17 @@
 import styled from "styled-components";
-import { Box, Flex } from "rebass";
-import About from "./../components/About";
+import { Flex } from "rebass";
+import VerticalNavbar from "./VerticalNavbar";
 import WorkList from "./WorkList";
-import OurVision from "./OurVision";
 import Services from './Services';
+import DefaultNavigation from './DefaultNavigation';
 import WorkContent from "./WorkContent";
-import { useRouter } from "next/router";
-import getLocales from "../utils/getLocales";
 import { transparentize } from "polished";
-import Starfield from "./Starfield";
-
-const InitialNavButton = ({ children, thisPanel, ...props }: any) => {
-  return (
-    <Box
-      className={`main-navigation-button ${
-        props.panel == thisPanel ? "selected" : null
-      }`}
-      onClick={() => {
-        props.setPanel(thisPanel);
-      }}
-    >
-      <span>{children}</span>
-    </Box>
-  );
-};
 
 const MainView = (props: any) => {
-  const router = useRouter();
-  const locale = getLocales(router.locale as "en" | "es");
 
   return (
     <StyledMainView className={`main-view ${props.panel}`}>
-      <Flex className="main-view-navigation" flexDirection={"column"}>
-        <InitialNavButton {...props} thisPanel="about">
-          {locale.mainNavigation.about}
-        </InitialNavButton>
-        <InitialNavButton {...props} thisPanel="work-list">
-          {locale.mainNavigation.work}
-        </InitialNavButton>
-        <InitialNavButton {...props} thisPanel="services">
-          {locale.mainNavigation.services}
-        </InitialNavButton>
-      </Flex>
+      <VerticalNavbar />
       <Flex width="100%" className="main-view-content" height={"100%"}>
         {props.panel == "work-list" && (
           <WorkList
@@ -55,21 +25,11 @@ const MainView = (props: any) => {
             selectedWork={props.selectedWork}
           />
         )}
-        {props.panel == "about" && <About />}
-        {props.panel == "our-vision" && <OurVision />}
         {props.panel == "services" && (
           <Services />
         )}
         {props.panel == 'unselected' && (
-            <Flex alignItems="center" justifyContent="center" className="breakdown">
-              <Box
-                as={"p"}
-                sx={{ textAlign: "center", p: "1rem", fontSize: '2rem'}}
-                className="breakdown-text"
-              >
-                {locale.sidebar.headerText}
-              </Box>
-            </Flex>
+          <DefaultNavigation />
           // <Starfield />
         )}
       </Flex>
@@ -202,8 +162,11 @@ const StyledMainView = styled(Flex)`
       border: 1px solid ${(props) => props.theme.color.primary};
       /* width: 70%; */
       list-style: none;
-      display: flex;
       transition: 0.1s ease-in-out all;
+      &,
+      a {
+        display: flex;
+      }
       &:hover {
         background: ${(props) =>
           transparentize(0.7, props.theme.color.primary)};

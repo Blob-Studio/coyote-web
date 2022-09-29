@@ -26,7 +26,7 @@ const TimeInfo = (props: any) => {
     <StyledTimeInfo className="time-info">
       <Flex className="time-selector" flexDirection={"column"}>
         <Box height={"100%"} className="country" sx={{fontSize: '1rem', fontWeight: 600}}>
-          Argentina Time
+          ARG Time
         </Box>
       </Flex>
       <Flex
@@ -62,7 +62,6 @@ const StyledTimeInfo = styled(Flex)`
   .time {
     font-size: 1.5rem;
     font-weight: 600;
-    background: ${(props) => transparentize(0.95, props.theme.color.primary)};
   }
 `;
 

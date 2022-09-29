@@ -2,47 +2,31 @@ import styled from "styled-components";
 
 import { useState } from "react";
 
-import Header from "./../components/Header";
-import Sidebar from "./../components/Sidebar";
-import MainView from "./../components/MainView";
-import TimeInfo from "./../components/TimeInfo";
+import HomepageWrapper from "./../components/HomepageWrapper";
 
 export default function Home() {
   type IPanel =
     | "work-list"
     | "work-content"
     | "about"
-    | "our-vision"
     | "services"
     | "unselected";
 
-  // Should this be in the MainView component? Or should it be global state?
   const [panel, setPanel] = useState<IPanel>("unselected");
   const [selectedWork, setSelectedWork] = useState(0);
 
   return (
-    <StyledHomepage className={`global-${panel}`}>
-      {/* <div className="rainbow-gradient" /> */}
-      <Header
-        panel={panel}
-        setPanel={setPanel}
-        selectedWork={selectedWork}
-        setSelectedWork={setSelectedWork}
-      />
-      <Sidebar />
-      <MainView
-        // Should this be in the MainView component? Or should it be global state?
-        panel={panel}
-        setPanel={setPanel}
-        selectedWork={selectedWork}
-        setSelectedWork={setSelectedWork}
-      />
-      <TimeInfo />
-    </StyledHomepage>
+    <StyledHomepage 
+      className={`global-${panel}`} 
+      panel={panel}
+      setPanel={setPanel}
+      selectedWork={selectedWork}
+      setSelectedWork={setSelectedWork}
+    />
   );
 }
 
-const StyledHomepage = styled.main`
+const StyledHomepage = styled(HomepageWrapper)`
   display: grid;
   overflow: hidden;
   grid-template-columns: calc((100vw / 12) * 4) calc((100vw / 12) * 8);

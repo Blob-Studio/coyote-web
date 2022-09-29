@@ -1,24 +1,39 @@
 import App from "next/app";
 import Head from "next/head";
 import "./../styles/globals.css";
-import { createContext } from "react";
+import { useState, createContext } from 'react';
 import { ThemeProvider } from "styled-components";
 import theme from "../utils/theme";
 import styled from "styled-components";
 
-export const GlobalContext = createContext({});
-export const MainNavigationContext = createContext({});
-
 const MyApp = ({ Component, pageProps }: any) => {
-  const { global, mainNavigation } = pageProps;
+
+  type IPanel =
+  | "work-list"
+  | "work-content"
+  | "about"
+  | "services"
+  | "unselected";
+
+  const [panel, setPanel] = useState("unselected");
+  const [selectedWork, setSelectedWork] = useState(0);
+  const panelContextDefault = { panel, setPanel }
+
+  const PanelContext = createContext({
+    panel: 'unselected',
+    setPanel: () => {}
+  });
+
   return (
     <ThemeProvider theme={theme}>
-      <StyledRoot>
-        <Head>
-          <title>Coyote Web Studio</title>
-        </Head>
-        <Component {...pageProps} />
-      </StyledRoot>
+      <PanelContext.Provider value={panelContextDefault as any}>
+        <StyledRoot>
+          <Head>
+            <title>Coyote Web Studio</title>
+          </Head>
+          <Component {...pageProps} />
+        </StyledRoot>
+      </PanelContext.Provider>
     </ThemeProvider>
   );
 };

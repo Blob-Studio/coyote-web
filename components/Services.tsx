@@ -2,7 +2,7 @@ import { Box, Flex, Link } from 'rebass';
 import theme from './../utils/theme';
 
 const ServicesList = ({ children }: any) => (
-  <Flex as="ul" mx={"-0.5rem"}>
+  <Flex as="ul" mx={"-0.5rem"} flexWrap={'wrap'}>
     {children}
   </Flex>
 );
@@ -21,35 +21,29 @@ const Services = (props : any) => {
         mx={"auto"}
         sx={{ textAlign: "center" }}
       >
-        <Box className="content-block">
+        <Box className="content-block" mb={'2rem'}>
           <h1>We provide the following services</h1>
           <Flex flexDirection={"column"}>
             <ServicesList>
               <Service>Web Development</Service>
               <Service>Website Design</Service>
               <Service>Website + CMS</Service>
-            </ServicesList>
-            <ServicesList>
               <Service>E-commerce</Service>
               <Service>Wordpress</Service>
               <Service>SEO Optimization</Service>
             </ServicesList>
           </Flex>
         </Box>
-        <Box className="content-block">
+        <Box className="content-block" mb={'2rem'}>
           <h1>We love modern tools</h1>
           <Flex flexDirection={"column"}>
             <ServicesList>
               <Service>React</Service>
               <Service>Next.js</Service>
               <Service>Strapi</Service>
-            </ServicesList>
-            <ServicesList>
               <Service>node</Service>
               <Service>Gatsby</Service>
               <Service>Express</Service>
-            </ServicesList>
-            <ServicesList>
               <Service>mongodb</Service>
               <Service>Google Cloud</Service>
               <Service>AWS</Service>

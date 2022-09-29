@@ -37,7 +37,7 @@ const Effect = ({ children }: any) => {
         new ChromaticAberrationEffect({
           radialModulation: true,
           modulationOffset: 0.1,
-          offset: new Vector2(0.02, 0.02),
+          offset: new Vector2(0.025, 0.025)
         })
       )
     );
