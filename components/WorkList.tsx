@@ -50,39 +50,52 @@ const WorkList = (props: any) => {
 };
 
 const StyledWorkList = styled(Flex)`
-  li {
+  overflow-y: hidden;
+  .content-header {
     border-bottom: calc((1rem / 16)) solid
-      ${(props) => props.theme.color.primary};
-    font-weight: 200;
-    cursor: pointer;
-    &:hover {
-      background: ${(props) =>
-        transparentize(0.7, props.theme.color.primary)};
+      ${(props) => props.theme.colors.primary};
+    .back-button {
+      cursor: pointer;
     }
-    .divider {
-      margin: 0 0.5rem;
-    }
-    span {
-      color: white,;
-      font-size: 1rem;
-      opacity: 1;
+  }
+  .content-body {
+    overflow-y: auto;
+    li {
+      border-bottom: calc((1rem / 16)) solid
+        ${(props) => props.theme.colors.primary};
+      font-weight: 200;
+      cursor: pointer;
+      &:hover {
+        background: ${(props) =>
+          transparentize(0.7, props.theme.colors.primary)};
+      }
+      .divider {
+        margin: 0 0.5rem;
+      }
+      span {
+        color: white,;
+        font-size: 1rem;
+        opacity: 1;
+      }
     }
   }
   @media screen and (max-width: 680px) {
-    li {
-      display: flex;
-      flex-direction: column;
-      align-items: baseline;
-      justify-content: center;
-      .divider {
-        display: none;
-      }
-      strong {
-        font-size: 1rem;
-        margin-bottom: 0.4rem;
-      }
-      span {
-        font-size: 0.8rem;
+    .content-body {
+      li {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: center;
+        .divider {
+          display: none;
+        }
+        strong {
+          font-size: 1rem;
+          margin-bottom: 0.4rem;
+        }
+        span {
+          font-size: 0.8rem;
+        }
       }
     }
   }

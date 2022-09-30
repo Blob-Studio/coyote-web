@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { Flex, Box, Link } from "rebass";
+<<<<<<< HEAD:components/WorkContent.tsx
 import works from "./../data/works";
 import Markdown from "react-markdown";
+=======
+>>>>>>> origin/pages:components/WorkItem.tsx
 import { transparentize } from "polished";
 
 const WorkContent = (props: any) => {
@@ -22,17 +25,14 @@ const WorkContent = (props: any) => {
           ← Back
         </Box>
         <Box className="url-bar" mx={"auto"}>
-          <Link target="_blank" href={works[props.selectedWork].url}>
-            {works[props.selectedWork].url}
+          <Link target="_blank" href={""}>
+            
           </Link>
         </Box>
       </Flex>
       <Flex className="content-body" flexDirection={"column"} width={"100%"}>
         <Box width={"40rem"} mx={"auto"} pt="2rem">
-          {works[props.selectedWork] &&
-            works[props.selectedWork].content !== undefined && (
-              <Markdown>{works[props.selectedWork].content}</Markdown>
-            )}
+          
         </Box>
       </Flex>
     </StyledWorkContent>
@@ -41,7 +41,7 @@ const WorkContent = (props: any) => {
 
 const StyledWorkContent = styled(Flex)`
   .url-bar {
-    background: ${(props) => transparentize(0.8, props.theme.color.primary)};
+    background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
     width: 80%;
     text-align: center;
     height: 2rem;

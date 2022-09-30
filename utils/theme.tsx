@@ -1,5 +1,5 @@
 interface Theme {
-  color: {
+  colors: {
     background: string;
     primary: string;
     font: string;
@@ -19,14 +19,20 @@ interface Theme {
   };
 }
 
+const getTimeOfDay = () => {
+  let currentTime = new Date().getHours();
+
+  return currentTime < 4 || currentTime > 22 ?
+    'night' :
+    'day'
+}
+
 const theme: Theme = {
-  color: {
+  colors: {
     background: `rgb(0, 2, 8)`,
-    primary: `hsla(160, 100%, 50%, 1)`,
-    // primary: `slateblue`,
-    // primary: `yellow`,
-    // primary: `lime`,
-    // primary: `white`,
+    primary: getTimeOfDay() == 'day' ? 
+      `hsla(160, 100%, 50%, 1)` : 
+      `slateblue`,
     font: `rgb(0, 2, 8)`,
     fontInverted: `rgb(230, 218, 218)`,
     buttonBackgroundDefault: `hsla(180, 9%, 32%, 1)`,

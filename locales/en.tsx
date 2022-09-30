@@ -9,7 +9,7 @@ const en = {
   about: {
     content: (
       <>
-        <div className="about-block">
+        <div className="content-block">
           <h1>Who are we?</h1>
           <p>
             Coyote Web Studio is a <strong>web design</strong> and{" "}
@@ -22,20 +22,20 @@ const en = {
           </p>
         </div>
         <h1>Our team</h1>
-        <Box className="about-block" mb={"3rem"}>
+        <Box className="content-block" mb={"3rem"}>
           <h2>Frontend Development and Project Management</h2>
-          <Box p={"1rem"} className="content-card">
+          <Box className="content-card">
             <h3>Guido La Rosa</h3>
             <p>Coyote Web Studio Head</p>
           </Box>
-          <Box p={"1rem"} className="content-card">
+          <Box className="content-card">
             <h3>Tomas &quot;Cherna&quot; Chernov</h3>
             <p>Coyote Web Studio Associate</p>
           </Box>
         </Box>
-        <Box className="about-block" mb={"3rem"}>
+        <Box className="content-block" mb={"3rem"}>
           <h2>Design</h2>
-          <Box p={"1rem"} className="content-card">
+          <Box className="content-card">
             <Link href="https://entrecasa.studio/" target="_blank">
               <h3>Entrecasa</h3>
               <p>Design Studio</p>
@@ -54,7 +54,7 @@ const en = {
             </Link>
           </Box>
         </Box>
-        <Box className="about-block">
+        <Box className="content-block">
           <h2>Backend Development</h2>
           <Box className="content-card">
             <h3>María de los Ángeles Fortelli</h3>

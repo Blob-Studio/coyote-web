@@ -43,32 +43,32 @@ const StarfieldCont = styled.div`
     height: 100%;
     background-image: radial-gradient(
         1px 1px at 20px 30px,
-        ${(props) => props.theme.color.primary},
+        ${(props) => props.theme.colors.primary},
         rgba(0, 0, 0, 0)
       ),
       radial-gradient(
         1px 1px at 40px 70px,
-        ${(props) => props.theme.color.primary},
+        ${(props) => props.theme.colors.primary},
         rgba(0, 0, 0, 0)
       ),
       radial-gradient(
         1px 1px at 50px 160px,
-        ${(props) => props.theme.color.primary},
+        ${(props) => props.theme.colors.primary},
         rgba(0, 0, 0, 0)
       ),
       radial-gradient(
         1px 1px at 90px 40px,
-        ${(props) => props.theme.color.primary},
+        ${(props) => props.theme.colors.primary},
         rgba(0, 0, 0, 0)
       ),
       radial-gradient(
         1px 1px at 130px 80px,
-        ${(props) => props.theme.color.primary},
+        ${(props) => props.theme.colors.primary},
         rgba(0, 0, 0, 0)
       ),
       radial-gradient(
         1px 1px at 160px 120px,
-        ${(props) => props.theme.color.primary},
+        ${(props) => props.theme.colors.primary},
         rgba(0, 0, 0, 0)
       );
     background-repeat: repeat;

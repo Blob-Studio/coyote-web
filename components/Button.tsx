@@ -6,9 +6,9 @@ const CustomButton = (props: any) => {
 };
 
 const StyledCustomButton = styled(Button)`
-  background: ${(props) => props.theme.color.primary};
+  background: ${(props) => props.theme.colors.primary};
   cursor: pointer;
-  color: ${(props) => props.theme.color.font};
+  color: ${(props) => props.theme.colors.font};
   text-align: center;
   border-radius: 0;
   font-family: unset;

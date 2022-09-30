@@ -25,13 +25,12 @@ const TimeInfo = (props: any) => {
   return (
     <StyledTimeInfo className="time-info">
       <Flex className="time-selector" flexDirection={"column"}>
-        <Box height={"100%"} className="country" sx={{fontSize: '1rem', fontWeight: 600}}>
-          Argentina Time
+        <Box height={"100%"} className="country">
+          ARG Time
         </Box>
       </Flex>
       <Flex
         className="time"
-        // width="100%"
         justifyContent={"center"}
         alignItems="center"
         flexGrow={1}
@@ -45,24 +44,20 @@ const TimeInfo = (props: any) => {
 };
 
 const StyledTimeInfo = styled(Flex)`
-  grid-area: bottom-info;
-  border-right: ${(props) => props.theme.border.width} solid ${(props) => props.theme.color.primary};
-  .time-selector {
-    /* width: 12rem; */
-    border-right: ${(props) => props.theme.border.width} solid ${(props) => props.theme.color.primary};
-  }
+  border-top: 0.1rem solid ${(props) => props.theme.colors.primary};
   .country {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.8rem;
-    background: ${(props) => props.theme.color.primary};
-    color: ${(props) => props.theme.color.font};
+    background: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.font};
+    font-size: 1rem;
+    font-weight: 600;
   }
   .time {
     font-size: 1.5rem;
     font-weight: 600;
-    background: ${(props) => transparentize(0.95, props.theme.color.primary)};
   }
 `;
 

@@ -37,7 +37,7 @@ const Effect = ({ children }: any) => {
         new ChromaticAberrationEffect({
           radialModulation: true,
           modulationOffset: 0.1,
-          offset: new Vector2(0.02, 0.02),
+          offset: new Vector2(0.02, 0.02)
         })
       )
     );
@@ -69,19 +69,21 @@ const DistortedSphereMesh = () => {
 
   const BASE_SPEED = 1.1;
 
-  const meshRef = useRef();
-  const meshDistortMatRef = useRef();
+  const meshRef = useRef<any>();
+  const meshDistortMatRef = useRef<any>();
 
   const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [clicking, setClicking] = useState<boolean>(false);
 
   useFrame((state, delta) => {
-    meshDistortMatRef.current.distort = MathUtils.damp(
-      meshDistortMatRef.current.distort,
-      mouseOver ? MAX_DISTORT : BASE_DISTORT,
-      mouseOver ? 4 : 12,
-      delta
-    );
+    if (meshDistortMatRef.current) {
+      meshDistortMatRef.current.distort = MathUtils.damp(
+        meshDistortMatRef.current.distort,
+        mouseOver ? MAX_DISTORT : BASE_DISTORT,
+        mouseOver ? 4 : 12,
+        delta
+      );
+    }
   });
 
   return (
@@ -149,9 +151,9 @@ const ThreeJSPageScene = (props: any) => {
       <Suspense fallback={null}>
         {/* <OrbitControls /> */}
         {/* <axesHelper args={[2]} /> */}
-        <ambientLight intensity={4} color={theme.color.primary} />
+        <ambientLight intensity={4} color={theme.colors.primary} />
         <CustomPointLight
-          color={theme.color.primary}
+          color={theme.colors.primary}
           position={[-4, 4, 8]}
           intensity={12}
         />

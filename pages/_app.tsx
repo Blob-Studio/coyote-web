@@ -1,35 +1,49 @@
-import App from "next/app";
 import Head from "next/head";
-import "./../styles/globals.css";
-import { createContext } from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "../utils/theme";
 import styled from "styled-components";
+import Header from "./../components/Header";
+import Sidebar from "./../components/Sidebar";
+import MainView from "../components/MainView";
+import MainNav from "../components/MainNav";
+import GlobalStyle from "../styles/globals";
 
-export const GlobalContext = createContext({});
-export const MainNavigationContext = createContext({});
-
-const MyApp = ({ Component, pageProps }: any) => {
-  const { global, mainNavigation } = pageProps;
+const App = ({ Component, pageProps }: any) => {
   return (
     <ThemeProvider theme={theme}>
-      <StyledRoot>
-        <Head>
-          <title>Coyote Web Studio</title>
-        </Head>
-        <Component {...pageProps} />
-      </StyledRoot>
+      <GlobalStyle />
+      <Head>
+        <title>Coyote Web Studio | Web Development Studio from Buenos Aires, Argentina</title>
+      </Head>
+      <StyledApp>
+        <Header />
+        <Sidebar />
+        <MainView>
+          <MainNav />
+          <Component {...pageProps} />
+        </MainView>
+      </StyledApp>
     </ThemeProvider>
   );
 };
 
-const StyledRoot = styled.div`
-  color: ${(props) => props.theme.color.primary};
-  background: ${(props) => props.theme.color.background};
+const StyledApp = styled.main`
+  background-color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.primary};
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 10rem auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  .outlined {
+    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-color: ${(props) => props.theme.colors.primary};
+    -webkit-text-fill-color: ${(props) => props.theme.colors.background};
+  }
 `;
-// getInitialProps disables automatic static optimization for pages that don't
-// have getStaticProps. So article, category and home pages still get SSG.
-// Hopefully we can replace this with getStaticProps once this issue is fixed:
-// https://github.com/vercel/next.js/discussions/10949
 
-export default MyApp;
+export default App;
