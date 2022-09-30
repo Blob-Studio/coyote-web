@@ -73,24 +73,7 @@ const StyledMainNav = styled.nav`
   .main-view-navigation {
     background-size: 4rem 4rem;
     flex-direction: column;
-    /* background-image: repeating-linear-gradient(
-      45deg, 
-      ${(props) => (transparentize(
-        0.4, 
-        props.theme.colors.primary)
-      )} 0, 
-      ${(props) => (transparentize(
-        0.4, 
-        props.theme.colors.primary)
-      )} 1px, 
-      transparent 0, 
-      transparent 50%
-    );  */
-    background-image:  
-      radial-gradient(${(props) => props.theme.colors.primary} 0.4px, transparent 0.4px), 
-      radial-gradient(${(props) => props.theme.colors.primary} 0.4px, rgba(229,229,247,0) 0.4px);
-    background-size: 16px 16px;
-    background-position: 0 0,8px 8px;
+    ${props => props.theme.textures.polka};
     /* animation: ${backgroundAnimation} 2s infinite linear; */
     display: flex;
     align-items: center;
@@ -111,6 +94,9 @@ const StyledMainNav = styled.nav`
     background: ${(props) => props.theme.colors.background};
     margin-bottom: 2rem;
     font-weight: 600;
+    .main-navigation-button-text {
+      font-size: 4rem;
+    }
     &:hover {
       background: ${(props) => props.theme.colors.primary};
       color: ${(props) => props.theme.colors.font};
@@ -119,10 +105,6 @@ const StyledMainNav = styled.nav`
     &:last-child {
       margin-bottom: 0;
     }
-  }
-  .main-navigation-button-text {
-    font-size: 4rem;
-    transform: rotate(0deg);
   }
   .main-view-content {
     display: none;

@@ -24,15 +24,8 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1rem;
-  }
-
   .content-block {
     margin-bottom: 3rem;
-    p {
-      margin-bottom: 0.8rem;
-    }
   }
 
   .content-card {
@@ -44,17 +37,23 @@ const GlobalStyle = createGlobalStyle`
     transition: 0.1s ease-in-out all;
     align-items: baseline;
     line-height: 1.8rem;
+    flex-direction: column;
+    h3 {
+      margin-right: 1rem;
+    }
     a {
       display: inherit;
       align-items: inherit;
+      flex-direction: row;
+    }
+    .card-body {
+      margin-top: 1.2rem;
+      display: block;
+      font-size: 1rem;
     }
     &:hover {
       background: ${(props) =>
         transparentize(0.7, theme.colors.primary)};
-    }
-    h3, p {
-      margin: 0 !important;
-      margin-right: 0.5rem !important;
     }
     p {
       font-size: 0.8rem;

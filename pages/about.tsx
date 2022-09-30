@@ -17,6 +17,9 @@ const AboutUs = (props : any) => {
 };
 
 const StyledAboutUs = styled(StyledMainViewContent)`
+  h1, h2 {
+    margin-bottom: 1rem;
+  }
   p {
     color: white;
     line-height: 180%;

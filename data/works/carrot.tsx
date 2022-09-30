@@ -1,10 +1,12 @@
 import IWork from '../../utils/workSchema';
+import HeaderImage from './../../public/img/works/carrot.png';
 
 const carrotWorkInfo: IWork = {
   name: "Carrot",
   workType: ["Development"],
   url: "https://carrot.org",
   workSafeURL: "carrot",
+  headerImage: HeaderImage,
   content:
   <>
     <div className="breakdown">

@@ -5,7 +5,6 @@ import { transparentize } from "polished";
 import Link from 'next/link';
 
 import WorkList from './../../data/works/worklist';
-import IWork from "../../utils/workSchema";
 
 const Works = (props: any) => {
   return (
@@ -35,8 +34,10 @@ const Works = (props: any) => {
 };
 
 const StyledWorkList = styled(Flex)`
+  ${props => props.theme.textures.polka};
   width: 100%;
   flex-direction: column;
+  overflow-y: auto;
   .work-list {
     flex-direction: column;
     width: 100%;
@@ -48,16 +49,27 @@ const StyledWorkList = styled(Flex)`
       padding: 0 1rem;
       font-size: 1.4rem;
       cursor: pointer;
+      background: ${props => props.theme.colors.background};
       align-items: center;
+      &:last-of-type {
+        border-bottom: 0;
+      }
       &:hover {
-        background: ${(props) =>
-          transparentize(0.7, props.theme.colors.primary)};
+        background: ${(props) => props.theme.colors.primary};
+        color: ${props => props.theme.colors.font};
+        .divider,
+        span {
+          color: ${props => transparentize(0.4, props.theme.colors.font)};
+        }
+      }
+      .divider,
+      span {
+        color: white;
       }
       .divider {
         margin: 0 0.5rem;
       }
       span {
-        color: white;
         font-size: 1rem;
 
       }

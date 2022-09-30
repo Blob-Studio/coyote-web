@@ -25,12 +25,22 @@ const en = {
         <Box className="content-block" mb={"3rem"}>
           <h2>Frontend Development and Project Management</h2>
           <Box className="content-card">
-            <h3>Guido La Rosa</h3>
-            <p>Coyote Web Studio Head</p>
+            <Link>
+              <h3>Guido La Rosa</h3>
+              <p>Coyote Web Studio Head</p>
+            </Link>
+            <p className="card-body">
+              Frontend developer since 2012. Guido worked for big companies such as Cognizant and Altimetrik. He also loves drawing cartoons and illustrations and recording music on his home studio.
+            </p>
           </Box>
           <Box className="content-card">
-            <h3>Tomas &quot;Cherna&quot; Chernov</h3>
-            <p>Coyote Web Studio Associate</p>
+            <Link>
+              <h3>Tomas &quot;Cherna&quot; Chernov</h3>
+              <p>Coyote Web Studio Associate</p>
+            </Link>
+            <p className="card-body">
+              Tomás is a frontender developer and visual artist. He worked many years for Auth0, one of the biggest players on the industry. He is also a woodworker and artist and creates amazing pieces at his workshop.
+            </p>
           </Box>
         </Box>
         <Box className="content-block" mb={"3rem"}>
@@ -57,12 +67,16 @@ const en = {
         <Box className="content-block">
           <h2>Backend Development</h2>
           <Box className="content-card">
-            <h3>María de los Ángeles Fortelli</h3>
-            <p>Freelance Developer</p>
+            <Link>
+              <h3>María de los Ángeles Fortelli</h3>
+              <p>Freelance Developer</p>
+            </Link>
           </Box>
           <Box className="content-card">
-            <h3>Juan Da Graca</h3>
-            <p>Freelance Developer</p>
+            <Link>
+              <h3>Juan Da Graca</h3>
+              <p>Freelance Developer</p>
+            </Link>
           </Box>
         </Box>
       </>

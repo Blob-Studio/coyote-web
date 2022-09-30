@@ -3,5 +3,6 @@ export default interface IWork {
   workType: Array<"Development" | "Web Design">,
   workSafeURL: string,
   url: string,
-  content: any
+  content: any,
+  headerImage: any
 }
