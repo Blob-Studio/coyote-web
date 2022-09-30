@@ -6,24 +6,23 @@ import Link from 'next/link';
 
 import WorkList from './../../data/works/worklist';
 import IWork from "../../utils/workSchema";
-console.log(WorkList);
 
 const Works = (props: any) => {
   return (
     <StyledWorkList className="work-content">
       <Flex as={"ul"} className="work-list">
-        {WorkList.map((work: IWork, index: number) => (
-          <Link key={index} href={`works/${work.workSafeURL}`}>
+        {Object.keys(WorkList).map((key: any, index: number) => (
+          <Link key={index} href={`works/${WorkList[key].workSafeURL}`}>
             <Flex as={"li"} className="list-item">
               <Text as="strong">
-                {work.name}
+                {WorkList[key].name}
               </Text>
               <Text as="span">
                 <span className="divider">/</span>
-                {work.workType.map((type: any, index: number) => (
+                {WorkList[key].workType.map((type: any, index: number) => (
                   <Fragment key={index}>
                     <span>{type}</span>
-                    {index != work.workType.length - 1 && ", "}
+                    {index != WorkList[key].workType.length - 1 && ", "}
                   </Fragment>
                 ))}
               </Text>
