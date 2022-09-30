@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { transparentize } from "polished";
 import Link from 'next/link';
 
-import WorkList from './worklist';
+import WorkList from './../../data/works/worklist';
 import IWork from "../../utils/workSchema";
 console.log(WorkList);
 
