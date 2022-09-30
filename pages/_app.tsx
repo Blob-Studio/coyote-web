@@ -7,8 +7,12 @@ import Sidebar from "./../components/Sidebar";
 import MainView from "../components/MainView";
 import MainNav from "../components/MainNav";
 import GlobalStyle from "../styles/globals";
+import { useRouter } from "next/router";
 
 const App = ({ Component, pageProps }: any) => {
+  const r = useRouter();
+  // console.log(r);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
