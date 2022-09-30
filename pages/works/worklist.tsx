@@ -1,7 +1,9 @@
 import { carrotWorkInfo } from "./carrot";
+import { swaprWorkInfo } from "./swapr";
 
 const WorkList = [
-  carrotWorkInfo
+  carrotWorkInfo,
+  swaprWorkInfo,
 ]
 
 export default WorkList;

@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
     }
     &:hover {
       background: ${(props) =>
-        transparentize(0.4, theme.colors.primary)};
+        transparentize(0.7, theme.colors.primary)};
     }
     h3, p {
       margin: 0 !important;

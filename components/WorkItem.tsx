@@ -1,53 +1,49 @@
 import styled from "styled-components";
 import { Flex, Box, Link } from "rebass";
-<<<<<<< HEAD:components/WorkContent.tsx
-import works from "./../data/works";
-import Markdown from "react-markdown";
-=======
->>>>>>> origin/pages:components/WorkItem.tsx
 import { transparentize } from "polished";
+import IWork from "../utils/workSchema";
+import NextLink from 'next/link';
+import MainViewContent from "./MainViewContent";
 
-const WorkContent = (props: any) => {
+const WorkContent = ({ url, children}: {url: string, children: any}) => {
   return (
-    <StyledWorkContent flexDirection={"column"} className="work-content" width="100%">
-      <Flex
-        className="content-header"
-        height={"3rem"}
-        alignItems="center"
-        px={"1rem"}
-      >
-        <Box
-          className="back-button"
-          onClick={() => {
-            props.setPanel("work-list");
-          }}
-        >
-          ← Back
-        </Box>
+    <StyledWorkContent className="work-content">
+      <Flex className="content-header">
+        <NextLink href="/works">
+          <Box className="back-button">
+            ← Back
+          </Box>
+        </NextLink>
         <Box className="url-bar" mx={"auto"}>
-          <Link target="_blank" href={""}>
-            
+          <Link target="_blank" href={url}>
+            {url}
           </Link>
         </Box>
       </Flex>
-      <Flex className="content-body" flexDirection={"column"} width={"100%"}>
-        <Box width={"40rem"} mx={"auto"} pt="2rem">
-          
-        </Box>
-      </Flex>
+      <MainViewContent>
+        {children}
+      </MainViewContent>
     </StyledWorkContent>
   );
 };
 
 const StyledWorkContent = styled(Flex)`
-  .url-bar {
-    background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
-    width: 80%;
-    text-align: center;
-    height: 2rem;
-    display: flex;
+  flex-direction: column;
+  width: 100%;
+  .content-header {
+    padding: 0 1rem;
+    height: 3rem;
     align-items: center;
-    justify-content: center;
+    border-bottom: 0.1rem solid ${(props) => props.theme.colors.primary};
+    .url-bar {
+      background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
+      width: 80%;
+      text-align: center;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 `;
 

@@ -22,7 +22,7 @@ const Works = (props: any) => {
         width={"100%"}
       >
         {WorkList.map((work: IWork, index: number) => (
-          <Link key={index} href={""}>
+          <Link key={index} href={`works/${work.workSafeURL}`}>
             <Flex
               as={"li"}
               sx={{ height: ["4rem"], px: ["1rem"], fontSize: '1.4rem' }}

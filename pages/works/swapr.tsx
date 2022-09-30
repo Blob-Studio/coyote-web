@@ -1,21 +1,21 @@
 import IWork from '../../utils/workSchema';
 import WorkItem from '../../components/WorkItem';
 
-const carrotWorkInfo: IWork = {
-  name: "Carrot",
+const swaprWorkInfo: IWork = {
+  name: "Swapr",
   workType: ["Development"],
-  url: "https://carrot.org",
-  workSafeURL: "carrot"
+  url: "https://swapr.eth",
+  workSafeURL: "swapr"
 }
 
 const Carrot = () => {
   return (
-    <WorkItem url={carrotWorkInfo.url}>
-      <h2>{carrotWorkInfo.name}</h2>
+    <WorkItem url={swaprWorkInfo.url}>
+      <h2>{swaprWorkInfo.name}</h2>
       <img src={'/img/works/carrot.png'} alt="Carrot"/>
     </WorkItem>
   );
 }
 
-export { carrotWorkInfo };
+export { swaprWorkInfo };
 export default Carrot;
