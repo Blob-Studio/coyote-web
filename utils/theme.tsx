@@ -12,9 +12,6 @@ interface Theme {
   border: {
     width: string;
   };
-  rebassBreakpoints: {
-    main: number[];
-  };
   breakpoints: {
     dskt: string;
     mob: string;
@@ -48,9 +45,6 @@ const theme: Theme = {
   colors: {...colors},
   border: {
     width: "calc(1rem / 16)"
-  },
-  rebassBreakpoints: {
-    main: [1098],
   },
   breakpoints: {
     dskt: "max-width: 1200px",

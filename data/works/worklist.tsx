@@ -11,7 +11,7 @@ import { healthspanInfo } from './healthspan';
 import { crowsNestInfo } from './crows-nest';
 import { agenciaEnriqueInfo } from './agencia-enrique'
 
-const workList = {
+const workList: any = {
   carrot: carrotWorkInfo,
   swapr: swaprWorkInfo,
   ['decentraland-foundation']: decentralandFoundationWorkInfo,
