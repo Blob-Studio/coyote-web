@@ -19,7 +19,9 @@ const AboutUs = (props : any) => {
 const StyledAboutUs = styled(StyledMainViewContent)`
   p {
     color: white;
-    line-height: 170%;
+    line-height: 180%;
+    font-size: 1.2rem;
+    font-weight: 200;
   }
 `;
 

@@ -44,7 +44,6 @@ const StyledSidebar = styled(Flex)`
   }
   .graphic {
     flex-grow: 1;
-    height: 100%;
   }
 `;
 

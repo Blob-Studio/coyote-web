@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import IWork from '../../utils/workSchema';
 import WorkItem from '../../components/WorkItem';
+import HeaderImage from './../../public/img/works/swapr.png';
 
 const swaprWorkInfo: IWork = {
   name: "Swapr",
@@ -10,9 +12,12 @@ const swaprWorkInfo: IWork = {
 
 const Carrot = () => {
   return (
-    <WorkItem url={swaprWorkInfo.url}>
-      <h2>{swaprWorkInfo.name}</h2>
-      <img src={'/img/works/carrot.png'} alt="Carrot"/>
+    <WorkItem 
+      url={swaprWorkInfo.url}
+      title={swaprWorkInfo.name}
+      topImage={HeaderImage}
+    >
+      <h3>How It All Started</h3>
     </WorkItem>
   );
 }

@@ -28,10 +28,7 @@ This is the stuff that will be inside the page.
   {
     name: "Decentraland Foundation",
     workType: ["Web Design", "Development"],
-<<<<<<< HEAD
-=======
     workSafeURL: "decentraland-foundation",
->>>>>>> origin/pages
     url: 'https://decentralandfoundation.org',
     content: `
 # Decentraland Foundation

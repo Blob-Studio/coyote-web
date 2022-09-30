@@ -24,20 +24,11 @@ const TimeInfo = (props: any) => {
 
   return (
     <StyledTimeInfo className="time-info">
-      <Flex className="time-selector" flexDirection={"column"}>
-        <Box height={"100%"} className="country">
-          ARG Time
-        </Box>
-      </Flex>
-      <Flex
-        className="time"
-        justifyContent={"center"}
-        alignItems="center"
-        flexGrow={1}
-      >
-        <Box sx={{fontSize: '1.8rem', fontWeight: 600 }}>
-          {time}
-        </Box>
+      <Box className="country">
+        ARG Time
+      </Box>
+      <Flex className="time">
+        {time}
       </Flex>
     </StyledTimeInfo>
   );
@@ -56,8 +47,11 @@ const StyledTimeInfo = styled(Flex)`
     font-weight: 600;
   }
   .time {
-    font-size: 1.5rem;
     font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 1.5rem;
   }
 `;
 

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Box, Flex, Link } from 'rebass';
 import styled from 'styled-components';
 import theme from '../utils/theme';
@@ -13,15 +14,54 @@ const OurServices = [
 ];
 
 const OurTechStack = [
-  'React',
-  'Next.js',
-  'Strapi',
-  'Node',
-  'Gatsby',
-  'Google Cloud',
-  'AWS',
-  'Github',
-  'Three.js'
+  {
+    name: 'React',
+    logo: 'react'
+  },
+  {
+    name: 'Next.js',
+    logo: 'next',
+    invertLogo: true,
+  },
+  {
+    name: 'Gatsby',
+    logo: 'gatsby',
+    ext: 'png'
+  },
+  {
+    name: 'Node',
+    logo: 'node',
+    ext: 'png'
+  },
+  {
+    name: 'Strapi',
+    logo: 'strapi',
+    ext: 'png',
+  },
+  {
+    name: 'Google Cloud',
+    logo: 'google-cloud',
+    ext: 'png'
+  },
+  {
+    name: 'AWS',
+    logo: 'aws',
+    ext: 'png'
+  },
+  {
+    name: 'Github',
+    logo: 'github',
+    ext: 'png',
+    invertLogo: true
+  },
+  {
+    name: 'ThreeJS',
+    logo: 'threejs',
+    invertLogo: true,
+    ext: 'png'
+  }
+  // 'Github',
+  // 'Three.js'
 ];
 
 const Services = (props : any) => {
@@ -38,39 +78,41 @@ const Services = (props : any) => {
         </Box>
       </Box>
       <Box className="content-block">
-        <h1>We LOVE these tools</h1>
+        <h1>We ♡ these tools</h1>
         <Box flexDirection={"column"}>
           <ul>
             {OurTechStack.map((tech, index) => (
-              <li key={index}>{tech}</li>
+              <li key={index}>
+                <div className={
+                  `logo-wrapper ${tech.invertLogo ? 'inverted' : ''}`
+                }>
+                  <Image 
+                    src={`/img/icons/${tech.logo}.${tech.ext || 'svg'}`} 
+                    alt={tech.name} 
+                    width={14} 
+                    height={14} />
+                </div>
+                <span>{tech.name}</span>
+              </li>
             ))}
           </ul>
         </Box>
       </Box>
-      <Box sx={{
-        border: `0.1rem solid ${theme.colors.primary}`,
-        p: '1.2rem',
-        fontSize: '1.6rem',
-        fontWeight: 600
-      }}>
-        WANT ANYTHING ELSE?
-      </Box>
-      <Link href="#" sx={{
-        p: '1.2rem',
-        fontSize: '1.6rem',
-        fontWeight: 600,
-        background: theme.colors.primary,
-        color: theme.colors.font,
-        display: 'block'
-      }}>
-        CONTACT US
-      </Link>
+      <Flex className="contact">
+        <Box className="top-text">
+          WANT ANYTHING ELSE?
+        </Box>
+        <Link href="#">
+          CONTACT US
+        </Link>
+      </Flex>
     </StyledServices>
   )
 };
 
 const StyledServices = styled(StyledMainViewContent)`
   .content-block {
+    text-align: center;
     ul {
       display: flex;
       flex-wrap: wrap;
@@ -83,7 +125,36 @@ const StyledServices = styled(StyledMainViewContent)`
         padding: 0.6rem 1.2rem;
         font-size: 1rem;
         text-align: center;
+        align-items: center;
+        display: flex;
+        width: calc(30%);
+        justify-content: center;
+        .logo-wrapper {
+          margin-right: 0.6rem;
+          mix-blend-mode: lighten;
+          &.inverted {
+            filter: invert(1);
+          }
+        }
       }
+    }
+  }
+  .contact {
+    flex-direction: column;
+    text-align: center;
+    .top-text {
+      border: 0.1rem solid ${(props) => props.theme.colors.primary};
+      padding: 1.2rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+    a {
+      padding: 1.2rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      background: ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.font};
+      display: block;
     }
   }
 `;

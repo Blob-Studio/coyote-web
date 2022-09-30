@@ -10,7 +10,7 @@ const en = {
     content: (
       <>
         <div className="content-block">
-          <h1>Who are we?</h1>
+          <h1>Who are these guys?</h1>
           <p>
             Coyote Web Studio is a <strong>web design</strong> and{" "}
             <strong>development</strong> studio. We offer integral solutions for

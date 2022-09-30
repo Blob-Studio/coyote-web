@@ -10,32 +10,15 @@ console.log(WorkList);
 
 const Works = (props: any) => {
   return (
-    <StyledWorkList
-      flexDirection={"column"}
-      className="work-content"
-      width="100%"
-    >
-      <Flex
-        as={"ul"}
-        className="work-list"
-        flexDirection={"column"}
-        width={"100%"}
-      >
+    <StyledWorkList className="work-content">
+      <Flex as={"ul"} className="work-list">
         {WorkList.map((work: IWork, index: number) => (
           <Link key={index} href={`works/${work.workSafeURL}`}>
-            <Flex
-              as={"li"}
-              sx={{ height: ["4rem"], px: ["1rem"], fontSize: '1.4rem' }}
-              alignItems={"center"}
-            >
+            <Flex as={"li"} className="list-item">
               <Text as="strong">
                 {work.name}
               </Text>
-              <Text as="span" sx={{
-                color: 'white', 
-                fontSize: '1rem',
-                opacity: '1'
-              }}>
+              <Text as="span">
                 <span className="divider">/</span>
                 {work.workType.map((type: any, index: number) => (
                   <Fragment key={index}>
@@ -53,17 +36,32 @@ const Works = (props: any) => {
 };
 
 const StyledWorkList = styled(Flex)`
-  li {
-    border-bottom: calc((1rem / 16)) solid
-      ${(props) => props.theme.colors.primary};
-    font-weight: 200;
-    cursor: pointer;
-    &:hover {
-      background: ${(props) =>
-        transparentize(0.7, props.theme.colors.primary)};
-    }
-    .divider {
-      margin: 0 0.5rem;
+  width: 100%;
+  flex-direction: column;
+  .work-list {
+    flex-direction: column;
+    width: 100%;
+    .list-item {
+      border-bottom: calc((1rem / 16)) solid
+        ${(props) => props.theme.colors.primary};
+      font-weight: 200;
+      height: 4rem;
+      padding: 0 1rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+      align-items: center;
+      &:hover {
+        background: ${(props) =>
+          transparentize(0.7, props.theme.colors.primary)};
+      }
+      .divider {
+        margin: 0 0.5rem;
+      }
+      span {
+        color: white;
+        font-size: 1rem;
+
+      }
     }
   }
 `;

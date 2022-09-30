@@ -40,9 +40,24 @@ const MainNav = () => {
   return (
     <StyledMainNav className={`${orientation}`}>
       <Flex className="main-view-navigation">
-        <NavButton currentPath={router.pathname} url="/about">{locale.mainNavigation.about}</NavButton>
-        <NavButton currentPath={router.pathname} url="/works">{locale.mainNavigation.work}</NavButton>
-        <NavButton currentPath={router.pathname} url="/services">{locale.mainNavigation.services}</NavButton>
+        <NavButton 
+          currentPath={router.pathname} 
+          url="/about"
+        >
+            {locale.mainNavigation.about}
+        </NavButton>
+        <NavButton 
+          currentPath={router.pathname} 
+          url="/works"
+        >
+            {locale.mainNavigation.work}
+        </NavButton>
+        <NavButton 
+          currentPath={router.pathname} 
+          url="/services"
+        >
+            {locale.mainNavigation.services}
+        </NavButton>
       </Flex>
     </StyledMainNav>
   );
@@ -58,7 +73,7 @@ const StyledMainNav = styled.nav`
   .main-view-navigation {
     background-size: 4rem 4rem;
     flex-direction: column;
-    background-image: repeating-linear-gradient(
+    /* background-image: repeating-linear-gradient(
       45deg, 
       ${(props) => (transparentize(
         0.4, 
@@ -70,8 +85,13 @@ const StyledMainNav = styled.nav`
       )} 1px, 
       transparent 0, 
       transparent 50%
-    ); 
-    animation: ${backgroundAnimation} 2s infinite linear;
+    );  */
+    background-image:  
+      radial-gradient(${(props) => props.theme.colors.primary} 0.4px, transparent 0.4px), 
+      radial-gradient(${(props) => props.theme.colors.primary} 0.4px, rgba(229,229,247,0) 0.4px);
+    background-size: 16px 16px;
+    background-position: 0 0,8px 8px;
+    /* animation: ${backgroundAnimation} 2s infinite linear; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,9 +111,6 @@ const StyledMainNav = styled.nav`
     background: ${(props) => props.theme.colors.background};
     margin-bottom: 2rem;
     font-weight: 600;
-    transition: 
-      0.15s ease-in-out background,
-      0.15s ease-in-out color;
     &:hover {
       background: ${(props) => props.theme.colors.primary};
       color: ${(props) => props.theme.colors.font};
@@ -144,6 +161,10 @@ const StyledMainNav = styled.nav`
       &.selected {
         background: ${(props) => props.theme.colors.primary};
         color: ${(props) => props.theme.colors.font};
+      }
+      &:hover {
+        /* background: ${(props) => transparentize(0.7, props.theme.colors.primary)}; */
+        /* color: ${(props) => props.theme.colors.primary}; */
       }
     }
     .main-navigation-button-text {
