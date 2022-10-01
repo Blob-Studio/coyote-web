@@ -10,18 +10,18 @@ const Works = (props: any) => {
   return (
     <StyledWorkList className="work-content">
       <Flex as={"ul"} className="work-list">
-        {Object.keys(WorkList).map((key: any, index: number) => (
-          <Link key={index} href={`works/${WorkList[key].workSafeURL}`}>
+        {Object.keys(WorkList).map((key: string, i: number) => (
+          <Link key={i} href={`works/${WorkList[key].workSafeURL}`}>
             <Flex as={"li"} className="list-item">
               <Text as="strong">
                 {WorkList[key].name}
               </Text>
               <Text as="span">
                 <span className="divider">/</span>
-                {WorkList[key].workType.map((type: any, index: number) => (
-                  <Fragment key={index}>
+                {WorkList[key].workType.map((type: any, j: number) => (
+                  <Fragment key={j}>
                     <span>{type}</span>
-                    {index != WorkList[key].workType.length - 1 && ", "}
+                    {j != WorkList[key].workType.length - 1 && ", "}
                   </Fragment>
                 ))}
               </Text>
