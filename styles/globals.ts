@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.8rem;
     flex-direction: column;
     h3 {
-      margin-right: 1rem;
+      margin-right: 0.5rem;
     }
     a {
       display: inherit;

@@ -25,7 +25,7 @@ interface Theme {
 const getTimeOfDay = () => {
   let currentTime = new Date().getHours();
 
-  return currentTime < 4 || currentTime > 22 ?
+  return currentTime < 6 || currentTime > 22 ?
     'night' :
     'day'
 }
@@ -36,6 +36,7 @@ const colors = {
     `hsla(160, 100%, 50%, 1)` : 
     `slateblue`,
   font: `rgb(0, 2, 8)`,
+  white: 'lightgray',
   fontInverted: `rgb(230, 218, 218)`,
   buttonBackgroundDefault: `hsla(180, 9%, 32%, 1)`,
   lightBackground: `hsla(0, 0%, 95%, 1)`,

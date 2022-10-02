@@ -7,16 +7,16 @@ import MainViewContent from "./MainViewContent";
 import Image from 'next/image';
 
 
-type WorkContentProps = {
+type WorkPageProps = {
   url: string,
   children: any,
   title: any,
   topImage: any
 };
 
-const WorkContent = ({ url, children, title, topImage } : WorkContentProps) => {
+const WorkPage = ({ url, children, title, topImage } : WorkPageProps) => {
   return (
-    <StyledWorkContent className="work-content">
+    <StyledWorkPage className="work-content">
       <Flex className="content-header">
         <NextLink href="/works">
           <Box className="back-button">
@@ -40,11 +40,11 @@ const WorkContent = ({ url, children, title, topImage } : WorkContentProps) => {
         </div>
         {children}
       </MainViewContent>
-    </StyledWorkContent>
+    </StyledWorkPage>
   );
 };
 
-const StyledWorkContent = styled(Flex)`
+const StyledWorkPage = styled(Flex)`
   flex-direction: column;
   width: 100%;
   .content-header {
@@ -88,4 +88,4 @@ const StyledWorkContent = styled(Flex)`
   }
 `;
 
-export default WorkContent;
+export default WorkPage;

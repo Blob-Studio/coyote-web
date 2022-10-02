@@ -11,7 +11,6 @@ import { useRouter } from "next/router";
 
 const App = ({ Component, pageProps }: any) => {
   const r = useRouter();
-  // console.log(r);
 
   return (
     <ThemeProvider theme={theme}>
@@ -44,7 +43,7 @@ const StyledApp = styled.main`
     "header header"
     "sidebar main";
   .outlined {
-    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-width: 0.05rem;
     -webkit-text-stroke-color: ${(props) => props.theme.colors.primary};
     -webkit-text-fill-color: ${(props) => props.theme.colors.background};
   }

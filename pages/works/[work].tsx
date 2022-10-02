@@ -1,4 +1,4 @@
-import WorkItem from '../../components/WorkItem';
+import WorkPage from '../../components/WorkPage';
 import { useRouter } from 'next/router';
 import WorkList from './../../data/works/worklist';
 import { useEffect } from 'react';
@@ -17,7 +17,7 @@ const Work = () => {
     return null;
   }
   return (
-    <WorkItem
+    <WorkPage
       url={selectedWork.url}
       title={selectedWork.name}
       topImage={selectedWork.headerImage}
@@ -25,7 +25,7 @@ const Work = () => {
       <div className="breakdown">
         {selectedWork.content}
       </div>
-    </WorkItem>
+    </WorkPage>
   );
 }
 
