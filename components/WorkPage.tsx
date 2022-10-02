@@ -1,29 +1,26 @@
-import styled from "styled-components";
-import { Flex, Box, Link } from "rebass";
-import { transparentize } from "polished";
-import IWork from "../utils/workSchema";
+import styled from 'styled-components';
+import { Flex, Box, Link } from 'rebass';
+import { transparentize } from 'polished';
+import IWork from '../utils/workSchema';
 import NextLink from 'next/link';
-import MainViewContent from "./MainViewContent";
+import MainViewContent from './MainViewContent';
 import Image from 'next/image';
 
-
 type WorkPageProps = {
-  url: string,
-  children: any,
-  title: any,
-  topImage: any
+  url: string;
+  children: any;
+  title: any;
+  topImage: any;
 };
 
-const WorkPage = ({ url, children, title, topImage } : WorkPageProps) => {
+const WorkPage = ({ url, children, title, topImage }: WorkPageProps) => {
   return (
     <StyledWorkPage className="work-content">
       <Flex className="content-header">
         <NextLink href="/works">
-          <Box className="back-button">
-            ← Back
-          </Box>
+          <Box className="back-button">← Back</Box>
         </NextLink>
-        <Box className="url-bar" mx={"auto"}>
+        <Box className="url-bar" mx={'auto'}>
           <Link target="_blank" href={url}>
             {url}
           </Link>
@@ -32,11 +29,7 @@ const WorkPage = ({ url, children, title, topImage } : WorkPageProps) => {
       <MainViewContent className="content-body">
         <h2>{title}</h2>
         <div className="top-image">
-          <Image 
-            src={topImage} 
-            alt={title}
-            className="top-image"
-          />
+          <Image src={topImage} alt={title} className="top-image" />
         </div>
         {children}
       </MainViewContent>
@@ -82,7 +75,7 @@ const StyledWorkPage = styled(Flex)`
       font-weight: 200;
     }
     .top-image {
-      border: 1px solid ${props => props.theme.colors.primary};
+      border: 1px solid ${(props) => props.theme.colors.primary};
       margin-bottom: 2rem;
     }
   }

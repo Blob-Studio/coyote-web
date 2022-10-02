@@ -1,10 +1,10 @@
-import styled from "styled-components";
-import { Box, Flex } from "rebass";
-import { useState, useEffect, useRef } from "react";
-import { transparentize } from "polished";
+import styled from 'styled-components';
+import { Box, Flex } from 'rebass';
+import { useState, useEffect, useRef } from 'react';
+import { transparentize } from 'polished';
 
 const TimeInfo = (props: any) => {
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState('');
 
   useEffect(() => {
     setInterval(() => {
@@ -12,11 +12,11 @@ const TimeInfo = (props: any) => {
       let hour = date.getHours();
       let minutes = date.getMinutes().toString();
       if (minutes.length < 2) {
-        minutes = "0" + minutes;
+        minutes = '0' + minutes;
       }
       let seconds = date.getSeconds().toString();
       if (seconds.length < 2) {
-        seconds = "0" + seconds;
+        seconds = '0' + seconds;
       }
       setTime(`${hour}:${minutes}:${seconds}`);
     }, 1000);
@@ -24,12 +24,8 @@ const TimeInfo = (props: any) => {
 
   return (
     <StyledTimeInfo className="time-info">
-      <Box className="country">
-        ARG Time
-      </Box>
-      <Flex className="time">
-        {time}
-      </Flex>
+      <Box className="country">ARG Time</Box>
+      <Flex className="time">{time}</Flex>
     </StyledTimeInfo>
   );
 };

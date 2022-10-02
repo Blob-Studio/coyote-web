@@ -1,23 +1,18 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Box, Flex } from "rebass";
-import { transparentize } from "polished";
+import { Box, Flex } from 'rebass';
+import { transparentize } from 'polished';
 
-import getLocales from "../utils/getLocales";
+import getLocales from '../utils/getLocales';
 
-const NavButton = ({ children, url, currentPath, ...props }: {children: any, url: string, currentPath: string}) => {
+const NavButton = ({ children, url, currentPath, ...props }: { children: any; url: string; currentPath: string }) => {
   return (
     <Link href={url}>
-      <Box
-        {...props}
-        className={`main-navigation-button ${currentPath === url && 'selected'}`}
-      >
-        <span className="main-navigation-button-text">
-          {children}
-        </span>
+      <Box {...props} className={`main-navigation-button ${currentPath === url && 'selected'}`}>
+        <span className="main-navigation-button-text">{children}</span>
       </Box>
     </Link>
   );
@@ -25,38 +20,26 @@ const NavButton = ({ children, url, currentPath, ...props }: {children: any, url
 
 const MainNav = () => {
   const router = useRouter();
-  const locale = getLocales(router.locale as "en" | "es");
-  const [orientation, setOrientation] = useState<"vert" | "side">("vert");
+  const locale = getLocales(router.locale as 'en' | 'es');
+  const [orientation, setOrientation] = useState<'vert' | 'side'>('vert');
 
   useEffect(() => {
-    const defineOrientation = () => router.pathname === '/' ? 
-      "vert" : 
-      "side";
+    const defineOrientation = () => (router.pathname === '/' ? 'vert' : 'side');
 
     setOrientation(defineOrientation());
-
   }, [router]);
 
   return (
     <StyledMainNav className={`${orientation}`}>
       <Flex className="main-view-navigation">
-        <NavButton 
-          currentPath={router.pathname} 
-          url="/about"
-        >
-            {locale.mainNavigation.about}
+        <NavButton currentPath={router.pathname} url="/about">
+          {locale.mainNavigation.about}
         </NavButton>
-        <NavButton 
-          currentPath={router.pathname} 
-          url="/works"
-        >
-            {locale.mainNavigation.work}
+        <NavButton currentPath={router.pathname} url="/works">
+          {locale.mainNavigation.work}
         </NavButton>
-        <NavButton 
-          currentPath={router.pathname} 
-          url="/services"
-        >
-            {locale.mainNavigation.services}
+        <NavButton currentPath={router.pathname} url="/services">
+          {locale.mainNavigation.services}
         </NavButton>
       </Flex>
     </StyledMainNav>
@@ -73,7 +56,7 @@ const StyledMainNav = styled.nav`
   .main-view-navigation {
     background-size: 4rem 4rem;
     flex-direction: column;
-    ${props => props.theme.textures.polka};
+    ${(props) => props.theme.textures.polka};
     /* animation: ${backgroundAnimation} 2s infinite linear; */
     display: flex;
     align-items: center;
@@ -101,21 +84,16 @@ const StyledMainNav = styled.nav`
       background: ${(props) => props.theme.colors.primary};
       color: ${(props) => props.theme.colors.font};
     }
-    
+
     &:last-child {
       margin-bottom: 0;
     }
-  }
-  .main-view-content {
-    display: none;
-    flex-basis: content;
   }
   .breakdown {
     display: none;
   }
 
   &.side {
-    /* position: absolute; */
     width: unset;
     .main-view-navigation {
       position: relative;
@@ -128,10 +106,8 @@ const StyledMainNav = styled.nav`
       height: calc(100% / 3);
       margin: 0;
       border: 0;
-      border-right: ${(props) => props.theme.border.width} solid
-        ${(props) => props.theme.colors.primary};
-      border-bottom: ${(props) => props.theme.border.width} solid
-        ${(props) => props.theme.colors.primary};
+      border-right: ${(props) => props.theme.border.width} solid ${(props) => props.theme.colors.primary};
+      border-bottom: ${(props) => props.theme.border.width} solid ${(props) => props.theme.colors.primary};
       display: flex;
       justify-content: center;
       text-align: center;
@@ -145,8 +121,8 @@ const StyledMainNav = styled.nav`
         color: ${(props) => props.theme.colors.font};
       }
       &:hover {
-        /* background: ${(props) => transparentize(0.7, props.theme.colors.primary)}; */
-        /* color: ${(props) => props.theme.colors.primary}; */
+        background: ${(props) => transparentize(0.7, props.theme.colors.primary)};
+        color: ${(props) => props.theme.colors.primary};
       }
     }
     .main-navigation-button-text {
@@ -160,7 +136,7 @@ const StyledMainNav = styled.nav`
     }
   }
 
-  @media screen and (max-width: 680px) {
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
     flex-direction: column-reverse;
     border-bottom: 0;
     .main-view-navigation {
@@ -179,19 +155,15 @@ const StyledMainNav = styled.nav`
     .main-navigation-button-text {
       font-size: 2rem;
     }
-    .main-view-content {
-      flex-grow: unset;
-      height: fit-content;
-    }
     .breakdown {
-      border-bottom: ${(props) => props.theme.border.width} solid ${(props) => props.theme.colors.primary};
+      border-bottom: ${(p) => p.theme.border.width} solid ${(p) => p.theme.colors.primary};
       display: block;
       height: fit-content;
     }
     .breakdown-text {
       line-height: 2.3rem;
       font-weight: 200;
-      color: ${(props) => props.theme.colors.primary};
+      color: ${(p) => p.theme.colors.primary};
       font-size: 1.4rem;
     }
   }

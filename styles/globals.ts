@@ -52,8 +52,7 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1rem;
     }
     &:hover {
-      background: ${(props) =>
-        transparentize(0.7, theme.colors.primary)};
+      background: ${(props) => transparentize(0.7, theme.colors.primary)};
     }
     p {
       font-size: 0.8rem;

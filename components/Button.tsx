@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Button } from "rebass";
+import styled from 'styled-components';
+import { Button } from 'rebass';
 
 const CustomButton = (props: any) => {
   return <StyledCustomButton {...props} />;
