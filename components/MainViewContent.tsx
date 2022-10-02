@@ -20,6 +20,10 @@ const StyledMainViewContent = styled(Flex)`
     background-color: ${(p) => p.theme.colors.primary};
     border-radius: 5px;
   }
+
+  @media screen and (${props => props.theme.breakpoints.mob}) {
+    flex-direction: column;
+  }
 `;
 
 export default MainViewContent;

@@ -64,6 +64,7 @@ const StyledWorkPage = styled(Flex)`
     padding-bottom: 4rem;
     h2 {
       font-size: 2.4rem;
+      margin-bottom: 1rem;
     }
     h3 {
       font-size: 2rem;
@@ -77,6 +78,17 @@ const StyledWorkPage = styled(Flex)`
     .top-image {
       border: 1px solid ${(props) => props.theme.colors.primary};
       margin-bottom: 2rem;
+    }
+  }
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+    .content-header {
+      display: flex;
+      .url-bar {
+        background: none;
+        margin-left: auto;
+        width: unset;
+        margin-right: 8%;
+      }
     }
   }
 `;

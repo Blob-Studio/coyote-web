@@ -21,8 +21,8 @@ const StyledMainViewContent = styled(Flex)`
   height: 100%;
 
   @media screen and (${(p) => p.theme.breakpoints.mob}) {
-    flex-grow: unset;
-    height: fit-content;
+    flex-direction: column;
+    /* height: fit-content; */
   }
 `;
 
@@ -31,6 +31,10 @@ const StyledMainView = styled(Flex)`
   position: relative;
   display: flex;
   max-height: calc(100vh - ${(p) => p.theme.sizes.headerHeight});
+  @media screen and (${props => props.theme.breakpoints.mob}) {
+    max-height: none;
+    height: 100%;
+  }
 `;
 
 export default MainView;

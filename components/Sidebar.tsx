@@ -42,6 +42,9 @@ const StyledSidebar = styled(Flex)`
     overflow: hidden;
     user-select: none;
   }
+  @media screen and (${props => props.theme.breakpoints.mob}) {
+    display: none;
+  }
 `;
 
 export default Sidebar;

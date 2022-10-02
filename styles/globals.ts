@@ -57,6 +57,11 @@ const GlobalStyle = createGlobalStyle`
     p {
       font-size: 0.8rem;
     }
+    @media screen and (${theme.breakpoints.mob}) {
+      a {
+        flex-direction: column;
+      }
+    }
   }
 `;
 

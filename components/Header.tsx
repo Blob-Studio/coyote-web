@@ -45,7 +45,6 @@ const MarqueeContent = () => {
 
 const StyledHeader = styled(Flex)`
   grid-area: header;
-  height: ${(p) => p.theme.sizes.headerHeight};
   border-bottom: 0.1rem solid ${(p) => p.theme.colors.primary};
   .top-bar {
     font-size: 1.5rem;
@@ -82,11 +81,20 @@ const StyledHeader = styled(Flex)`
     font-weight: 600;
   }
   @media screen and (${(p) => p.theme.breakpoints.dskt}) {
+    .top-bar {
+      font-size: 1rem;
+    }
     .title-bar {
       padding: 0;
     }
     .title {
-      font-size: 4rem;
+      font-size: 3rem;
+    }
+    .jp-text {
+      display: none;
+    }
+    .divider {
+      font-size: 2rem;
     }
   }
 `;

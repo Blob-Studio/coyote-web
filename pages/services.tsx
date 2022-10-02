@@ -96,11 +96,15 @@ const Services = (props: any) => {
 const StyledServices = styled(MainViewContent)`
   .content-block {
     text-align: center;
+    h1 {
+      margin-bottom: 1rem;
+    }
     ul {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
       li {
-        margin-right: 1rem;
+        /* margin-right: 1rem; */
         margin-bottom: 0.8rem;
         border: 0.1rem solid ${(props) => props.theme.colors.primary};
         display: inline-block;
@@ -110,7 +114,7 @@ const StyledServices = styled(MainViewContent)`
         text-align: center;
         align-items: center;
         display: flex;
-        width: calc(30%);
+        width: calc(32%);
         justify-content: center;
         .logo-wrapper {
           margin-right: 0.6rem;

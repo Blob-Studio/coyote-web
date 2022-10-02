@@ -139,6 +139,8 @@ const StyledMainNav = styled.nav`
   @media screen and (${(p) => p.theme.breakpoints.mob}) {
     flex-direction: column-reverse;
     border-bottom: 0;
+    width: 100%;
+    height: 100%;
     .main-view-navigation {
       padding: 0;
       justify-content: center;
@@ -147,13 +149,30 @@ const StyledMainNav = styled.nav`
       position: relative;
       height: auto;
       flex-grow: 1;
+      height: 100%;
+      .main-navigation-button {
+        width: 80%;
+        height: 4rem;
+        .main-navigation-button-text {
+          font-size: 2rem;
+        }
+      }
     }
-    .main-navigation-button {
-      width: 80%;
-      height: 4rem;
-    }
-    .main-navigation-button-text {
-      font-size: 2rem;
+    &.side {
+      height: unset;
+      .main-view-navigation {
+        width: 100%;
+        .main-navigation-button {
+          width: 100%;
+          border: 0;
+          height: 2rem;
+          border-bottom: 0.1rem solid ${props => props.theme.colors.primary};
+          .main-navigation-button-text {
+            transform: rotate(0);
+            font-size: 1.2rem;
+          }
+        }
+      }
     }
     .breakdown {
       border-bottom: ${(p) => p.theme.border.width} solid ${(p) => p.theme.colors.primary};

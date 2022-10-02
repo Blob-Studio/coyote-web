@@ -12,7 +12,7 @@ const en = {
         <div className="content-block">
           <h1>Who are these guys?</h1>
           <p>
-            Coyote Web Studio is a near-shore<strong>web design</strong> and <strong>development</strong> studio. We offer integral
+            Coyote Web Studio is a near-shore <strong>web design</strong> and <strong>development</strong> studio. We offer integral
             solutions for your web needs, from idea to production.
           </p>
           <p>We work with design studios and freelance designers, depending on the needs of your project.</p>

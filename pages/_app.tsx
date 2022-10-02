@@ -48,7 +48,14 @@ const StyledApp = styled.main`
     -webkit-text-fill-color: ${(p) => p.theme.colors.background};
   }
 
-  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+  @media screen and (${props => props.theme.breakpoints.mob}) {
+    grid-template-columns: 100vw ;
+    height: unset;
+    min-height: 100vh;
+    grid-template-rows: ${props => props.theme.sizes.mobileHeaderHeight} 1fr;
+    grid-template-areas:
+      'header'
+      'main';
   }
 `;
 

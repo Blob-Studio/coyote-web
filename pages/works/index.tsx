@@ -121,6 +121,18 @@ const StyledWorkListItem = styled.li`
   span {
     font-size: 1rem;
   }
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+    height: unset;
+    padding: 0.8rem 0.8rem;
+    .list-item {
+      .list-item-text {
+        flex-direction: column;
+        .divider {
+          display: none;
+        }
+      }
+    }
+  }
 `;
 
 const StyledWorkList = styled(Flex)`
@@ -131,6 +143,7 @@ const StyledWorkList = styled(Flex)`
   position: relative;
   .thumbnail {
     position: absolute;
+    background: ${props => props.theme.colors.primary};
     right: 0;
     top: 0;
     width: 22rem;
