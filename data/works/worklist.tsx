@@ -9,7 +9,7 @@ import { dxdaoInfo } from './dxdao';
 import { bankathonInfo } from './bitcoin-bankathon';
 import { healthspanInfo } from './healthspan';
 import { crowsNestInfo } from './crows-nest';
-import { agenciaEnriqueInfo } from './agencia-enrique'
+import { agenciaEnriqueInfo } from './agencia-enrique';
 import IWork from '../../utils/workSchema';
 
 const workList: { [key: string]: IWork } = {

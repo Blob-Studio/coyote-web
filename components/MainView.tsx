@@ -1,28 +1,36 @@
-import styled from "styled-components";
-import { Box, Flex } from "rebass";
-import { useRouter } from "next/router";
-import { transparentize } from "polished";
+import styled from 'styled-components';
+import { Box, Flex } from 'rebass';
+import { useRouter } from 'next/router';
+import { transparentize } from 'polished';
 
-import getLocales from "../utils/getLocales";
+import getLocales from '../utils/getLocales';
 
 const MainView = ({ children }: any) => {
   const router = useRouter();
-  const locale = getLocales(router.locale as "en" | "es");
+  const locale = getLocales(router.locale as 'en' | 'es');
 
   return (
-    <StyledMainView className={'main-view'}>
-      <Flex width="100%" className="main-view-content" height={"100%"}>
-        {children}
-      </Flex>
+    <StyledMainView>
+      <StyledMainViewContent>{children}</StyledMainViewContent>
     </StyledMainView>
   );
 };
+
+const StyledMainViewContent = styled(Flex)`
+  width: 100%;
+  height: 100%;
+
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+    flex-grow: unset;
+    height: fit-content;
+  }
+`;
 
 const StyledMainView = styled(Flex)`
   grid-area: main;
   position: relative;
   display: flex;
-  max-height: calc(100vh - 10rem);
+  max-height: calc(100vh - ${(p) => p.theme.sizes.headerHeight});
 `;
 
 export default MainView;

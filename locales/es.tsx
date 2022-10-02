@@ -1,34 +1,28 @@
-import { Box, Flex } from "rebass";
+import { Box, Flex } from 'rebass';
 
 const es = {
   mainNavigation: {
-    about: "NOSOTROS",
-    work: "TRABAJOS",
-    services: "SERVICIOS",
+    about: 'NOSOTROS',
+    work: 'TRABAJOS',
+    services: 'SERVICIOS',
   },
   about: {
     content: (
       <>
         <h1>¿Quienes somos?</h1>
-        <p>
-          Coyote Web Studio fue creado por Guido La Rosa en el 2021 con la idea
-          de ofrecer a sus clientes.
-        </p>
-        <p>
-          We work with design studios and freelance designers, depending on the
-          needs of your project.
-        </p>
+        <p>Coyote Web Studio fue creado por Guido La Rosa en el 2021 con la idea de ofrecer a sus clientes.</p>
+        <p>We work with design studios and freelance designers, depending on the needs of your project.</p>
         <h1>Our Partners</h1>
-        <Box className="content-block" mb={"3rem"}>
+        <Box className="content-block" mb={'3rem'}>
           <h2>Frontend Development</h2>
-          <Box p={"1rem"} className="content-card">
+          <Box p={'1rem'} className="content-card">
             <h3>Guido La Rosa</h3>
             <p>Project Manager and Developer</p>
           </Box>
         </Box>
-        <Box className="content-block" mb={"3rem"}>
+        <Box className="content-block" mb={'3rem'}>
           <h2>Design</h2>
-          <Box p={"1rem"} className="content-card">
+          <Box p={'1rem'} className="content-card">
             <h3>Entrecasa</h3>
             <p>Design Studio</p>
           </Box>
@@ -58,8 +52,7 @@ const es = {
   sidebar: {
     headerText: (
       <>
-        SOMOS UN ESTUDIO DE <strong>DISEÑO</strong> Y{" "}
-        <strong>DESARROLLO WEB</strong> DE <strong>BUENOS AIRES, ARGENTINA.</strong>
+        SOMOS UN ESTUDIO DE <strong>DISEÑO</strong> Y <strong>DESARROLLO WEB</strong> DE <strong>BUENOS AIRES, ARGENTINA.</strong>
       </>
     ),
   },

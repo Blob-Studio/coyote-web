@@ -9,6 +9,9 @@ interface Theme {
     buttonBackgroundDefault: string;
     lightBackground: string;
   };
+  sizes: {
+    headerHeight: string;
+  };
   border: {
     width: string;
   };
@@ -17,39 +20,40 @@ interface Theme {
     mob: string;
   };
   textures: {
-    polka: string,
-    striped: string
-  }
+    polka: string;
+    striped: string;
+  };
 }
 
 const getTimeOfDay = () => {
   let currentTime = new Date().getHours();
 
-  return currentTime < 6 || currentTime > 22 ?
-    'night' :
-    'day'
-}
+  return currentTime < 6 || currentTime > 22 ? 'night' : 'day';
+};
 
 const colors = {
   background: `rgb(0, 2, 8)`,
-  primary: getTimeOfDay() == 'day' ? 
-    `hsla(160, 100%, 50%, 1)` : 
-    `slateblue`,
+  primary: getTimeOfDay() == 'day' ? `hsla(160, 100%, 50%, 1)` : `slateblue`,
   font: `rgb(0, 2, 8)`,
   white: 'lightgray',
   fontInverted: `rgb(230, 218, 218)`,
   buttonBackgroundDefault: `hsla(180, 9%, 32%, 1)`,
   lightBackground: `hsla(0, 0%, 95%, 1)`,
-}
+};
+
+const sizes = {
+  headerHeight: '10rem',
+};
 
 const theme: Theme = {
-  colors: {...colors},
+  colors: { ...colors },
+  sizes: { ...sizes },
   border: {
-    width: "calc(1rem / 16)"
+    width: 'calc(1rem / 16)',
   },
   breakpoints: {
-    dskt: "max-width: 1200px",
-    mob: "max-width: 600px",
+    dskt: 'max-width: 1200px',
+    mob: 'max-width: 600px',
   },
   textures: {
     polka: `
@@ -67,8 +71,8 @@ const theme: Theme = {
         transparent 0, 
         transparent 50%
       ); 
-    `
-  }
+    `,
+  },
 };
 
 export default theme;
