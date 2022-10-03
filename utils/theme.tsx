@@ -11,6 +11,7 @@ interface Theme {
   };
   sizes: {
     headerHeight: string;
+    mobileHeaderHeight: string;
   };
   border: {
     width: string;
