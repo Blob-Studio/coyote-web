@@ -18,6 +18,17 @@ const Sidebar = (props: any) => {
         </Box>
       </Flex>
       <Box className="graphic">
+        <div className="navigation">
+          <NavButton currentPath={router.pathname} url="/about">
+            {locale.mainNavigation.about}
+          </NavButton>
+          <NavButton currentPath={router.pathname} url="/works">
+            {locale.mainNavigation.work}
+          </NavButton>
+          <NavButton currentPath={router.pathname} url="/services">
+            {locale.mainNavigation.services}
+          </NavButton>
+        </div>
         <ThreeJSPageScene />
       </Box>
       <TimeInfo />
@@ -43,9 +54,40 @@ const StyledSidebar = styled(Flex)`
     overflow: hidden;
     user-select: none;
   }
+  .navigation {
+    display: none;
+  }
   @media screen and (${props => props.theme.breakpoints.mob}) {
     display: none;
     max-height: none;
+    .graphic {
+      position: relative;
+      .navigation {
+        z-index: 10;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        justify-content: center;
+        .main-navigation-button {
+          width: 80%;
+          height: 3rem;
+          margin-left: 10%;
+          mix-blend-mode: multiply;
+          margin-bottom: 3rem;
+          background: hsla(0, 0%, 0%, 0.3);
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          .main-navigation-button-text {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
   }
 `;
 
