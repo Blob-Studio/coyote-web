@@ -75,9 +75,7 @@ const StyledApp = styled.main`
   }
 
   @media screen and (${props => props.theme.breakpoints.mob}) {
-    &:not(.home) {
-      grid-template-columns: 100vw ;
-    }
+    grid-template-columns: 100vw ;
     height: unset;
     min-height: 100vh;
     grid-template-rows: ${props => props.theme.sizes.mobileHeaderHeight} 1fr;
