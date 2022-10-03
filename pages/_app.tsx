@@ -98,6 +98,9 @@ const StyledApp = styled.main`
       }
     }
   }
+  &:not(.home) {
+    grid-template-columns: 100vw;
+  }
   body {
     /* overflow: hidden; */
   }
