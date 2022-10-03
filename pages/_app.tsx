@@ -75,7 +75,7 @@ const StyledApp = styled.main`
   }
 
   @media screen and (${props => props.theme.breakpoints.mob}) {
-    grid-template-columns: 100vw ;
+    /* grid-template-columns: 100vw ; */
     height: unset;
     min-height: 100vh;
     grid-template-rows: ${props => props.theme.sizes.mobileHeaderHeight} 1fr;
@@ -97,12 +97,9 @@ const StyledApp = styled.main`
         display: none;
       }
     }
-  }
-  &:not(.home) {
-    grid-template-columns: 100vw;
-  }
-  body {
-    /* overflow: hidden; */
+    &:not(.home) {
+      grid-template-columns: 100vw;
+    }
   }
 `;
 
