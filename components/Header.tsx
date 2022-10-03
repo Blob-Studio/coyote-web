@@ -44,13 +44,25 @@ const Header = (props: any) => {
           )
         }
         <div className={`mobile-navigation ${mobileMenuOpen ? 'active' : ''}`}>
-          <NavButton currentPath={r.pathname} url="/about">
+          <NavButton 
+            currentPath={r.pathname} 
+            url="/about"
+            onClick={() => {setMobileMenuOpen(false)}}
+          >
             {locale.mainNavigation.about}
           </NavButton>
-          <NavButton currentPath={r.pathname} url="/works">
+          <NavButton 
+            currentPath={r.pathname} 
+            url="/works"
+            onClick={() => {setMobileMenuOpen(false)}}
+          >
             {locale.mainNavigation.work}
           </NavButton>
-          <NavButton currentPath={r.pathname} url="/services">
+          <NavButton 
+            currentPath={r.pathname} 
+            url="/services"
+            onClick={() => {setMobileMenuOpen(false)}}
+          >
             {locale.mainNavigation.services}
           </NavButton>
         </div>
@@ -131,6 +143,7 @@ const StyledHeader = styled(Flex)`
     align-items: center;
     justify-content: center;
     transition: 0.25s ease-in-out all;
+    ${(props) => props.theme.textures.striped};
     .main-navigation-button {
       width: 80%;
       height: fit-content;
@@ -142,6 +155,7 @@ const StyledHeader = styled(Flex)`
     &.active {
       top: ${props => props.theme.sizes.mobileHeaderHeight};
       opacity: 1;
+      pointer-events: auto;
     }
   }
   @media screen and (${(p) => p.theme.breakpoints.dskt}) {

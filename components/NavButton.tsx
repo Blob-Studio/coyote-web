@@ -2,9 +2,12 @@ import { Box, Text} from 'rebass';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const NavButton = ({ children, url, currentPath, ...props }: { children: any; url: string; currentPath: string }) => {
+const NavButton = ({ children, url, currentPath, onClick, ...props }: { children: any; url: string; currentPath: string, onClick?: any }) => {
   return (
-    <StyledNavButton className={`main-navigation-button ${currentPath === url && 'selected'}`}>
+    <StyledNavButton 
+      className={`main-navigation-button ${currentPath === url && 'selected'}`}
+      onClick={onClick}
+    >
       <Link href={url}>
         <Text 
           {...props}

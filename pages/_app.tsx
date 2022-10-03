@@ -79,6 +79,9 @@ const StyledApp = styled.main`
         height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
         border-right: none;
       }
+      .mobile-navigation {
+        display: none;
+      }
     }
   }
 `;
