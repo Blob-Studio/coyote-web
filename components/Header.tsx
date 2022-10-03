@@ -3,8 +3,12 @@ import styled from 'styled-components';
 import { Box, Flex, Text } from 'rebass';
 import Marquee from 'react-fast-marquee';
 import theme from '../utils/theme';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Header = (props: any) => {
+  const r = useRouter();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <StyledHeader flexDirection={'column'} className="header">
       <Flex className="top-bar">
@@ -13,15 +17,33 @@ const Header = (props: any) => {
           サイバースペースを通じて共鳴する
         </Marquee>
       </Flex>
-      <Link href="/">
-        <Flex className="title-bar">
-          <Marquee gradient={false} speed={25} direction={'left'}>
-            <MarqueeContent />
-            <MarqueeContent />
-            <MarqueeContent />
-          </Marquee>
+      <Flex className="title-bar">
+        <Link href="/">
+          <Box>
+            <Marquee gradient={false} speed={25} direction={'left'}>
+              <MarqueeContent />
+              <MarqueeContent />
+              <MarqueeContent />
+            </Marquee>
+          </Box>
+        </Link>
+        {r.asPath != '/' && (
+          <Box 
+            className="mobile-menu-toggle"
+            onClick={() => {
+              setMobileMenuOpen(!mobileMenuOpen);
+            }}
+          >
+            <div className={`hamburger-toggle ${mobileMenuOpen ? 'active' : ''}`}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </Box>
+          )
+        }
         </Flex>
-      </Link>
     </StyledHeader>
   );
 };
@@ -59,6 +81,9 @@ const StyledHeader = styled(Flex)`
     display: flex;
     align-items: center;
     height: 100%;
+    .mobile-menu-toggle {
+      display: none;
+    }
   }
   .title-bar-content {
     margin: 0 1rem;
@@ -86,6 +111,52 @@ const StyledHeader = styled(Flex)`
     }
     .title-bar {
       padding: 0;
+      .mobile-menu-toggle {
+        display: inline-block;
+        min-width: 5rem;
+        border-left: 0.1rem solid ${props => props.theme.colors.primary};
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .hamburger-toggle {
+          position: relative;
+          width: 2rem;
+          height: 2rem;
+          top: 0;
+          &.active {
+            span:first-of-type,
+            span:last-of-type {
+             opacity: 0;
+            }
+            span:nth-of-type(2) {
+              transform: rotate(45deg)
+            }
+            span:nth-of-type(3) {
+              transform: rotate(-45deg)
+            }
+          }
+          span {
+            display: inline-block;
+            position: absolute;
+            width: 100%;
+            height: 0.1rem;
+            background: ${props => props.theme.colors.primary};
+            transition: 0.15s ease-in-out all;
+          }
+          span:first-of-type {
+            top: 20%
+          }
+          span:nth-of-type(2), 
+          span:nth-of-type(3) {
+            top: 50%;
+          }
+          span:nth-of-type(4) {
+            top: 80%;
+          }
+        }
+      }
     }
     .title {
       font-size: 3rem;

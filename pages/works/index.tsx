@@ -161,6 +161,11 @@ const StyledWorkList = styled(Flex)`
     flex-direction: column;
     width: 100%;
   }
+  @media screen and (${props => props.theme.breakpoints.mob}) {
+    .thumbnail {
+      display: none;  
+    }
+  }
 `;
 
 export default Works;
