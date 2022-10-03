@@ -84,6 +84,9 @@ const StyledApp = styled.main`
       }
     }
   }
+  body {
+    overflow: hidden;
+  }
 `;
 
 export default App;

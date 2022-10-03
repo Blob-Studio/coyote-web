@@ -19,9 +19,21 @@ const GlobalStyle = createGlobalStyle`
       sans-serif;
   }
 
+  body {
+    overflow: hidden;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  *::-webkit-scrollbar {
+      width: 0.25rem;
+    }
+  *::-webkit-scrollbar-thumb {
+    background-color: ${theme.colors.primary};
+    border-radius: 5px;
   }
 
   .content-block {
