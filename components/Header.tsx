@@ -158,7 +158,7 @@ const StyledHeader = styled(Flex)`
       pointer-events: auto;
     }
   }
-  @media screen and (${(p) => p.theme.breakpoints.dskt}) {
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
     .top-bar {
       font-size: 1rem;
     }

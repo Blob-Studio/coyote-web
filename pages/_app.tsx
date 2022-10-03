@@ -92,6 +92,9 @@ const StyledApp = styled.main`
         max-height: unset;
         height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
         border-right: none;
+        display: none;
+        .graphic {
+        }
       }
       .mobile-navigation {
         display: none;
