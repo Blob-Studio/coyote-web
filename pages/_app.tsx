@@ -73,7 +73,7 @@ const StyledApp = styled.main`
         'header'
         'sidebar';
       .side-bar {
-        display: block;
+        display: flex;
         max-height: unset;
         height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
         border-right: none;
