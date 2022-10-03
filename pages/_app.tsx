@@ -59,9 +59,25 @@ const StyledApp = styled.main`
     -webkit-text-stroke-color: ${(p) => p.theme.colors.primary};
     -webkit-text-fill-color: ${(p) => p.theme.colors.background};
   }
+  &:not(.home) {
+    grid-template-columns: calc(25% - 4rem) calc(75% + 4rem);
+    .side-bar {
+      .breakdown {
+        display: none;
+        .breakdown-text {
+          font-size: 1rem;
+        }
+      }
+    }
+    .time-info {
+      display: none;
+    }
+  }
 
   @media screen and (${props => props.theme.breakpoints.mob}) {
-    grid-template-columns: 100vw ;
+    &:not(.home) {
+      grid-template-columns: 100vw ;
+    }
     height: unset;
     min-height: 100vh;
     grid-template-rows: ${props => props.theme.sizes.mobileHeaderHeight} 1fr;
@@ -85,7 +101,7 @@ const StyledApp = styled.main`
     }
   }
   body {
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 `;
 
