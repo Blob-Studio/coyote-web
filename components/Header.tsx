@@ -5,6 +5,7 @@ import Marquee from 'react-fast-marquee';
 import theme from '../utils/theme';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import HamburgerToggle from './HamburgerToggle';
 
 const Header = (props: any) => {
   const r = useRouter();
@@ -34,12 +35,7 @@ const Header = (props: any) => {
               setMobileMenuOpen(!mobileMenuOpen);
             }}
           >
-            <div className={`hamburger-toggle ${mobileMenuOpen ? 'active' : ''}`}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+            <HamburgerToggle isActive={mobileMenuOpen} />
           </Box>
           )
         }
@@ -120,42 +116,6 @@ const StyledHeader = styled(Flex)`
         display: flex;
         align-items: center;
         justify-content: center;
-        .hamburger-toggle {
-          position: relative;
-          width: 2rem;
-          height: 2rem;
-          top: 0;
-          &.active {
-            span:first-of-type,
-            span:last-of-type {
-             opacity: 0;
-            }
-            span:nth-of-type(2) {
-              transform: rotate(45deg)
-            }
-            span:nth-of-type(3) {
-              transform: rotate(-45deg)
-            }
-          }
-          span {
-            display: inline-block;
-            position: absolute;
-            width: 100%;
-            height: 0.1rem;
-            background: ${props => props.theme.colors.primary};
-            transition: 0.15s ease-in-out all;
-          }
-          span:first-of-type {
-            top: 20%
-          }
-          span:nth-of-type(2), 
-          span:nth-of-type(3) {
-            top: 50%;
-          }
-          span:nth-of-type(4) {
-            top: 80%;
-          }
-        }
       }
     }
     .title {

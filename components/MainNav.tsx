@@ -110,6 +110,7 @@ const StyledMainNav = styled.nav`
     border-bottom: 0;
     width: 100%;
     height: 100%;
+    display: none;
     height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
     .main-view-navigation {
       padding: 0;
