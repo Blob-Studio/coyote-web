@@ -143,7 +143,7 @@ const StyledHeader = styled(Flex)`
     align-items: center;
     justify-content: center;
     transition: 0.25s ease-in-out all;
-    ${(props) => props.theme.textures.striped};
+    ${(props) => props.theme.textures.polka};
     .main-navigation-button {
       width: 80%;
       height: fit-content;
