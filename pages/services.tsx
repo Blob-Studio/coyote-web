@@ -144,6 +144,16 @@ const StyledServices = styled(MainViewContent)`
       display: block;
     }
   }
+  @media screen and (${(p) => p.theme.breakpoints.dskt}) {
+    .content-block {
+      ul {
+        flex-direction: column;
+        li {
+          width: 100%;
+        }
+      }
+    }
+  }
 `;
 
 export default Services;
