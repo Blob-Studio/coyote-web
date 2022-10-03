@@ -41,6 +41,7 @@ const Works = (props: any) => {
             setHoveredWork={setHoveredWork}
             setThumbnailYPosition={setThumbnailYPosition}
             offsetTop={offsetTop}
+            thumbnailRef={thumbnailRef}
           />
         ))}
       </Flex>
@@ -48,38 +49,44 @@ const Works = (props: any) => {
   );
 };
 
-const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetTop }: any) => {
-  const listItemRef: any = useRef(null);
+const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetTop, thumbnailRef }: any) => {
+  const listItemRef: any = useRef();
 
   return (
-    <StyledWorkListItem
-      ref={listItemRef}
-      onMouseEnter={() => {
-        setHoveredWork(workData);
-        let yPosition = listItemRef.current.getBoundingClientRect().bottom - 2 - offsetTop + 'px';
-        setThumbnailYPosition(yPosition);
-      }}
-      onMouseLeave={() => {
-        // setHoveredWork(null);
-      }}
-    >
-      <Link href={`works/${workData.workSafeURL}`}>
-        <Flex className="list-item">
-          <Box className="list-item-text">
-            <Text as="strong">{workData.name}</Text>
-            <Text as="span">
-              <span className="divider">/</span>
-              {workData.workType.map((type: any, j: number) => (
-                <Fragment key={j}>
-                  <span>{type}</span>
-                  {j != workData.workType.length - 1 && ', '}
-                </Fragment>
-              ))}
-            </Text>
-          </Box>
-        </Flex>
-      </Link>
-    </StyledWorkListItem>
+    <Link href={`works/${workData.workSafeURL}`}>
+      <StyledWorkListItem
+        ref={listItemRef}
+        onMouseEnter={() => {
+          setHoveredWork(workData);
+          const thumbnailHeight = thumbnailRef.current.clientHeight;
+          let yPos = '0';
+          if (listItemRef.current.getBoundingClientRect().bottom + thumbnailHeight >= window.innerHeight) {
+            yPos = `${listItemRef.current.getBoundingClientRect().y - thumbnailHeight - 2 - offsetTop}px`;
+          } else {
+            yPos = `${listItemRef.current.getBoundingClientRect().bottom - 1 - offsetTop}px`;
+          }
+          setThumbnailYPosition(yPos);
+        }}
+        onMouseLeave={() => {
+          setHoveredWork(null);
+        }}
+      >
+          <Flex className="list-item">
+            <Box className="list-item-text">
+              <Text as="strong">{workData.name}</Text>
+              <Text as="span">
+                <span className="divider">/</span>
+                {workData.workType.map((type: any, j: number) => (
+                  <Fragment key={j}>
+                    <span>{type}</span>
+                    {j != workData.workType.length - 1 && ', '}
+                  </Fragment>
+                ))}
+              </Text>
+            </Box>
+          </Flex>
+      </StyledWorkListItem>
+    </Link>
   );
 };
 
@@ -148,11 +155,11 @@ const StyledWorkList = styled(Flex)`
     top: 0;
     width: 22rem;
     height: 12rem;
-    z-index: 1000000;
+    z-index: 100;
     pointer-events: none;
-    border: 0.1rem solid ${(props) => props.theme.colors.primary};
+    border: 1px solid ${(props) => props.theme.colors.primary};
     opacity: 0;
-    transition: 0.25s ease-in-out all;
+    transition: 0.25s ease-in-out opacity;
     &.visible {
       opacity: 1;
     }
