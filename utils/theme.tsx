@@ -70,11 +70,12 @@ const theme: Theme = {
     striped: `
       background-image: repeating-linear-gradient(
         45deg, 
-        ${transparentize(0.4, colors.primary)} 0, 
-        ${transparentize(0.4, colors.primary)} 1px, 
+        ${transparentize(0.7, colors.primary)} 0, 
+        ${transparentize(0.7, colors.primary)} 1px, 
         transparent 0, 
         transparent 50%
       ); 
+      background-size: 2rem 2rem;
     `,
   },
 };

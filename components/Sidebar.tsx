@@ -62,6 +62,7 @@ const StyledSidebar = styled(Flex)`
     max-height: none;
     .graphic {
       position: relative;
+      ${(props) => props.theme.textures.striped};
       .navigation {
         z-index: 10;
         display: flex;
@@ -79,7 +80,7 @@ const StyledSidebar = styled(Flex)`
           margin-left: 10%;
           mix-blend-mode: multiply;
           margin-bottom: 1rem;
-          background: hsla(0, 0%, 0%, 0.3);
+          background: hsla(0, 0%, 0%, 0.7);
           &:last-of-type {
             margin-bottom: 0;
           }
