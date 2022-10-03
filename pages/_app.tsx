@@ -69,6 +69,7 @@ const StyledApp = styled.main`
       'header'
       'main';
     &.home {
+      height: 100vh;
       grid-template-areas:
         'header'
         'sidebar';
