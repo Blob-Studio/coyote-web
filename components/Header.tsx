@@ -6,9 +6,13 @@ import theme from '../utils/theme';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import HamburgerToggle from './HamburgerToggle';
+import NavButton from './NavButton';
+import getLocales from '../utils/getLocales';
 
 const Header = (props: any) => {
   const r = useRouter();
+  const locale = getLocales(r.locale as 'en' | 'es');
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <StyledHeader flexDirection={'column'} className="header">
@@ -39,6 +43,17 @@ const Header = (props: any) => {
           </Box>
           )
         }
+        <div className={`mobile-navigation ${mobileMenuOpen ? 'active' : ''}`}>
+          <NavButton currentPath={r.pathname} url="/about">
+            {locale.mainNavigation.about}
+          </NavButton>
+          <NavButton currentPath={r.pathname} url="/works">
+            {locale.mainNavigation.work}
+          </NavButton>
+          <NavButton currentPath={r.pathname} url="/services">
+            {locale.mainNavigation.services}
+          </NavButton>
+        </div>
         </Flex>
     </StyledHeader>
   );
@@ -100,6 +115,34 @@ const StyledHeader = styled(Flex)`
     position: relative;
     top: -0.5rem;
     font-weight: 600;
+  }
+  .mobile-navigation {
+    pointer-events: none;
+    opacity: 0;
+    z-index: 100;
+    width: 100%;
+    height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
+    background: ${props => props.theme.colors.background};
+    position: absolute;
+    top: calc(${props => props.theme.sizes.mobileHeaderHeight} + 3rem);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.25s ease-in-out all;
+    .main-navigation-button {
+      width: 80%;
+      height: fit-content;
+      padding: 1rem 0;
+      .main-navigation-button-text {
+        font-size: 2rem;
+      }
+    }
+    &.active {
+      top: ${props => props.theme.sizes.mobileHeaderHeight};
+      opacity: 1;
+    }
   }
   @media screen and (${(p) => p.theme.breakpoints.dskt}) {
     .top-bar {
