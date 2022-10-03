@@ -75,6 +75,11 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+  @media screen and (${theme.breakpoints.mob}) {
+    body {
+      overflow: auto;
+    }
+  }
 `;
 
 export default GlobalStyle;

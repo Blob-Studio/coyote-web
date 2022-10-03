@@ -75,15 +75,15 @@ const StyledApp = styled.main`
   }
 
   @media screen and (${props => props.theme.breakpoints.mob}) {
-    /* grid-template-columns: 100vw ; */
+    overflow: auto;
     height: unset;
     min-height: 100vh;
+    grid-template-columns: auto !important;
     grid-template-rows: ${props => props.theme.sizes.mobileHeaderHeight} 1fr;
     grid-template-areas:
       'header'
       'main';
     &.home {
-      height: 100vh;
       grid-template-areas:
         'header'
         'sidebar';
@@ -99,9 +99,6 @@ const StyledApp = styled.main`
       .mobile-navigation {
         display: none;
       }
-    }
-    &:not(.home) {
-      grid-template-columns: 100vw;
     }
   }
 `;

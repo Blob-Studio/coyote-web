@@ -4,20 +4,20 @@ import styled from 'styled-components';
 
 const NavButton = ({ children, url, currentPath, onClick, ...props }: { children: any; url: string; currentPath: string, onClick?: any }) => {
   return (
-    <StyledNavButton 
-      className={`main-navigation-button ${currentPath === url && 'selected'}`}
-      onClick={onClick}
-    >
-      <Link href={url}>
-        <Text 
-          {...props}
-          as="span" 
-          className="main-navigation-button-text"
-        >
-            {children}
-        </Text>
-      </Link>
-    </StyledNavButton>
+    <Link href={url}>
+      <StyledNavButton 
+        className={`main-navigation-button ${currentPath === url && 'selected'}`}
+        onClick={onClick}
+      >
+          <Text 
+            {...props}
+            as="span" 
+            className="main-navigation-button-text"
+          >
+              {children}
+          </Text>
+      </StyledNavButton>
+    </Link>
   );
 };
 

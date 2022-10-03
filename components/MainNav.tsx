@@ -84,13 +84,13 @@ const StyledMainNav = styled.nav`
         &:last-of-type {
           border-bottom: 0;
         }
-        &.selected {
-          background: ${(props) => props.theme.colors.primary};
-          color: ${(props) => props.theme.colors.font};
-        }
         &:hover {
           background: ${(props) => transparentize(0.7, props.theme.colors.primary)};
           color: ${(props) => props.theme.colors.primary};
+        }
+        &.selected {
+          background: ${(props) => props.theme.colors.primary};
+          color: ${(props) => props.theme.colors.font};
         }
         .main-navigation-button-text {
           display: inline-block;
