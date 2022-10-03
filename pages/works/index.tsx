@@ -128,7 +128,7 @@ const StyledWorkListItem = styled.li`
   span {
     font-size: 1rem;
   }
-  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+  @media screen and (${(p) => p.theme.breakpoints.desktop}) {
     height: unset;
     padding: 0.8rem 0.8rem;
     .list-item {
@@ -168,7 +168,7 @@ const StyledWorkList = styled(Flex)`
     flex-direction: column;
     width: 100%;
   }
-  @media screen and (${props => props.theme.breakpoints.mob}) {
+  @media screen and (${props => props.theme.breakpoints.mobile}) {
     .thumbnail {
       display: none;  
     }

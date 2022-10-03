@@ -80,7 +80,7 @@ const StyledWorkPage = styled(Flex)`
       margin-bottom: 2rem;
     }
   }
-  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+  @media screen and (${(p) => p.theme.breakpoints.mobile}) {
     .content-header {
       display: flex;
       .url-bar {

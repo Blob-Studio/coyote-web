@@ -144,7 +144,7 @@ const StyledServices = styled(MainViewContent)`
       display: block;
     }
   }
-  @media screen and (${(p) => p.theme.breakpoints.dskt}) {
+  @media screen and (${(p) => p.theme.breakpoints.desktop}) {
     .content-block {
       ul {
         flex-direction: column;

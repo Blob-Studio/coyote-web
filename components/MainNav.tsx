@@ -105,7 +105,7 @@ const StyledMainNav = styled.nav`
     }
   }
 
-  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+  @media screen and (${(p) => p.theme.breakpoints.mobile}) {
     flex-direction: column-reverse;
     border-bottom: 0;
     width: 100%;

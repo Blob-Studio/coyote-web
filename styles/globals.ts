@@ -69,13 +69,13 @@ const GlobalStyle = createGlobalStyle`
     p {
       font-size: 0.8rem;
     }
-    @media screen and (${theme.breakpoints.mob}) {
+    @media screen and (${theme.breakpoints.mobile}) {
       a {
         flex-direction: column;
       }
     }
   }
-  @media screen and (${theme.breakpoints.mob}) {
+  @media screen and (${theme.breakpoints.mobile}) {
     body {
       overflow: auto;
     }

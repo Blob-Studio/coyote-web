@@ -57,8 +57,7 @@ const StyledSidebar = styled(Flex)`
   .navigation {
     display: none;
   }
-  @media screen and (${props => props.theme.breakpoints.mob}) {
-    display: none;
+  @media screen and (${props => props.theme.breakpoints.mobile}) {
     max-height: none;
     .graphic {
       position: relative;

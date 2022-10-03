@@ -17,8 +17,8 @@ interface Theme {
     width: string;
   };
   breakpoints: {
-    dskt: string;
-    mob: string;
+    desktop: string;
+    mobile: string;
   };
   textures: {
     polka: string;
@@ -56,8 +56,8 @@ const theme: Theme = {
     width: 'calc(1rem / 16)',
   },
   breakpoints: {
-    dskt: 'max-width: 1200px',
-    mob: 'max-width: 600px',
+    desktop: 'max-width: 1200px',
+    mobile: 'max-width: 600px',
   },
   textures: {
     polka: `
