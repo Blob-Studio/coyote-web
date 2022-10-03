@@ -74,16 +74,17 @@ const StyledSidebar = styled(Flex)`
         justify-content: center;
         .main-navigation-button {
           width: 80%;
-          height: 3rem;
+          height: fit-content;
+          padding: 1rem 0;
           margin-left: 10%;
           mix-blend-mode: multiply;
-          margin-bottom: 3rem;
+          margin-bottom: 1rem;
           background: hsla(0, 0%, 0%, 0.3);
           &:last-of-type {
             margin-bottom: 0;
           }
           .main-navigation-button-text {
-            font-size: 1.2rem;
+            font-size: 2rem;
           }
         }
       }
