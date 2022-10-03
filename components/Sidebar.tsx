@@ -4,13 +4,14 @@ import { useRouter } from 'next/router';
 import getLocales from '../utils/getLocales';
 import ThreeJSPageScene from './ThreeJSPageScene';
 import TimeInfo from './TimeInfo';
+import NavButton from './NavButton';
 
 const Sidebar = (props: any) => {
   const router = useRouter();
   const locale = getLocales(router.locale as 'en' | 'es');
 
   return (
-    <StyledSidebar className="side-bar" flexDirection={'column'}>
+    <StyledSidebar className={`${props.className} side-bar`} flexDirection={'column'}>
       <Flex alignItems="center" justifyContent="center" className="breakdown">
         <Box as={'p'} className="breakdown-text">
           {locale.sidebar.headerText}
@@ -44,6 +45,7 @@ const StyledSidebar = styled(Flex)`
   }
   @media screen and (${props => props.theme.breakpoints.mob}) {
     display: none;
+    max-height: none;
   }
 `;
 

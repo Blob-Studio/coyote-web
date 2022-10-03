@@ -7,16 +7,8 @@ import { Box, Flex } from 'rebass';
 import { transparentize } from 'polished';
 
 import getLocales from '../utils/getLocales';
-
-const NavButton = ({ children, url, currentPath, ...props }: { children: any; url: string; currentPath: string }) => {
-  return (
-    <Link href={url}>
-      <Box {...props} className={`main-navigation-button ${currentPath === url && 'selected'}`}>
-        <span className="main-navigation-button-text">{children}</span>
-      </Box>
-    </Link>
-  );
-};
+import Sidebar from './Sidebar';
+import NavButton from './NavButton';
 
 const MainNav = () => {
   const router = useRouter();
@@ -66,29 +58,6 @@ const StyledMainNav = styled.nav`
     width: 100%;
     z-index: 10;
   }
-  .main-navigation-button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    height: 8rem;
-    border: 0.1rem solid ${(props) => props.theme.colors.primary};
-    background: ${(props) => props.theme.colors.background};
-    margin-bottom: 2rem;
-    font-weight: 600;
-    .main-navigation-button-text {
-      font-size: 4rem;
-    }
-    &:hover {
-      background: ${(props) => props.theme.colors.primary};
-      color: ${(props) => props.theme.colors.font};
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
   .breakdown {
     display: none;
   }
@@ -100,39 +69,39 @@ const StyledMainNav = styled.nav`
       padding: 0;
       width: 4rem;
       background: none;
-    }
-    .main-navigation-button {
-      width: 100%;
-      height: calc(100% / 3);
-      margin: 0;
-      border: 0;
-      border-right: ${(props) => props.theme.border.width} solid ${(props) => props.theme.colors.primary};
-      border-bottom: ${(props) => props.theme.border.width} solid ${(props) => props.theme.colors.primary};
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      align-items: center;
-      cursor: pointer;
-      &:last-of-type {
-        border-bottom: 0;
+      .main-navigation-button {
+        width: 100%;
+        height: calc(100% / 3);
+        margin: 0;
+        border: 0;
+        border-right: ${(props) => props.theme.border.width} solid ${(props) => props.theme.colors.primary};
+        border-bottom: ${(props) => props.theme.border.width} solid ${(props) => props.theme.colors.primary};
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        cursor: pointer;
+        &:last-of-type {
+          border-bottom: 0;
+        }
+        &.selected {
+          background: ${(props) => props.theme.colors.primary};
+          color: ${(props) => props.theme.colors.font};
+        }
+        &:hover {
+          background: ${(props) => transparentize(0.7, props.theme.colors.primary)};
+          color: ${(props) => props.theme.colors.primary};
+        }
+        .main-navigation-button-text {
+          display: inline-block;
+          width: 10rem;
+          position: absolute;
+          transform: rotate(-90deg);
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          font-weight: 600;
+        }
       }
-      &.selected {
-        background: ${(props) => props.theme.colors.primary};
-        color: ${(props) => props.theme.colors.font};
-      }
-      &:hover {
-        background: ${(props) => transparentize(0.7, props.theme.colors.primary)};
-        color: ${(props) => props.theme.colors.primary};
-      }
-    }
-    .main-navigation-button-text {
-      display: inline-block;
-      width: 10rem;
-      position: absolute;
-      transform: rotate(-90deg);
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      font-weight: 600;
     }
   }
 
@@ -141,6 +110,7 @@ const StyledMainNav = styled.nav`
     border-bottom: 0;
     width: 100%;
     height: 100%;
+    height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
     .main-view-navigation {
       padding: 0;
       justify-content: center;
@@ -150,7 +120,9 @@ const StyledMainNav = styled.nav`
       height: auto;
       flex-grow: 1;
       height: 100%;
+      background: none;
       .main-navigation-button {
+        display: none;
         width: 80%;
         height: 4rem;
         .main-navigation-button-text {

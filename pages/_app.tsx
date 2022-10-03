@@ -8,17 +8,29 @@ import MainView from '../components/MainView';
 import MainNav from '../components/MainNav';
 import GlobalStyle from '../styles/globals';
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 const App = ({ Component, pageProps }: any) => {
+  const [appClass, setAppClass] = useState('home');
   const r = useRouter();
+
+  useEffect(() => {
+    if (r.route.substring(1) == "") {
+      setAppClass('home');
+    } else {
+      setAppClass(r.route.substring(1));
+    }
+  }, [r.route]);
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Head>
-        <title>Coyote Web Studio | Web Development Studio from Buenos Aires, Argentina</title>
+        <title>
+          Coyote Web Studio | Web Development Studio from Buenos Aires, Argentina
+        </title>
       </Head>
-      <StyledApp>
+      <StyledApp className={appClass}>
         <Header />
         <Sidebar />
         <MainView>
@@ -56,6 +68,17 @@ const StyledApp = styled.main`
     grid-template-areas:
       'header'
       'main';
+    &.home {
+      grid-template-areas:
+        'header'
+        'sidebar';
+      .side-bar {
+        display: block;
+        max-height: unset;
+        height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
+        border-right: none;
+      }
+    }
   }
 `;
 
