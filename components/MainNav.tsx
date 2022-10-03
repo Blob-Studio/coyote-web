@@ -48,8 +48,8 @@ const StyledMainNav = styled.nav`
   .main-view-navigation {
     background-size: 4rem 4rem;
     flex-direction: column;
-    ${(props) => props.theme.textures.polka};
-    /* animation: ${backgroundAnimation} 2s infinite linear; */
+    ${(props) => props.theme.textures.striped};
+    animation: ${backgroundAnimation} 3s infinite linear;
     display: flex;
     align-items: center;
     justify-content: center;
