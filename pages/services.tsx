@@ -35,7 +35,6 @@ const OurTechStack = [
   {
     name: 'React',
     logo: 'react',
-    invertLogo: true,
   },
   {
     name: 'Next.js',
@@ -137,65 +136,38 @@ const StyledServices = styled(MainViewContent)`
       margin-bottom: 2rem;
       font-size: 3rem;
     }
-    .services-list {
+  }
+  .services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .service-card {
+      width: 48%;
+      margin: 0;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      .service-card {
-        width: 48%;
-        margin: 0;
-        display: flex;
-        /* justify-content: space-between; */
-        flex-direction: column;
-        border: 0.1rem solid ${props => props.theme.colors.primary};
-        margin-bottom: 2rem;
-        align-items: center;
-        padding: 1.2rem 1.2rem;
-        .service-image {
-          width: 4.8rem;
-          height: 4rem;
-          margin-bottom: 0;
-          svg {
-            path {
-              stroke: ${props => props.theme.colors.primary};
-            }
+      flex-direction: column;
+      border: 0.1rem solid ${props => props.theme.colors.primary};
+      margin-bottom: 2rem;
+      align-items: center;
+      padding: 1.2rem 1.2rem;
+      .service-image {
+        width: 4.8rem;
+        height: 4rem;
+        margin-bottom: 0;
+        svg {
+          path {
+            stroke: ${props => props.theme.colors.primary};
           }
-        }
-        h2 {
-          margin-bottom: 1rem;
-        }
-        p {
-          color: white;
-          margin-bottom: auto;
-          line-height: 150%;
-          font-size: 1rem;
         }
       }
-    }
-    .logo-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      li {
-        /* margin-right: 1rem; */
-        margin-bottom: 0.8rem;
-        display: inline-block;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        width: calc(100% / 10);
-        margin: 0 2.5rem;
-        .logo-wrapper {
-          margin-right: 0.6rem;
-          mix-blend-mode: lighten;
-          height: 8rem;
-          width: 100%;
-          position: relative;
-          filter: grayscale(1);
-          &.inverted {
-            filter: invert(1) grayscale(1);
-          }
-        }
+      h2 {
+        margin-bottom: 1rem;
+      }
+      p {
+        color: white;
+        margin-bottom: auto;
+        line-height: 150%;
+        font-size: 1rem;
       }
     }
   }
@@ -275,9 +247,6 @@ const StyledServices = styled(MainViewContent)`
     .logo-item {
       margin: 0 1rem;
       width: calc((100% - 6rem) / 3);
-    }
-    .page-wrapper {
-      width: 100%;
     }
   }
 `;
