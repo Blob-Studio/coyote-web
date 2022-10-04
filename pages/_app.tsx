@@ -29,6 +29,7 @@ const App = ({ Component, pageProps }: any) => {
         <title>Coyote Web Studio | Web Development Studio from Buenos Aires, Argentina</title>
       </Head>
       <StyledApp className={appClass}>
+        <div className="overlay"/>
         <Header />
         <Sidebar />
         <MainView>
@@ -52,6 +53,18 @@ const StyledApp = styled.main`
   grid-template-areas:
     'header header'
     'sidebar main';
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: none;
+    background: pink;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.1;
+    mix-blend-mode: multiply;
+  }
   .outlined {
     -webkit-text-stroke-width: 0.09rem;
     -webkit-text-stroke-color: ${(p) => p.theme.colors.primary};
