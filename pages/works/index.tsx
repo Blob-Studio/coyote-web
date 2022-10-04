@@ -108,12 +108,7 @@ const StyledWorkListItem = styled.li`
     border-bottom: 0;
   }
   &:hover {
-    background: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.font};
-    .divider,
-    span {
-      color: ${(props) => transparentize(0.4, props.theme.colors.font)};
-    }
+    background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
   }
   .divider,
   span {

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { transparentize } from 'polished';
 import { Box, Flex, Link } from 'rebass';
 import styled from 'styled-components';
 import theme from '../utils/theme';
@@ -144,6 +145,7 @@ const StyledServices = styled(MainViewContent)`
         width: 48%;
         margin: 0;
         display: flex;
+        background:  ${(props) => transparentize(0.9, props.theme.colors.primary)};
         /* justify-content: space-between; */
         flex-direction: column;
         border: 0.1rem solid ${props => props.theme.colors.primary};

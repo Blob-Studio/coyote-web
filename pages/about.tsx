@@ -38,6 +38,9 @@ const StyledAboutUs = styled(MainViewContent)`
       margin-bottom: 1rem;
     }
   }
+  .content-card {
+    background:  ${(props) => transparentize(0.9, props.theme.colors.primary)};
+  }
   @media screen and (${(p) => p.theme.breakpoints.mob}) {
     .page-wrapper {
       width: 100%;

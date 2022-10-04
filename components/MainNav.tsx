@@ -85,7 +85,7 @@ const StyledMainNav = styled.nav`
           border-bottom: 0;
         }
         &:hover {
-          background: ${(props) => transparentize(0.7, props.theme.colors.primary)};
+          background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
           color: ${(props) => props.theme.colors.primary};
         }
         &.selected {
