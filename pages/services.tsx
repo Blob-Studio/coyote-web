@@ -106,7 +106,7 @@ const Services = (props: any) => {
             {OurTechStack.map((tech, index) => (
               <li key={index} className="logo-item">
                 <div className={`logo-wrapper ${tech.invertLogo ? 'inverted' : ''}`}>
-                  <Image src={`/img/icons/svg/${tech.logo}.${tech.ext || 'svg'}`} alt={tech.name} layout={"fill"} />
+                  <Image src={`/img/icons/svg/${tech.logo}.${tech.ext || 'svg'}`} alt={tech.name} layout={"fill"} objectFit={'contain'}/>
                 </div>
                 {/* <span>{tech.name}</span> */}
               </li>
@@ -133,50 +133,48 @@ const StyledServices = styled(MainViewContent)`
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      .service-card {
-        width: 32%;
-        margin: 0;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        border: 0.1rem solid ${props => props.theme.colors.primary};
-        margin-bottom: 2rem;
-        padding: 1.2rem 1.2rem;
-        h2 {
-          margin-bottom: 1rem;
-        }
-        p {
-          color: white;
-          margin-bottom: auto;
-          line-height: 150%;
-        }
+    }
+    .service-card {
+      width: 32%;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      border: 0.1rem solid ${props => props.theme.colors.primary};
+      margin-bottom: 2rem;
+      padding: 1.2rem 1.2rem;
+      h2 {
+        margin-bottom: 1rem;
+      }
+      p {
+        color: white;
+        margin-bottom: auto;
+        line-height: 150%;
       }
     }
-    .logo-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      li {
-        /* margin-right: 1rem; */
-        margin-bottom: 0.8rem;
-        display: inline-block;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        width: calc(100% / 10);
-        margin: 0 2.5rem;
-        .logo-wrapper {
-          margin-right: 0.6rem;
-          mix-blend-mode: lighten;
-          height: 8rem;
-          width: 100%;
-          position: relative;
-          filter: grayscale(1);
-          &.inverted {
-            filter: invert(1) grayscale(1);
-          }
-        }
-      }
+  }
+  .logo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .logo-item {
+    margin-bottom: 0.8rem;
+    display: inline-block;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: calc(100% / 10);
+    margin: 0 2.5rem;
+  }
+  .logo-wrapper {
+    margin-right: 0.6rem;
+    height: 8rem;
+    width: 100%;
+    position: relative;
+    filter: grayscale(1);
+    &.inverted {
+      filter: invert(1) grayscale(1);
     }
   }
   .contact {
@@ -205,12 +203,12 @@ const StyledServices = styled(MainViewContent)`
           width: 100%;
         }
       }
-      ul {
-        flex-direction: column;
-        li {
-          width: 100%;
-        }
-      }
+    }
+    .logo-list {
+    }
+    .logo-item {
+      margin: 0 1rem;
+      width: calc((100% - 6rem) / 3);
     }
   }
 `;
