@@ -50,7 +50,7 @@ const Works = (props: any) => {
 };
 
 const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetTop, thumbnailRef }: any) => {
-  const listItemRef: any = useRef();
+  const listItemRef: any = useRef(null);
 
   return (
     <Link href={`works/${workData.workSafeURL}`}>

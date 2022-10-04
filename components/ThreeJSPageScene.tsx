@@ -50,8 +50,8 @@ const DistortedSphereMesh = () => {
 
   const BASE_SPEED = 1.1;
 
-  const meshRef = useRef<any>();
-  const meshDistortMatRef = useRef<any>();
+  const meshRef = useRef<any>(null);
+  const meshDistortMatRef = useRef<any>(null);
 
   const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [clicking, setClicking] = useState<boolean>(false);
