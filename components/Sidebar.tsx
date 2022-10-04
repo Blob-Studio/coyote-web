@@ -46,16 +46,18 @@ const StyledSidebar = styled(Flex)`
   position: relative;
   max-height: calc(100vh - ${(p) => p.theme.sizes.headerHeight});
   .breakdown {
-    border-bottom: ${(p) => p.theme.border.width} solid ${(p) => p.theme.colors.primary};
-    font-size: 1.4rem;
+    /* border-bottom: ${(p) => p.theme.border.width} solid ${(p) => p.theme.colors.primary}; */
+    font-size: 1.6rem;
     text-align: center;
-    padding: 1.2rem;
+    padding: 2rem 1rem 0;
     line-height: 130%;
   }
   .graphic {
     flex-grow: 1;
     overflow: hidden;
     user-select: none;
+    position: relative;
+    top: -4rem;
   }
   .navigation {
     display: none;
