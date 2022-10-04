@@ -140,7 +140,6 @@ const StyledWorkListItem = styled.li`
 `;
 
 const StyledWorkList = styled(Flex)`
-  ${(props) => props.theme.textures.polka};
   width: 100%;
   flex-direction: column;
   overflow-y: auto;

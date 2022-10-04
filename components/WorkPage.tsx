@@ -73,6 +73,7 @@ const StyledWorkPage = styled(Flex)`
     padding-bottom: 4rem;
     h1 {
       font-size: 4rem;
+      margin-bottom: 1.2rem;
     }
     h2 {
       font-size: 2.4rem;

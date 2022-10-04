@@ -13,14 +13,6 @@ const StyledMainViewContent = styled(Flex)`
   overflow-y: auto;
   padding: 2rem;
 
-  &::-webkit-scrollbar {
-    width: 0.25rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: ${(p) => p.theme.colors.primary};
-    border-radius: 5px;
-  }
-
   @media screen and (${props => props.theme.breakpoints.mob}) {
     flex-direction: column;
   }

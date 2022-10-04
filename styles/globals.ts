@@ -29,11 +29,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *::-webkit-scrollbar {
-      width: 0.25rem;
-    }
+    width: 0.5rem;
+    background-color: ${transparentize(0.7, theme.colors.primary)};
+  }
   *::-webkit-scrollbar-thumb {
     background-color: ${theme.colors.primary};
-    border-radius: 5px;
+    border-radius: 0;
   }
 
   .content-block {
