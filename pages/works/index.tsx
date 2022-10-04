@@ -155,10 +155,10 @@ const StyledWorkList = styled(Flex)`
   .thumbnail {
     position: absolute;
     background: ${props => props.theme.colors.primary};
-    right: 0;
+    right: 1rem;
     top: 0;
     width: 22rem;
-    height: 12rem;
+    height: 12.05rem;
     z-index: 100;
     pointer-events: none;
     border: 1px solid ${(props) => props.theme.colors.primary};

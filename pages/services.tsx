@@ -200,12 +200,12 @@ const StyledServices = styled(MainViewContent)`
           width: 100%;
         }
       }
-      ul {
-        flex-direction: column;
-        li {
-          width: 100%;
-        }
-      }
+    }
+    .logo-list {
+    }
+    .logo-item {
+      margin: 0 1rem;
+      width: calc((100% - 6rem) / 3);
     }
     .page-wrapper {
       width: 100%;
