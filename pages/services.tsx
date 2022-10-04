@@ -45,17 +45,14 @@ const OurTechStack = [
   {
     name: 'Gatsby',
     logo: 'gatsby',
-    invertLogo: true,
   },
   {
     name: 'Node',
     logo: 'node',
-    invertLogo: true,
   },
   {
     name: 'Strapi',
     logo: 'strapi',
-    invertLogo: true
   },
   {
     name: 'Google Cloud',
@@ -63,13 +60,17 @@ const OurTechStack = [
   },
   {
     name: 'AWS',
-    logo: 'aws',
-    invertLogo: true,
+    logo: 'aws'
   },
   {
     name: 'Github',
     logo: 'github',
     invertLogo: true,
+  },
+  {
+    name: 'ThreeJS',
+    logo: 'threejs',
+    invertLogo: true
   },
 ];
 
@@ -102,7 +103,7 @@ const Services = (props: any) => {
               {OurTechStack.map((tech, index) => (
                 <li key={index} className="logo-item">
                   <div className={`logo-wrapper ${tech.invertLogo ? 'inverted' : ''}`}>
-                    <Image src={`/img/icons/svg/${tech.logo}.svg`} alt={tech.name} layout={"fill"} />
+                    <Image src={`/img/icons/${tech.logo}.${tech.ext || 'svg'}`} alt={tech.name} layout={"fill"} objectFit={'contain'}/>
                   </div>
                   {/* <span>{tech.name}</span> */}
                 </li>
@@ -196,6 +197,37 @@ const StyledServices = styled(MainViewContent)`
           }
         }
       }
+    }
+  }
+  .logo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .logo-item {
+    margin-bottom: 0.8rem;
+    display: inline-block;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: calc(100% / 10);
+    margin: 0 2.5rem;
+  }
+  .logo-wrapper {
+    margin-right: 0.6rem;
+    height: 8rem;
+    width: 100%;
+    position: relative;
+    filter: grayscale(1);
+    transition: filter 0.3s ease-in-out;
+    &.inverted {
+      filter: invert(1) grayscale(1);
+      &:hover {
+        filter: invert(1) grayscale(0);
+      }
+    }
+    &:hover {
+      filter: grayscale(0);
     }
   }
   .contact {
