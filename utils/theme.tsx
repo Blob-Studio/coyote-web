@@ -70,19 +70,19 @@ const theme: Theme = {
     striped: `
       background-image: repeating-linear-gradient(
         -45deg, 
-        ${transparentize(0.5, colors.primary)} 0, 
-        ${transparentize(0.5, colors.primary)} 1px, 
+        ${transparentize(0.7, colors.primary)} 0, 
+        ${transparentize(0.7, colors.primary)} 1px, 
         transparent 0, 
         transparent 50%
       ),
       repeating-linear-gradient(
         0deg, 
-        ${transparentize(0.5, colors.primary)} 0, 
-        ${transparentize(0.5, colors.primary)} 1px, 
+        ${transparentize(0.7, colors.primary)} 0, 
+        ${transparentize(0.7, colors.primary)} 1px, 
         transparent 0, 
         transparent 50%
       ); 
-      background-size: 6rem 6rem;
+      background-size: 5rem 5rem;
     `,
   },
 };

@@ -40,7 +40,7 @@ const MainNav = () => {
 
 const backgroundAnimation = keyframes`
   0% {background-position: 0}
-  100% {background-position: 6rem}
+  100% {background-position: 5rem}
 `;
 
 const StyledMainNav = styled.nav`
