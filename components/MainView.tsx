@@ -11,7 +11,9 @@ const MainView = ({ children }: any) => {
 
   return (
     <StyledMainView>
-      <StyledMainViewContent>{children}</StyledMainViewContent>
+      <StyledMainViewContent>
+        {children}
+      </StyledMainViewContent>
     </StyledMainView>
   );
 };

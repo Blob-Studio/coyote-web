@@ -55,9 +55,9 @@ const StyledApp = styled.main`
     'header header'
     'sidebar main';
   .outlined {
-    -webkit-text-stroke-width: 0.05rem;
+    -webkit-text-stroke-width: 0.09rem;
     -webkit-text-stroke-color: ${(p) => p.theme.colors.primary};
-    -webkit-text-fill-color: ${(p) => p.theme.colors.background};
+    -webkit-text-fill-color: transparent;
   }
   @media screen and (${props => props.theme.breakpoints.mob}) {
     height: unset;

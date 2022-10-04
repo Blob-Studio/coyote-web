@@ -5,14 +5,24 @@ import MainViewContent from './../components/MainViewContent';
 
 import getLocales from '../utils/getLocales';
 import { useRouter } from 'next/router';
+import { transparentize } from 'polished';
 
 const AboutUs = (props: any) => {
   const router = useRouter();
   const locale = getLocales(router.locale as 'en' | 'es');
-  return <StyledAboutUs>{locale.about.content}</StyledAboutUs>;
+  return (
+    <StyledAboutUs>
+      <div className="page-wrapper">
+        {locale.about.content}
+      </div>
+    </StyledAboutUs>);
 };
 
 const StyledAboutUs = styled(MainViewContent)`
+  .page-wrapper {
+    width: 70%;
+    margin: 0 auto;
+  }
   h1,
   h2 {
     margin-bottom: 1rem;
@@ -26,6 +36,11 @@ const StyledAboutUs = styled(MainViewContent)`
   .breakdown {
     p {
       margin-bottom: 1rem;
+    }
+  }
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+    .page-wrapper {
+      width: 100%;
     }
   }
 `;

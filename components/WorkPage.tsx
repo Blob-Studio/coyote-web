@@ -26,13 +26,15 @@ const WorkPage = ({ url, children, title, topImage }: WorkPageProps) => {
           </Link>
         </Box>
       </Flex>
-      <MainViewContent className="content-body">
-        <h1>{title}</h1>
-        <div className="top-image">
-          <Image src={topImage} alt={title} className="top-image" />
-        </div>
-        {children}
-      </MainViewContent>
+      <div className="page-wrapper">
+        <MainViewContent className="content-body">
+          <h1>{title}</h1>
+          <div className="top-image">
+            <Image src={topImage} alt={title} className="top-image" />
+          </div>
+          {children}
+        </MainViewContent>
+      </div>
     </StyledWorkPage>
   );
 };
@@ -40,8 +42,14 @@ const WorkPage = ({ url, children, title, topImage }: WorkPageProps) => {
 const StyledWorkPage = styled(Flex)`
   flex-direction: column;
   width: 100%;
+  overflow: auto;
+  .page-wrapper {
+    width: 70%;
+    margin: 0 auto;
+    flex-grow: 1;
+  }
   .content-header {
-    height: 3rem;
+    min-height: 3rem;
     align-items: center;
     border-bottom: 0.1rem solid ${(props) => props.theme.colors.primary};
     position: relative;
@@ -52,9 +60,10 @@ const StyledWorkPage = styled(Flex)`
     }
     .url-bar {
       background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
-      width: 80%;
+      width: calc(65%);
       text-align: center;
-      height: 1.6rem;
+      height: 70%;
+      border-radius: 2px;
       display: flex;
       align-items: center;
       justify-content: center;

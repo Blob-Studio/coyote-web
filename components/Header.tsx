@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import HamburgerToggle from './HamburgerToggle';
 import NavButton from './NavButton';
 import getLocales from '../utils/getLocales';
+import { transparentize } from 'polished';
 
 const Header = (props: any) => {
   const r = useRouter();
@@ -109,6 +110,7 @@ const StyledHeader = styled(Flex)`
     display: flex;
     align-items: center;
     height: 100%;
+    background: ${(props) => transparentize(0.9, props.theme.colors.primary)};
     .mobile-menu-toggle {
       display: none;
     }
