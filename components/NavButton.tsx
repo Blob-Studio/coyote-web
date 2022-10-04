@@ -1,6 +1,7 @@
 import { Box, Text} from 'rebass';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { transparentize } from 'polished';
 
 const NavButton = ({ children, url, currentPath, onClick, ...props }: { children: any; url: string; currentPath: string, onClick?: any }) => {
   return (
@@ -30,18 +31,19 @@ const StyledNavButton = styled.a`
   justify-content: center;
   height: 8rem;
   border: 0.1rem solid ${(props) => props.theme.colors.primary};
-  background: ${(props) => props.theme.colors.background};
+  background: ${(props) => transparentize(0.4, props.theme.colors.background)};
   font-weight: 600;
   .main-navigation-button-text {
     font-size: 4rem;
   }
   &:hover {
-    background: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.font};
+    background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
+    color: ${(props) => props.theme.colors.primary};
+    /* box-shadow: 0 0 10px ${(props) => transparentize(0.4, props.theme.colors.primary)}; */
   }
   &:active {
     background:  ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.font};
   }
 
   &:last-child {

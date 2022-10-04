@@ -71,62 +71,56 @@ const OurTechStack = [
     logo: 'github',
     invertLogo: true,
   },
-  {
-    name: 'ThreeJS',
-    logo: 'three',
-    ext: 'png',
-    invertLogo: true
-  },
-  // 'Github',
-  // 'Three.js'
 ];
 
 const Services = (props: any) => {
   return (
     <StyledServices>
-      <Box className="content-block">
-        <h1>We got your back</h1>
-        <Box>
-          <ul className="services-list">
-            {OurServices.map((service, index) => (
-              <li className="service-card" key={index}>
-                <h2>{service.name}</h2>
-                <p>
-                 {service.content}
-                </p>
-              </li>
-            ))}
-          </ul>
+      <div className="page-wrapper">
+        <Box className="content-block">
+          <h1>We got your back</h1>
+          <Box>
+            <ul className="services-list">
+              {OurServices.map((service, index) => (
+                <li className="service-card" key={index}>
+                  <h2>{service.name}</h2>
+                  <p>
+                  {service.content}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Box>
         </Box>
-      </Box>
-      <Box className="content-block">
-        <h1>We ♡ these tools</h1>
-        <Box flexDirection={'column'}>
-          <ul className="logo-list">
-            {OurTechStack.map((tech, index) => (
-              <li key={index} className="logo-item">
-                <div className={`logo-wrapper ${tech.invertLogo ? 'inverted' : ''}`}>
-                  <Image src={`/img/icons/svg/${tech.logo}.${tech.ext || 'svg'}`} alt={tech.name} layout={"fill"} />
-                </div>
-                {/* <span>{tech.name}</span> */}
-              </li>
-            ))}
-          </ul>
+        <Box className="content-block">
+          <h1>We ♡ these tools</h1>
+          <Box flexDirection={'column'}>
+            <ul className="logo-list">
+              {OurTechStack.map((tech, index) => (
+                <li key={index} className="logo-item">
+                  <div className={`logo-wrapper ${tech.invertLogo ? 'inverted' : ''}`}>
+                    <Image src={`/img/icons/svg/${tech.logo}.svg`} alt={tech.name} layout={"fill"} />
+                  </div>
+                  {/* <span>{tech.name}</span> */}
+                </li>
+              ))}
+            </ul>
+          </Box>
         </Box>
-      </Box>
-      <Flex className="contact">
-        <Box className="top-text">WANT ANYTHING ELSE?</Box>
-        <Link href="#">CONTACT US</Link>
-      </Flex>
+      </div>
     </StyledServices>
   );
 };
 
 const StyledServices = styled(MainViewContent)`
+  .page-wrapper {
+    width: 70%;
+    margin: 0 auto;
+  }
   .content-block {
     text-align: center;
     h1 {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       font-size: 3rem;
     }
     .services-list {
@@ -134,7 +128,7 @@ const StyledServices = styled(MainViewContent)`
       flex-wrap: wrap;
       justify-content: space-between;
       .service-card {
-        width: 32%;
+        width: 48%;
         margin: 0;
         display: flex;
         justify-content: space-between;
@@ -149,13 +143,14 @@ const StyledServices = styled(MainViewContent)`
           color: white;
           margin-bottom: auto;
           line-height: 150%;
+          font-size: 1rem;
         }
       }
     }
     .logo-list {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
       li {
         /* margin-right: 1rem; */
         margin-bottom: 0.8rem;
@@ -211,6 +206,9 @@ const StyledServices = styled(MainViewContent)`
           width: 100%;
         }
       }
+    }
+    .page-wrapper {
+      width: 100%;
     }
   }
 `;
