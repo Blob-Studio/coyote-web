@@ -67,9 +67,6 @@ const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetT
           }
           setThumbnailYPosition(yPos);
         }}
-        onMouseLeave={() => {
-          setHoveredWork(null);
-        }}
       >
           <Flex className="list-item">
             <Box className="list-item-text">
@@ -148,6 +145,13 @@ const StyledWorkList = styled(Flex)`
   flex-direction: column;
   overflow-y: auto;
   position: relative;
+  &:hover {
+    .thumbnail {
+      &.visible {
+        opacity: 1;
+      }
+    }
+  }
   .thumbnail {
     position: absolute;
     background: ${props => props.theme.colors.primary};
@@ -160,9 +164,6 @@ const StyledWorkList = styled(Flex)`
     border: 1px solid ${(props) => props.theme.colors.primary};
     opacity: 0;
     transition: 0.25s ease-in-out opacity;
-    &.visible {
-      opacity: 1;
-    }
   }
   .work-list {
     flex-direction: column;
