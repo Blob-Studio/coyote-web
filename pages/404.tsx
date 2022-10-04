@@ -6,7 +6,7 @@ const Custom404Page = () => {
       <span className="large-text outlined">404</span>
       <span>Could not find what you were looking for.</span>
     </Styled404Page>
-  )
+  );
 };
 
 const Styled404Page = styled.main`

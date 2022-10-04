@@ -68,20 +68,20 @@ const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetT
           setThumbnailYPosition(yPos);
         }}
       >
-          <Flex className="list-item">
-            <Box className="list-item-text">
-              <Text as="strong">{workData.name}</Text>
-              <Text as="span">
-                <span className="divider">/</span>
-                {workData.workType.map((type: any, j: number) => (
-                  <Fragment key={j}>
-                    <span>{type}</span>
-                    {j != workData.workType.length - 1 && ', '}
-                  </Fragment>
-                ))}
-              </Text>
-            </Box>
-          </Flex>
+        <Flex className="list-item">
+          <Box className="list-item-text">
+            <Text as="strong">{workData.name}</Text>
+            <Text as="span">
+              <span className="divider">/</span>
+              {workData.workType.map((type: any, j: number) => (
+                <Fragment key={j}>
+                  <span>{type}</span>
+                  {j != workData.workType.length - 1 && ', '}
+                </Fragment>
+              ))}
+            </Text>
+          </Box>
+        </Flex>
       </StyledWorkListItem>
     </Link>
   );
@@ -154,7 +154,7 @@ const StyledWorkList = styled(Flex)`
   }
   .thumbnail {
     position: absolute;
-    background: ${props => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.primary};
     right: 1rem;
     top: 0;
     width: 22rem;
@@ -169,9 +169,9 @@ const StyledWorkList = styled(Flex)`
     flex-direction: column;
     width: 100%;
   }
-  @media screen and (${props => props.theme.breakpoints.mob}) {
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
     .thumbnail {
-      display: none;  
+      display: none;
     }
   }
 `;

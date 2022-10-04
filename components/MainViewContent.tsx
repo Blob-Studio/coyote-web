@@ -21,7 +21,7 @@ const StyledMainViewContent = styled(Flex)`
     border-radius: 5px;
   }
 
-  @media screen and (${props => props.theme.breakpoints.mob}) {
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
     flex-direction: column;
   }
 `;

@@ -1,22 +1,26 @@
-import { Box, Text} from 'rebass';
+import { Box, Text } from 'rebass';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
-const NavButton = ({ children, url, currentPath, onClick, ...props }: { children: any; url: string; currentPath: string, onClick?: any }) => {
+const NavButton = ({
+  children,
+  url,
+  currentPath,
+  onClick,
+  ...props
+}: {
+  children: any;
+  url: string;
+  currentPath: string;
+  onClick?: any;
+}) => {
   return (
     <Link href={url}>
-      <StyledNavButton 
-        className={`main-navigation-button ${currentPath === url && 'selected'}`}
-        onClick={onClick}
-      >
-          <Text 
-            {...props}
-            as="span" 
-            className="main-navigation-button-text"
-          >
-              {children}
-          </Text>
+      <StyledNavButton className={`main-navigation-button ${currentPath === url && 'selected'}`} onClick={onClick}>
+        <Text {...props} as="span" className="main-navigation-button-text">
+          {children}
+        </Text>
       </StyledNavButton>
     </Link>
   );
@@ -43,13 +47,13 @@ const StyledNavButton = styled.a`
     /* box-shadow: 0 0 10px ${(props) => transparentize(0.4, props.theme.colors.primary)}; */
   }
   &:active {
-    background:  ${(props) => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.font};
   }
 
   &:last-child {
     margin-bottom: 0;
   }
-`
+`;
 
 export default NavButton;

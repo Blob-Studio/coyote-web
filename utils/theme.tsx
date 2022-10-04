@@ -34,9 +34,7 @@ const getTimeOfDay = () => {
 
 const colors = {
   background: `rgb(0, 2, 8)`,
-  primary: getTimeOfDay() == 'day' ? 
-    `hsla(160, 100%, 50%, 1)` : 
-    `slateblue`,
+  primary: getTimeOfDay() == 'day' ? `hsla(160, 100%, 50%, 1)` : `slateblue`,
   font: `rgb(0, 2, 8)`,
   white: 'lightgray',
   fontInverted: `rgb(230, 218, 218)`,
@@ -46,7 +44,7 @@ const colors = {
 
 const sizes = {
   headerHeight: '10rem',
-  mobileHeaderHeight: '6rem'
+  mobileHeaderHeight: '6rem',
 };
 
 const theme: Theme = {

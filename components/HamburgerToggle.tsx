@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const HamburgerToggle = (props : any) => {
+const HamburgerToggle = (props: any) => {
   return (
     <StyledHamburgerToggle className={`hamburger-toggle ${props.isActive ? 'active' : ''}`}>
       <span></span>
@@ -8,7 +8,7 @@ const HamburgerToggle = (props : any) => {
       <span></span>
       <span></span>
     </StyledHamburgerToggle>
-  )
+  );
 };
 
 const StyledHamburgerToggle = styled.div`
@@ -22,10 +22,10 @@ const StyledHamburgerToggle = styled.div`
       opacity: 0;
     }
     span:nth-of-type(2) {
-      transform: rotate(45deg)
+      transform: rotate(45deg);
     }
     span:nth-of-type(3) {
-      transform: rotate(-45deg)
+      transform: rotate(-45deg);
     }
   }
   span {
@@ -33,13 +33,13 @@ const StyledHamburgerToggle = styled.div`
     position: absolute;
     width: 100%;
     height: 0.1rem;
-    background: ${props => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.primary};
     transition: 0.15s ease-in-out all;
   }
   span:first-of-type {
-    top: 20%
+    top: 20%;
   }
-  span:nth-of-type(2), 
+  span:nth-of-type(2),
   span:nth-of-type(3) {
     top: 50%;
   }

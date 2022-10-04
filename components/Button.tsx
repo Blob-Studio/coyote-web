@@ -6,7 +6,7 @@ const CustomButton = (props: any) => {
 };
 
 const StyledCustomButton = styled.button`
-  background:  ${(props) => props.theme.colors.background};
+  background: ${(props) => props.theme.colors.background};
   border: 0.1rem solid ${(props) => props.theme.colors.primary};
   cursor: pointer;
   color: ${(props) => props.theme.colors.primary};
@@ -19,10 +19,10 @@ const StyledCustomButton = styled.button`
   outline: none;
   height: 3rem;
   &:hover {
-    background:  ${(props) => transparentize(0.8, props.theme.colors.primary)};
+    background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
   }
   &:active {
-    background:  ${(props) => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.background};
   }
 `;

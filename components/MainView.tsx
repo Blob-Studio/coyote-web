@@ -11,9 +11,7 @@ const MainView = ({ children }: any) => {
 
   return (
     <StyledMainView>
-      <StyledMainViewContent>
-        {children}
-      </StyledMainViewContent>
+      <StyledMainViewContent>{children}</StyledMainViewContent>
     </StyledMainView>
   );
 };
@@ -32,7 +30,7 @@ const StyledMainView = styled(Flex)`
   position: relative;
   display: flex;
   max-height: calc(100vh - ${(p) => p.theme.sizes.headerHeight});
-  @media screen and (${props => props.theme.breakpoints.mob}) {
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
     max-height: none;
     height: 100%;
   }

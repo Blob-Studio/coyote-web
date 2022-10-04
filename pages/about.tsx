@@ -12,10 +12,9 @@ const AboutUs = (props: any) => {
   const locale = getLocales(router.locale as 'en' | 'es');
   return (
     <StyledAboutUs>
-      <div className="page-wrapper">
-        {locale.about.content}
-      </div>
-    </StyledAboutUs>);
+      <div className="page-wrapper">{locale.about.content}</div>
+    </StyledAboutUs>
+  );
 };
 
 const StyledAboutUs = styled(MainViewContent)`
