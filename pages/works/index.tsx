@@ -163,7 +163,7 @@ const StyledWorkList = styled(Flex)`
     pointer-events: none;
     border: 1px solid ${(props) => props.theme.colors.primary};
     opacity: 0;
-    transition: 0.25s ease-in-out opacity;
+    transition: 0.15s ease-in-out all;
   }
   .work-list {
     flex-direction: column;

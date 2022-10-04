@@ -1,3 +1,4 @@
+import { transparentize } from 'polished';
 import styled from 'styled-components';
 
 const CustomButton = (props: any) => {
@@ -5,9 +6,10 @@ const CustomButton = (props: any) => {
 };
 
 const StyledCustomButton = styled.button`
-  background: ${(props) => props.theme.colors.primary};
+  background:  ${(props) => props.theme.colors.background};
+  border: 0.1rem solid ${(props) => props.theme.colors.primary};
   cursor: pointer;
-  color: ${(props) => props.theme.colors.font};
+  color: ${(props) => props.theme.colors.primary};
   text-align: center;
   border-radius: 0;
   font-family: unset;
@@ -15,8 +17,14 @@ const StyledCustomButton = styled.button`
   text-transform: uppercase;
   font-size: 1.5rem;
   outline: none;
-  border: 0;
   height: 3rem;
+  &:hover {
+    background:  ${(props) => transparentize(0.8, props.theme.colors.primary)};
+  }
+  &:active {
+    background:  ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.background};
+  }
 `;
 
 export default CustomButton;

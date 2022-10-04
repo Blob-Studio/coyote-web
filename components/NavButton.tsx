@@ -39,6 +39,10 @@ const StyledNavButton = styled.a`
     background: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.font};
   }
+  &:active {
+    background:  ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
+  }
 
   &:last-child {
     margin-bottom: 0;
