@@ -216,6 +216,19 @@ const StyledServices = styled(MainViewContent)`
       display: block;
     }
   }
+  @media screen and (${(p) => p.theme.breakpoints.dskt}) {
+    .page-wrapper {
+      width: 100%;
+      .content-block {
+        .services-list {
+          flex-direction: column;
+          .service-card {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
   @media screen and (${(p) => p.theme.breakpoints.mob}) {
     .content-block {
       .services-list {
