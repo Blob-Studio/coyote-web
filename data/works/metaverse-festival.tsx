@@ -1,5 +1,5 @@
 import IWork from '../../utils/workSchema';
-import HeaderImage from './../../public/img/works/hardhat.png';
+import HeaderImage from './../../public/img/works/metaverse-festival.png';
 
 const metaverseFestivalInfo: IWork = {
   name: 'Decentraland Metaverse Festival',

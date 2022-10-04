@@ -17,8 +17,8 @@ interface Theme {
     width: string;
   };
   breakpoints: {
-    desktop: string;
-    mobile: string;
+    dskt: string;
+    mob: string;
   };
   textures: {
     polka: string;
@@ -56,8 +56,8 @@ const theme: Theme = {
     width: 'calc(1rem / 16)',
   },
   breakpoints: {
-    desktop: 'max-width: 1200px',
-    mobile: 'max-width: 600px',
+    dskt: 'max-width: 1200px',
+    mob: 'max-width: 600px',
   },
   textures: {
     polka: `
@@ -69,13 +69,20 @@ const theme: Theme = {
     `,
     striped: `
       background-image: repeating-linear-gradient(
-        45deg, 
-        ${transparentize(0.7, colors.primary)} 0, 
-        ${transparentize(0.7, colors.primary)} 1px, 
+        -45deg, 
+        ${transparentize(0.5, colors.primary)} 0, 
+        ${transparentize(0.5, colors.primary)} 1px, 
+        transparent 0, 
+        transparent 50%
+      ),
+      repeating-linear-gradient(
+        0deg, 
+        ${transparentize(0.5, colors.primary)} 0, 
+        ${transparentize(0.5, colors.primary)} 1px, 
         transparent 0, 
         transparent 50%
       ); 
-      background-size: 2rem 2rem;
+      background-size: 6rem 6rem;
     `,
   },
 };

@@ -1,5 +1,5 @@
 import IWork from '../../utils/workSchema';
-import HeaderImage from './../../public/img/works/api3.png';
+import HeaderImage from './../../public/img/works/crows-nest.png';
 
 const crowsNestInfo: IWork = {
   name: 'Crows Nest',

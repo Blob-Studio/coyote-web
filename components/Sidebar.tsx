@@ -5,6 +5,7 @@ import getLocales from '../utils/getLocales';
 import ThreeJSPageScene from './ThreeJSPageScene';
 import TimeInfo from './TimeInfo';
 import NavButton from './NavButton';
+import ContactButton from './ContactButton';
 
 const Sidebar = (props: any) => {
   const router = useRouter();
@@ -31,6 +32,7 @@ const Sidebar = (props: any) => {
         </div>
         <ThreeJSPageScene />
       </Box>
+      <ContactButton />
       <TimeInfo />
     </StyledSidebar>
   );
@@ -41,6 +43,7 @@ const StyledSidebar = styled(Flex)`
   display: flex;
   flex-direction: column;
   grid-area: sidebar;
+  position: relative;
   max-height: calc(100vh - ${(p) => p.theme.sizes.headerHeight});
   .breakdown {
     border-bottom: ${(p) => p.theme.border.width} solid ${(p) => p.theme.colors.primary};
@@ -57,11 +60,20 @@ const StyledSidebar = styled(Flex)`
   .navigation {
     display: none;
   }
-  @media screen and (${props => props.theme.breakpoints.mobile}) {
+  .contact-button {
+    position: absolute;
+    bottom: 6rem;
+    left: 0;
+    width: 70%;
+    margin: 0 calc(15%);
+  }
+  @media screen and (${props => props.theme.breakpoints.mob}) {
     max-height: none;
+    .contact-button {
+      display: none;
+    }
     .graphic {
       position: relative;
-      ${(props) => props.theme.textures.striped};
       .navigation {
         z-index: 10;
         display: flex;

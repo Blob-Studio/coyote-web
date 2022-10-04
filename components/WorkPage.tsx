@@ -27,7 +27,7 @@ const WorkPage = ({ url, children, title, topImage }: WorkPageProps) => {
         </Box>
       </Flex>
       <MainViewContent className="content-body">
-        <h2>{title}</h2>
+        <h1>{title}</h1>
         <div className="top-image">
           <Image src={topImage} alt={title} className="top-image" />
         </div>
@@ -62,6 +62,9 @@ const StyledWorkPage = styled(Flex)`
   }
   .content-body {
     padding-bottom: 4rem;
+    h1 {
+      font-size: 4rem;
+    }
     h2 {
       font-size: 2.4rem;
       margin-bottom: 1rem;
@@ -80,7 +83,7 @@ const StyledWorkPage = styled(Flex)`
       margin-bottom: 2rem;
     }
   }
-  @media screen and (${(p) => p.theme.breakpoints.mobile}) {
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
     .content-header {
       display: flex;
       .url-bar {

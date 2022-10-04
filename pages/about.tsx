@@ -23,6 +23,11 @@ const StyledAboutUs = styled(MainViewContent)`
     font-size: 1.2rem;
     font-weight: 200;
   }
+  .breakdown {
+    p {
+      margin-bottom: 1rem;
+    }
+  }
 `;
 
 export default AboutUs;

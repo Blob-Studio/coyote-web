@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { Button } from 'rebass';
 
 const CustomButton = (props: any) => {
   return <StyledCustomButton {...props} />;
 };
 
-const StyledCustomButton = styled(Button)`
+const StyledCustomButton = styled.button`
   background: ${(props) => props.theme.colors.primary};
   cursor: pointer;
   color: ${(props) => props.theme.colors.font};
@@ -15,6 +14,9 @@ const StyledCustomButton = styled(Button)`
   font-weight: 600;
   text-transform: uppercase;
   font-size: 1.5rem;
+  outline: none;
+  border: 0;
+  height: 3rem;
 `;
 
 export default CustomButton;

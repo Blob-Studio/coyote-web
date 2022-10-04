@@ -59,21 +59,7 @@ const StyledApp = styled.main`
     -webkit-text-stroke-color: ${(p) => p.theme.colors.primary};
     -webkit-text-fill-color: ${(p) => p.theme.colors.background};
   }
-  /* &:not(.home) {
-    grid-template-columns: calc(25% - 4rem) calc(75% + 4rem);
-    .breakdown {
-      display: none;
-    }
-    .breakdown-text {
-      font-size: 1rem;
-    }
-    .time-info {
-      display: none;
-    }
-  } */
-
-  @media screen and (${props => props.theme.breakpoints.mobile}) {
-    overflow: auto;
+  @media screen and (${props => props.theme.breakpoints.mob}) {
     height: unset;
     min-height: 100vh;
     grid-template-columns: 100%;
@@ -82,6 +68,7 @@ const StyledApp = styled.main`
       'header'
       'main';
     &.home {
+      height: 100vh;
       grid-template-areas:
         'header'
         'sidebar';
@@ -90,8 +77,6 @@ const StyledApp = styled.main`
         max-height: unset;
         height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
         border-right: none;
-        .graphic {
-        }
       }
       .mobile-navigation {
         display: none;

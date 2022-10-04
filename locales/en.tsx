@@ -9,13 +9,18 @@ const en = {
   about: {
     content: (
       <>
-        <div className="content-block">
+        <div className="content-block breakdown">
           <h1>Who are these guys?</h1>
           <p>
             Coyote Web Studio is a near-shore <strong>web design</strong> and <strong>development</strong> studio. We offer integral
             solutions for your web needs, from idea to production.
           </p>
-          <p>We work with design studios and freelance designers, depending on the needs of your project.</p>
+          <p>
+            Wether you need a simple <strong>landing page</strong>, a complex <strong>web application</strong>, or maybe you need a dashing <strong>e-commerce site</strong>, we got you covered.
+          </p>
+          <p>
+            We work with design studios and freelance designers, depending on the needs of your project.
+          </p>
         </div>
         <h1>Our team</h1>
         <Box className="content-block" mb={'3rem'}>

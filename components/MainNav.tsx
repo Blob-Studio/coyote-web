@@ -40,7 +40,7 @@ const MainNav = () => {
 
 const backgroundAnimation = keyframes`
   0% {background-position: 0}
-  100% {background-position: 4rem}
+  100% {background-position: 6rem}
 `;
 
 const StyledMainNav = styled.nav`
@@ -105,7 +105,7 @@ const StyledMainNav = styled.nav`
     }
   }
 
-  @media screen and (${(p) => p.theme.breakpoints.mobile}) {
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
     flex-direction: column-reverse;
     border-bottom: 0;
     width: 100%;

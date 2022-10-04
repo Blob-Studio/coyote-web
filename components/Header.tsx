@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Box, Flex, Text } from 'rebass';
 import Marquee from 'react-fast-marquee';
 import theme from '../utils/theme';
@@ -88,6 +88,11 @@ const MarqueeContent = () => {
   );
 };
 
+const backgroundAnimation = keyframes`
+  0% {background-position: 0}
+  100% {background-position: 4rem}
+`;
+
 const StyledHeader = styled(Flex)`
   grid-area: header;
   border-bottom: 0.1rem solid ${(p) => p.theme.colors.primary};
@@ -143,7 +148,8 @@ const StyledHeader = styled(Flex)`
     align-items: center;
     justify-content: center;
     transition: 0.25s ease-in-out all;
-    ${(props) => props.theme.textures.polka};
+    animation: ${backgroundAnimation} 3s infinite linear;
+    ${(props) => props.theme.textures.striped};
     .main-navigation-button {
       width: 80%;
       height: fit-content;
@@ -158,7 +164,7 @@ const StyledHeader = styled(Flex)`
       pointer-events: auto;
     }
   }
-  @media screen and (${(p) => p.theme.breakpoints.mobile}) {
+  @media screen and (${(p) => p.theme.breakpoints.mob}) {
     .top-bar {
       font-size: 1rem;
     }
