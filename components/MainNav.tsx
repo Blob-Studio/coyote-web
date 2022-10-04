@@ -111,7 +111,7 @@ const StyledMainNav = styled.nav`
     width: 100%;
     height: 100%;
     display: none;
-    height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
+    height: calc(100vh - ${(props) => props.theme.sizes.mobileHeaderHeight});
     .main-view-navigation {
       padding: 0;
       justify-content: center;
@@ -139,7 +139,7 @@ const StyledMainNav = styled.nav`
           width: 100%;
           border: 0;
           height: 2rem;
-          border-bottom: 0.1rem solid ${props => props.theme.colors.primary};
+          border-bottom: 0.1rem solid ${(props) => props.theme.colors.primary};
           .main-navigation-button-text {
             transform: rotate(0);
             font-size: 1.2rem;

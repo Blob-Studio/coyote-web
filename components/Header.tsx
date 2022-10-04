@@ -34,7 +34,7 @@ const Header = (props: any) => {
           </Box>
         </Link>
         {r.asPath != '/' && (
-          <Box 
+          <Box
             className="mobile-menu-toggle"
             onClick={() => {
               setMobileMenuOpen(!mobileMenuOpen);
@@ -42,32 +42,37 @@ const Header = (props: any) => {
           >
             <HamburgerToggle isActive={mobileMenuOpen} />
           </Box>
-          )
-        }
+        )}
         <div className={`mobile-navigation ${mobileMenuOpen ? 'active' : ''}`}>
-          <NavButton 
-            currentPath={r.pathname} 
+          <NavButton
+            currentPath={r.pathname}
             url="/about"
-            onClick={() => {setMobileMenuOpen(false)}}
+            onClick={() => {
+              setMobileMenuOpen(false);
+            }}
           >
             {locale.mainNavigation.about}
           </NavButton>
-          <NavButton 
-            currentPath={r.pathname} 
+          <NavButton
+            currentPath={r.pathname}
             url="/works"
-            onClick={() => {setMobileMenuOpen(false)}}
+            onClick={() => {
+              setMobileMenuOpen(false);
+            }}
           >
             {locale.mainNavigation.work}
           </NavButton>
-          <NavButton 
-            currentPath={r.pathname} 
+          <NavButton
+            currentPath={r.pathname}
             url="/services"
-            onClick={() => {setMobileMenuOpen(false)}}
+            onClick={() => {
+              setMobileMenuOpen(false);
+            }}
           >
             {locale.mainNavigation.services}
           </NavButton>
         </div>
-        </Flex>
+      </Flex>
     </StyledHeader>
   );
 };
@@ -140,10 +145,10 @@ const StyledHeader = styled(Flex)`
     opacity: 0;
     z-index: 100;
     width: 100%;
-    height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
-    background: ${props => props.theme.colors.background};
+    height: calc(100vh - ${(props) => props.theme.sizes.mobileHeaderHeight});
+    background: ${(props) => props.theme.colors.background};
     position: absolute;
-    top: calc(${props => props.theme.sizes.mobileHeaderHeight} + 3rem);
+    top: calc(${(props) => props.theme.sizes.mobileHeaderHeight} + 3rem);
     left: 0;
     display: flex;
     flex-direction: column;
@@ -161,7 +166,7 @@ const StyledHeader = styled(Flex)`
       }
     }
     &.active {
-      top: ${props => props.theme.sizes.mobileHeaderHeight};
+      top: ${(props) => props.theme.sizes.mobileHeaderHeight};
       opacity: 1;
       pointer-events: auto;
     }
@@ -175,7 +180,7 @@ const StyledHeader = styled(Flex)`
       .mobile-menu-toggle {
         display: inline-block;
         min-width: 5rem;
-        border-left: 0.1rem solid ${props => props.theme.colors.primary};
+        border-left: 0.1rem solid ${(props) => props.theme.colors.primary};
         height: 100%;
         position: relative;
         display: flex;

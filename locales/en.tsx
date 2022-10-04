@@ -16,11 +16,10 @@ const en = {
             solutions for your web needs, from idea to production.
           </p>
           <p>
-            Wether you need a simple <strong>landing page</strong>, a complex <strong>web application</strong>, or maybe you need a dashing <strong>e-commerce site</strong>, we got you covered.
+            Wether you need a simple <strong>landing page</strong>, a complex <strong>web application</strong>, or maybe you need a dashing{' '}
+            <strong>e-commerce site</strong>, we got you covered.
           </p>
-          <p>
-            We work with design studios and freelance designers, depending on the needs of your project.
-          </p>
+          <p>We work with design studios and freelance designers, depending on the needs of your project.</p>
         </div>
         <h1>Our team</h1>
         <Box className="content-block" mb={'3rem'}>

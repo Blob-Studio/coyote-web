@@ -13,7 +13,7 @@ const StyledMainViewContent = styled(Flex)`
   overflow-y: auto;
   padding: 2rem;
 
-  @media screen and (${props => props.theme.breakpoints.mob}) {
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
     flex-direction: column;
   }
 `;

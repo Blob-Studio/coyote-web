@@ -69,7 +69,7 @@ const StyledSidebar = styled(Flex)`
     width: 70%;
     margin: 0 calc(15%);
   }
-  @media screen and (${props => props.theme.breakpoints.mob}) {
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
     max-height: none;
     .contact-button {
       display: none;

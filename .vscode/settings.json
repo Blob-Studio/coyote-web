@@ -1,4 +1,5 @@
 {
   "breadcrumbs.enabled": true, // Settings here
-  "editor.tabSpaces": 2
+  "editor.tabSpaces": 2,
+  "svg.preview.background": "editor"
 }

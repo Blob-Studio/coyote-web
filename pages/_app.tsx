@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }: any) => {
   const r = useRouter();
 
   useEffect(() => {
-    if (r.route.substring(1) == "") {
+    if (r.route.substring(1) == '') {
       setAppClass('home');
     } else {
       setAppClass(r.route.substring(1));
@@ -26,9 +26,7 @@ const App = ({ Component, pageProps }: any) => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Head>
-        <title>
-          Coyote Web Studio | Web Development Studio from Buenos Aires, Argentina
-        </title>
+        <title>Coyote Web Studio | Web Development Studio from Buenos Aires, Argentina</title>
       </Head>
       <StyledApp className={appClass}>
         <Header />
@@ -59,11 +57,11 @@ const StyledApp = styled.main`
     -webkit-text-stroke-color: ${(p) => p.theme.colors.primary};
     -webkit-text-fill-color: transparent;
   }
-  @media screen and (${props => props.theme.breakpoints.mob}) {
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
     height: unset;
     min-height: 100vh;
     grid-template-columns: 100%;
-    grid-template-rows: ${props => props.theme.sizes.mobileHeaderHeight} 1fr;
+    grid-template-rows: ${(props) => props.theme.sizes.mobileHeaderHeight} 1fr;
     grid-template-areas:
       'header'
       'main';
@@ -80,7 +78,7 @@ const StyledApp = styled.main`
       .side-bar {
         display: flex;
         max-height: unset;
-        height: calc(100vh - ${props => props.theme.sizes.mobileHeaderHeight});
+        height: calc(100vh - ${(props) => props.theme.sizes.mobileHeaderHeight});
         border-right: none;
       }
       .mobile-navigation {
