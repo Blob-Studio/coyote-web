@@ -96,7 +96,7 @@ const en = {
   sidebar: {
     headerText: (
       <>
-        WE ARE A <strong>WEB DESIGN</strong> AND <strong>DEVELOPMENT</strong> STUDIO FROM <strong>BUENOS AIRES, ARGENTINA.</strong>
+        WE ARE A <strong>WEB DESIGN</strong> AND <strong>DEVELOPMENT</strong> STUDIO FROM <br/><strong>BUENOS AIRES, ARGENTINA.</strong>
       </>
     ),
   },

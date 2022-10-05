@@ -6,6 +6,7 @@ import ThreeJSPageScene from './ThreeJSPageScene';
 import TimeInfo from './TimeInfo';
 import NavButton from './NavButton';
 import ContactButton from './ContactButton';
+import { transparentize } from 'polished';
 
 const Sidebar = (props: any) => {
   const router = useRouter();
@@ -45,6 +46,7 @@ const StyledSidebar = styled(Flex)`
   grid-area: sidebar;
   position: relative;
   max-height: calc(100vh - ${(p) => p.theme.sizes.headerHeight});
+  background: ${(props) => transparentize(0.95, props.theme.colors.primary)};
   .breakdown {
     font-size: 1.6rem;
     text-align: center;
