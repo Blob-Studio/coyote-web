@@ -65,6 +65,12 @@ const StyledApp = styled.main`
     opacity: 0.1;
     mix-blend-mode: multiply;
   }
+  &.home {
+    .loading {
+      width: 100% !important;
+      left: 0 !important;
+    }
+  }
   .outlined {
     -webkit-text-stroke-width: 0.09rem;
     -webkit-text-stroke-color: ${(p) => p.theme.colors.primary};
