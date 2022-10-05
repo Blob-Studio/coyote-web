@@ -58,7 +58,7 @@ const StyledMainViewContent = styled(Flex)`
     left: 4rem;
     height: 100%;
     width: calc(100% - 3rem);
-    z-index: 100;
+    z-index: 101;
     background: black;
     display: flex;
     align-items: center;

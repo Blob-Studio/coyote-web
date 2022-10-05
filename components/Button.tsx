@@ -17,7 +17,7 @@ const StyledCustomButton = styled.button`
   text-transform: uppercase;
   font-size: 1.5rem;
   outline: none;
-  height: 3rem;
+  height: 4rem;
   &:hover {
     background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
   }

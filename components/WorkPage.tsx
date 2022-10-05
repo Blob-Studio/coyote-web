@@ -93,6 +93,17 @@ const StyledWorkPage = styled(Flex)`
       border: 1px solid ${(props) => props.theme.colors.primary};
       margin-bottom: 2rem;
     }
+    .two-column-block {
+      display: flex;
+      .image-block {
+        width: 30%;
+        margin-right: 1rem;
+        border: 0.1rem solid ${props => props.theme.colors.primary};
+      }
+      p {
+        width: 70%;
+      }
+    }
   }
   @media screen and (${(p) => p.theme.breakpoints.mob}) {
     .content-header {
