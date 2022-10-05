@@ -2,16 +2,23 @@ import Button from './Button';
 import styled from 'styled-components';
 import CopyText from './CopyToClipboard';
 
-const ContactButton = (props: any) => {
+const StyledButton = styled(Button)`
+  width: 70%;
+  margin: 0 15% 3rem;
+
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
+    display: none;
+  }
+`;
+
+const ContactButton = () => {
   return (
     <CopyText textToCopy='ouremail@gmail.com'>
-      <StyledButton className={'contact-button'}>
+      <StyledButton>
         REACH OUT!
       </StyledButton>
     </CopyText>
   );
 };
-
-const StyledButton = styled(Button)``;
 
 export default ContactButton;

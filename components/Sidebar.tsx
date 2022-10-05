@@ -63,18 +63,8 @@ const StyledSidebar = styled(Flex)`
   .navigation {
     display: none;
   }
-  .contact-button {
-    position: absolute;
-    bottom: 6rem;
-    left: 0;
-    width: 70%;
-    margin: 0 calc(15%);
-  }
   @media screen and (${(props) => props.theme.breakpoints.mob}) {
     max-height: none;
-    .contact-button {
-      display: none;
-    }
     .graphic {
       position: relative;
     }
