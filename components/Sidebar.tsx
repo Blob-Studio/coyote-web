@@ -57,8 +57,6 @@ const StyledSidebar = styled(Flex)`
     flex-grow: 1;
     overflow: hidden;
     user-select: none;
-    position: relative;
-    top: -4rem;
   }
   .navigation {
     display: none;
