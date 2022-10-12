@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import { transparentize } from 'polished';
-import { Box, Flex, Link } from 'rebass';
+import { Box } from 'rebass';
 import styled from 'styled-components';
-import theme from '../utils/theme';
 import MainViewContent from './../components/MainViewContent';
 
 import WebIcon from '../public/img/icons/services/web.svg';
@@ -98,7 +97,6 @@ const Services = (props: any) => {
               {OurServices.map((service, index) => (
                 <li className="service-card" key={index}>
                   <div className="service-image">
-                    {/* <Image src="/img/icons/services/web.svg" alt="Web Services" layout={"fill"} objectFit={'contain'} /> */}
                     <WebIcon />
                   </div>
                   <h2 className="service-title">{service.name}</h2>
@@ -117,7 +115,6 @@ const Services = (props: any) => {
                   <div className={`logo-wrapper ${tech.invertLogo ? 'inverted' : ''}`}>
                     <Image src={`/img/icons/${tech.logo}.${tech.ext || 'svg'}`} alt={tech.name} layout={'fill'} objectFit={'contain'} />
                   </div>
-                  {/* <span>{tech.name}</span> */}
                 </li>
               ))}
             </ul>

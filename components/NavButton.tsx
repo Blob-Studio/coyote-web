@@ -37,14 +37,12 @@ const StyledNavButton = styled.a`
   border: 0.1rem solid ${(props) => props.theme.colors.primary};
   background: ${(props) => transparentize(0.4, props.theme.colors.background)};
   font-weight: 600;
-  /* backdrop-filter: blur(8px); */
   .main-navigation-button-text {
     font-size: 4rem;
   }
   &:hover {
     background: ${(props) => transparentize(0.8, props.theme.colors.primary)};
     color: ${(props) => props.theme.colors.primary};
-    /* box-shadow: 0 0 10px ${(props) => transparentize(0.4, props.theme.colors.primary)}; */
   }
   &:active {
     background: ${(props) => props.theme.colors.primary};

@@ -1,13 +1,12 @@
 /* eslint-disable react/no-unknown-property */
-import styled from 'styled-components';
-
-import ReactDOM from 'react-dom';
 import _ from 'lodash';
-import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import React, { Suspense, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Vector2, PointLightHelper, Vector3, MathUtils } from 'three';
-import { OrbitControls, useHelper, MeshDistortMaterial, Environment, SpotLight, useDepthBuffer } from '@react-three/drei';
+import { Vector2, MathUtils } from 'three';
+import { MeshDistortMaterial, SpotLight } from '@react-three/drei';
 import { EffectComposer, RenderPass, EffectPass, ChromaticAberrationEffect, SMAAEffect, SMAAPreset } from 'postprocessing';
+import { useInView } from 'react-intersection-observer'
+
 import theme from '../utils/theme';
 
 const Effect = ({ children }: any) => {
@@ -29,10 +28,6 @@ const Effect = ({ children }: any) => {
     );
     return comp;
   }, [gl, scene, camera]);
-
-  // useEffect(() => {
-
-  // }, [composer]);
 
   useFrame(() => {
     composer.render();
@@ -98,26 +93,30 @@ const DistortedSphereMesh = () => {
   );
 };
 
-const VolSpotLight = () => {
-  return (
-    <SpotLight
-      castShadow
-      shadow-mapSize={new Vector2(1024, 1024)}
-      penumbra={1}
-      distance={20}
-      angle={1}
-      attenuation={20}
-      anglePower={20}
-      color="#6b6"
-      position={[4, -2, 8]}
-      intensity={4}
-    />
-  );
-};
+// const VolSpotLight = () => {
+//   return (
+//     <SpotLight
+//       castShadow
+//       shadow-mapSize={new Vector2(1024, 1024)}
+//       penumbra={1}
+//       distance={20}
+//       angle={1}
+//       attenuation={20}
+//       anglePower={20}
+//       color="#6b6"
+//       position={[4, -2, 8]}
+//       intensity={4}
+//     />
+//   );
+// };
 
 const ThreeJSPageScene = (props: any) => {
+  const { ref, inView } = useInView();
+
+  const DisableRender = () => useFrame(() => null, 1000);
   return (
     <Canvas
+      ref={ref}
       gl={{
         powerPreference: 'high-performance',
         antialias: false,
@@ -127,6 +126,7 @@ const ThreeJSPageScene = (props: any) => {
       shadows={{ enabled: true, needsUpdate: true }}
       camera={{ position: [4.2, 0, 0] }}
     >
+      {!inView && <DisableRender />}
       <Suspense fallback={null}>
         {/* <OrbitControls /> */}
         {/* <axesHelper args={[2]} /> */}
