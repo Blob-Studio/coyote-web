@@ -1,6 +1,7 @@
 import Button from './Button';
 import styled from 'styled-components';
 import CopyText from './CopyToClipboard';
+import { forwardRef, useEffect, useRef } from 'react';
 
 const StyledButton = styled(Button)`
   width: 70%;
@@ -11,12 +12,15 @@ const StyledButton = styled(Button)`
   }
 `;
 
+const ForwardRefButton = forwardRef((props: any, ref) => <StyledButton ref={ref} {...props}>{props.children}</StyledButton>);
+ForwardRefButton.displayName="Forward Ref Button";
+
 const ContactButton = () => {
   return (
     <CopyText textToCopy='ouremail@gmail.com'>
-      <StyledButton>
+      <ForwardRefButton>
         REACH OUT!
-      </StyledButton>
+      </ForwardRefButton>
     </CopyText>
   );
 };

@@ -1,9 +1,9 @@
 import { transparentize } from 'polished';
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 
-const CustomButton = (props: any) => {
-  return <StyledCustomButton {...props} />;
-};
+const CustomButton = forwardRef((props: any, ref) => <StyledCustomButton ref={ref} {...props} />);
+CustomButton.displayName = "Custom Button";
 
 const StyledCustomButton = styled.button`
   background: ${(props) => props.theme.colors.background};

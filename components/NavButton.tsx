@@ -17,7 +17,7 @@ const NavButton = ({
 }) => {
   return (
     <Link href={url}>
-      <StyledNavButton className={`main-navigation-button ${currentPath === url && 'selected'}`} onClick={onClick}>
+      <StyledNavButton className={`main-navigation-button ${currentPath === url ? 'selected' : ''}`} onClick={onClick}>
         <Text {...props} as="span" className="main-navigation-button-text">
           {children}
         </Text>

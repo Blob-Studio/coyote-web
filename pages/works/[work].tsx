@@ -1,7 +1,7 @@
-import WorkPage from '../../components/WorkPage';
 import { useRouter } from 'next/router';
+
+import WorkPage from '../../components/WorkPage';
 import WorkList from './../../data/works/worklist';
-import { useEffect } from 'react';
 
 const Work = () => {
   const router = useRouter();

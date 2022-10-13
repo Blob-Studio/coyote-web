@@ -12,12 +12,12 @@ const CopyText = ({ children, textToCopy }:
   const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
-    if (copied) {
-      setTimeout(() => {
-        // Reset copied state after 2 seconds
-        setCopied(false);
-      }, 2000);
-    }
+    // if (copied) {
+    //   setTimeout(() => {
+    //     // Reset copied state after 2 seconds
+    //     setCopied(false);
+    //   }, 2000);
+    // }
   }, [copied]);
 
   return (
@@ -33,9 +33,7 @@ const CopyText = ({ children, textToCopy }:
         arrow
         title={`Copied ${OurEmail} to your clipboard!`}
       >
-        <span>
         {children}
-        </span>
       </Tooltip>
     </CopyToClipboard>
   );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Flex, Text, Box } from 'rebass';
-import { Fragment, useRef } from 'react';
+import { Fragment, RefObject, useRef } from 'react';
 import { transparentize } from 'polished';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -49,6 +49,25 @@ const Works = (props: any) => {
   );
 };
 
+const calculateThumbYPos = (
+  thumbnailRef: RefObject<HTMLElement>,
+  listItemRef: RefObject<HTMLElement>,
+  offsetTop: number
+) => {
+  const thumbnailHeight = thumbnailRef.current ? thumbnailRef.current.clientHeight : 0;
+  let yPos = '0';
+  if (!listItemRef.current) {
+    return 0;
+  }
+  if (listItemRef.current.getBoundingClientRect().bottom + thumbnailHeight >= window.innerHeight) {
+    yPos = `${listItemRef.current.getBoundingClientRect().y - thumbnailHeight - 2 - offsetTop}px`;
+  } else {
+    yPos = `${listItemRef.current.getBoundingClientRect().bottom - 1 - offsetTop}px`;
+  }
+
+  return yPos;
+}
+
 const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetTop, thumbnailRef }: any) => {
   const listItemRef: any = useRef(null);
 
@@ -58,13 +77,7 @@ const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetT
         ref={listItemRef}
         onMouseEnter={() => {
           setHoveredWork(workData);
-          const thumbnailHeight = thumbnailRef.current.clientHeight;
-          let yPos = '0';
-          if (listItemRef.current.getBoundingClientRect().bottom + thumbnailHeight >= window.innerHeight) {
-            yPos = `${listItemRef.current.getBoundingClientRect().y - thumbnailHeight - 2 - offsetTop}px`;
-          } else {
-            yPos = `${listItemRef.current.getBoundingClientRect().bottom - 1 - offsetTop}px`;
-          }
+          const yPos = calculateThumbYPos(thumbnailRef, listItemRef, offsetTop);
           setThumbnailYPosition(yPos);
         }}
       >

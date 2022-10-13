@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components';
 import { useState, useEffect } from 'react';
 import { Box, Flex } from 'rebass';
 import { useRouter } from 'next/router';
-import { transparentize } from 'polished';
 
 import getLocales from '../utils/getLocales';
 

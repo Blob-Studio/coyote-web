@@ -51,6 +51,10 @@ const DistortedSphereMesh = () => {
   const [mouseOver, setMouseOver] = useState<boolean>(false);
   const [clicking, setClicking] = useState<boolean>(false);
 
+  useFrame(() => {
+    // console.log('frame');
+  })
+
   useFrame((state, delta) => {
     if (meshDistortMatRef.current) {
       meshDistortMatRef.current.distort = MathUtils.damp(
@@ -114,6 +118,7 @@ const ThreeJSPageScene = (props: any) => {
   const { ref, inView } = useInView();
 
   const DisableRender = () => useFrame(() => null, 1000);
+
   return (
     <Canvas
       ref={ref}

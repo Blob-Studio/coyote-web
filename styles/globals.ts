@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body {
+    min-width: 100vw;
+    min-height: 100vh;
     padding: 0;
     margin: 0;
     font-size: 16px;
@@ -79,6 +81,19 @@ const GlobalStyle = createGlobalStyle`
   @media screen and (${theme.breakpoints.mob}) {
     body {
       overflow-y: auto;
+    }
+  }
+
+  .MuiTooltip-tooltip {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    background-color: ${theme.colors.background};
+    border: ${theme.border.width} solid ${theme.colors.primary};
+  }
+  .MuiTooltip-arrow {
+    color: ${theme.colors.background};
+    &:before {
+      border: ${theme.border.width} solid ${theme.colors.primary}
     }
   }
 `;
