@@ -2,13 +2,15 @@ import Link from 'next/link';
 import styled, { keyframes } from 'styled-components';
 import { Box, Flex, Text } from 'rebass';
 import Marquee from 'react-fast-marquee';
-import theme from '../utils/theme';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { transparentize } from 'polished';
+
+
 import HamburgerToggle from './HamburgerToggle';
 import NavButton from './NavButton';
 import getLocales from '../utils/getLocales';
-import { transparentize } from 'polished';
+import ContactButton from '../components/ContactButton';
 
 const Header = (props: any) => {
   const r = useRouter();
@@ -25,15 +27,15 @@ const Header = (props: any) => {
       </Flex>
       <Flex className="title-bar">
         <Link href="/">
-          <Box>
+          <StyledMarqueeWrapper isHome={r.pathname === '/'}>
             <Marquee gradient={false} speed={25} direction={'left'}>
               <MarqueeContent />
               <MarqueeContent />
               <MarqueeContent />
             </Marquee>
-          </Box>
+          </StyledMarqueeWrapper>
         </Link>
-        {r.asPath != '/' && (
+        {r.asPath !== '/' && (
           <Box
             className="mobile-menu-toggle"
             onClick={() => {
@@ -73,9 +75,20 @@ const Header = (props: any) => {
           </NavButton>
         </div>
       </Flex>
+      <StyledContactButtonWrapper>
+        <StyledContactButton placement="bottom" className="header-button" />
+      </StyledContactButtonWrapper>
     </StyledHeader>
   );
 };
+
+const StyledMarqueeWrapper = styled.div.attrs((props: any) => ({
+  isHome: props.isHome
+}))`
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
+    width: ${(props) => props.isHome ? '100%' : 'calc(100% - 5rem)'};
+  }
+`;
 
 const MarqueeContent = () => {
   return (
@@ -94,6 +107,25 @@ const MarqueeContent = () => {
   );
 };
 
+const StyledContactButtonWrapper = styled.div`
+  display: none;
+
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const StyledContactButton = styled(ContactButton)`
+  margin: 0;
+  padding: 0.2rem 0;
+  width: 100%;
+  border: none;
+`;
+
 const backgroundAnimation = keyframes`
   0% {background-position: 0}
   100% {background-position: 4rem}
@@ -101,20 +133,21 @@ const backgroundAnimation = keyframes`
 
 const StyledHeader = styled(Flex)`
   grid-area: header;
-  border-bottom: 0.1rem solid ${(p) => p.theme.colors.primary};
+  border-bottom: 0.1rem solid ${(props) => props.theme.colors.primary};
   .top-bar {
     font-size: 1.5rem;
     padding: 0;
     font-weight: 600;
     align-items: center;
-    color: ${(p) => p.theme.colors.font};
-    background-color: ${(p) => p.theme.colors.primary};
+    color: ${(props) => props.theme.colors.font};
+    background-color: ${(props) => props.theme.colors.primary};
   }
   .title-bar {
     cursor: pointer;
     display: flex;
     align-items: center;
     height: 100%;
+    width: 100%;
     background: ${(props) => transparentize(0.9, props.theme.colors.primary)};
     .mobile-menu-toggle {
       display: none;
@@ -171,21 +204,23 @@ const StyledHeader = styled(Flex)`
       pointer-events: auto;
     }
   }
-  @media screen and (${(p) => p.theme.breakpoints.mob}) {
+  @media screen and (${(props) => props.theme.breakpoints.mob}) {
+    align-items: center;
     .top-bar {
-      font-size: 1rem;
+      display: none;
     }
     .title-bar {
       padding: 0;
+      height: auto;
+      border-bottom: ${(props) => props.theme.border.width} solid ${props => props.theme.colors.primary};
       .mobile-menu-toggle {
-        display: inline-block;
-        min-width: 5rem;
-        border-left: 0.1rem solid ${(props) => props.theme.colors.primary};
-        height: 100%;
-        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 5rem;
+        border-left: 0.1rem solid ${(props) => props.theme.colors.primary};
+        height: 100%;
+        position: relative;
       }
     }
     .title {

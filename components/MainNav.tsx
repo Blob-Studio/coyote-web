@@ -2,12 +2,10 @@ import styled, { keyframes } from 'styled-components';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { Box, Flex } from 'rebass';
+import { Flex } from 'rebass';
 import { transparentize } from 'polished';
 
 import getLocales from '../utils/getLocales';
-import Sidebar from './Sidebar';
 import NavButton from './NavButton';
 
 const MainNav = () => {

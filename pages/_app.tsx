@@ -29,7 +29,7 @@ const App = ({ Component, pageProps }: any) => {
         <title>Coyote Web Studio | Web Development Studio from Buenos Aires, Argentina</title>
       </Head>
       <StyledApp className={appClass}>
-        <div className="overlay"/>
+        <StyledOverlay />
         <Header />
         <Sidebar />
         <MainView>
@@ -40,6 +40,18 @@ const App = ({ Component, pageProps }: any) => {
     </ThemeProvider>
   );
 };
+
+const StyledOverlay = styled.span`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background: pink;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.1;
+`
 
 const StyledApp = styled.main`
   background-color: ${(p) => p.theme.colors.background};
@@ -53,18 +65,6 @@ const StyledApp = styled.main`
   grid-template-areas:
     'header header'
     'sidebar main';
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    pointer-events: none;
-    background: pink;
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.1;
-    mix-blend-mode: multiply;
-  }
   &.home {
     .loading {
       width: 100% !important;

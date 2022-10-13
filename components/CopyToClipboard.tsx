@@ -4,7 +4,7 @@ import Tooltip from '@mui/material/Tooltip';
 
 const OurEmail: string = "ouremail@gmail.com";
 
-const CopyText = ({ children, textToCopy }:
+const CopyText = ({ children, textToCopy, ...props }:
   {
     children: any,
     textToCopy?: string
@@ -12,12 +12,12 @@ const CopyText = ({ children, textToCopy }:
   const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
-    // if (copied) {
-    //   setTimeout(() => {
-    //     // Reset copied state after 2 seconds
-    //     setCopied(false);
-    //   }, 2000);
-    // }
+    if (copied) {
+      setTimeout(() => {
+        // Reset copied state after 2 seconds
+        setCopied(false);
+      }, 2000);
+    }
   }, [copied]);
 
   return (
@@ -26,7 +26,7 @@ const CopyText = ({ children, textToCopy }:
       onCopy={() => setCopied(true)}
     >
       <Tooltip
-        placement='top'
+        placement={props?.placement || 'top'}
         open={copied}
         disableHoverListener
         disableFocusListener

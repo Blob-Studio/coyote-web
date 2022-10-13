@@ -44,7 +44,7 @@ const colors = {
 
 const sizes = {
   headerHeight: '10rem',
-  mobileHeaderHeight: '6rem',
+  mobileHeaderHeight: '8rem',
 };
 
 const theme: Theme = {
