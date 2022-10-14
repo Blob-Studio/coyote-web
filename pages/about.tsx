@@ -38,7 +38,7 @@ const StyledAboutUs = styled(MainViewContent)`
     }
   }
   .content-card {
-    background:  ${(props) => transparentize(0.9, props.theme.colors.primary)};
+    background: ${(props) => transparentize(0.9, props.theme.colors.primary)};
   }
   @media screen and (${(p) => p.theme.breakpoints.mob}) {
     .page-wrapper {

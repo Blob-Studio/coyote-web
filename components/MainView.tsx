@@ -10,18 +10,17 @@ const MainView = ({ children }: any) => {
   const router = useRouter();
   const locale = getLocales(router.locale as 'en' | 'es');
 
-  useEffect(() : any => {
+  useEffect((): any => {
     router.events.on('routeChangeStart', () => {
-      setIsLoading(true)
+      setIsLoading(true);
     });
 
     router.events.on('routeChangeComplete', () => {
-      setIsLoading(false)
+      setIsLoading(false);
     });
 
-
     return () => {};
-  }, [router.events])
+  }, [router.events]);
 
   return (
     <StyledMainView>
@@ -68,7 +67,7 @@ const StyledMainViewContent = styled(Flex)`
     }
     .loading-animation {
       .bar-wrapper {
-        border: 0.1rem solid ${props => props.theme.colors.primary};
+        border: 0.1rem solid ${(props) => props.theme.colors.primary};
         width: 3rem;
         height: 1rem;
         margin-bottom: 1rem;
@@ -80,11 +79,11 @@ const StyledMainViewContent = styled(Flex)`
         position: absolute;
         top: 0;
         left: 0;
-        background: ${props => props.theme.colors.primary};
+        background: ${(props) => props.theme.colors.primary};
         animation: ${loadingAnimation} 1s infinite linear;
       }
     }
-  };
+  }
 
   @media screen and (${(p) => p.theme.breakpoints.mob}) {
     flex-direction: column;

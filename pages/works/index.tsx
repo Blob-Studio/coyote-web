@@ -5,8 +5,8 @@ import { transparentize } from 'polished';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { throttle } from 'lodash';
 
-import MainViewContent from '../../components/MainViewContent';
 import WorkList from './../../data/works/worklist';
 
 const Works = (props: any) => {
@@ -17,18 +17,22 @@ const Works = (props: any) => {
   const thumbnailRef: any = useRef(null);
   const workListRef: any = useRef(null);
 
+  const updateWorkListTopOffset = () => {
+    if (workListRef.current) {
+      setOffsetTop(workListRef.current.getBoundingClientRect().top);
+    }
+  };
+
   useEffect(() => {
     thumbnailRef.current.style.top = thumbnailYPosition;
   }, [thumbnailYPosition]);
 
   useEffect(() => {
-    if (workListRef.current) {
-      setOffsetTop(workListRef.current.getBoundingClientRect().top);
-    }
+    updateWorkListTopOffset();
   }, [workListRef]);
 
   return (
-    <StyledWorkList className="work-content">
+    <StyledWorkList onScroll={throttle(updateWorkListTopOffset, 50)} className="work-content">
       <Box ref={thumbnailRef} className={`thumbnail ${hoveredWork && 'visible'}`}>
         {hoveredWork && <Image src={hoveredWork.headerImage} layout="fill" alt="Thumbnail" />}
       </Box>
@@ -49,11 +53,7 @@ const Works = (props: any) => {
   );
 };
 
-const calculateThumbYPos = (
-  thumbnailRef: RefObject<HTMLElement>,
-  listItemRef: RefObject<HTMLElement>,
-  offsetTop: number
-) => {
+const calculateThumbYPos = (thumbnailRef: RefObject<HTMLElement>, listItemRef: RefObject<HTMLElement>, offsetTop: number) => {
   const thumbnailHeight = thumbnailRef.current ? thumbnailRef.current.clientHeight : 0;
   let yPos = '0';
   if (!listItemRef.current) {
@@ -66,7 +66,7 @@ const calculateThumbYPos = (
   }
 
   return yPos;
-}
+};
 
 const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetTop, thumbnailRef }: any) => {
   const listItemRef: any = useRef(null);

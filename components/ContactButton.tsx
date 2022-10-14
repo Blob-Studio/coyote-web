@@ -8,15 +8,17 @@ const StyledButton = styled(Button)`
   margin: 0 15% 3rem;
 `;
 
-const ForwardRefButton = forwardRef((props: any, ref) => <StyledButton ref={ref} {...props}>{props.children}</StyledButton>);
-ForwardRefButton.displayName="Forward Ref Button";
+const ForwardRefButton = forwardRef((props: any, ref) => (
+  <StyledButton ref={ref} {...props}>
+    {props.children}
+  </StyledButton>
+));
+ForwardRefButton.displayName = 'Forward Ref Button';
 
 const ContactButton = (props: any) => {
   return (
-    <CopyText {...props} textToCopy='ouremail@gmail.com'>
-      <ForwardRefButton {...props}>
-        REACH OUT!
-      </ForwardRefButton>
+    <CopyText {...props} textToCopy="ouremail@gmail.com">
+      <ForwardRefButton {...props}>REACH OUT!</ForwardRefButton>
     </CopyText>
   );
 };

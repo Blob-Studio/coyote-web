@@ -43,7 +43,7 @@ const StyledContactButton = styled(ContactButton)`
   @media screen and (${(props) => props.theme.breakpoints.mob}) {
     display: none;
   }
-`
+`;
 
 const StyledSidebar = styled(Flex)`
   border-right: ${(p) => p.theme.border.width} solid ${(p) => p.theme.colors.primary};

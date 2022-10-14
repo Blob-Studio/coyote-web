@@ -98,7 +98,7 @@ const StyledWorkPage = styled(Flex)`
       .image-block {
         width: 30%;
         margin-right: 1rem;
-        border: 0.1rem solid ${props => props.theme.colors.primary};
+        border: 0.1rem solid ${(props) => props.theme.colors.primary};
       }
       p {
         width: 70%;

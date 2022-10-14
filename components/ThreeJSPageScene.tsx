@@ -5,7 +5,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Vector2, MathUtils } from 'three';
 import { MeshDistortMaterial, SpotLight } from '@react-three/drei';
 import { EffectComposer, RenderPass, EffectPass, ChromaticAberrationEffect, SMAAEffect, SMAAPreset } from 'postprocessing';
-import { useInView } from 'react-intersection-observer'
+import { useInView } from 'react-intersection-observer';
 
 import theme from '../utils/theme';
 
@@ -53,7 +53,7 @@ const DistortedSphereMesh = () => {
 
   useFrame(() => {
     // console.log('frame');
-  })
+  });
 
   useFrame((state, delta) => {
     if (meshDistortMatRef.current) {

@@ -51,7 +51,7 @@ const StyledOverlay = styled.span`
   width: 100vw;
   height: 100vh;
   opacity: 0.1;
-`
+`;
 
 const StyledApp = styled.main`
   background-color: ${(p) => p.theme.colors.background};

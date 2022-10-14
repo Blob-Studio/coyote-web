@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import styled from 'styled-components';
 
 const CustomButton = forwardRef((props: any, ref) => <StyledCustomButton ref={ref} {...props} />);
-CustomButton.displayName = "Custom Button";
+CustomButton.displayName = 'Custom Button';
 
 const StyledCustomButton = styled.button`
   background: ${(props) => props.theme.colors.background};

@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { transparentize } from 'polished';
 
-
 import HamburgerToggle from './HamburgerToggle';
 import NavButton from './NavButton';
 import getLocales from '../utils/getLocales';
@@ -83,10 +82,10 @@ const Header = (props: any) => {
 };
 
 const StyledMarqueeWrapper = styled.div.attrs((props: any) => ({
-  isHome: props.isHome
+  isHome: props.isHome,
 }))`
   @media screen and (${(props) => props.theme.breakpoints.mob}) {
-    width: ${(props) => props.isHome ? '100%' : 'calc(100% - 5rem)'};
+    width: ${(props) => (props.isHome ? '100%' : 'calc(100% - 5rem)')};
   }
 `;
 
@@ -212,7 +211,7 @@ const StyledHeader = styled(Flex)`
     .title-bar {
       padding: 0;
       height: auto;
-      border-bottom: ${(props) => props.theme.border.width} solid ${props => props.theme.colors.primary};
+      border-bottom: ${(props) => props.theme.border.width} solid ${(props) => props.theme.colors.primary};
       .mobile-menu-toggle {
         display: flex;
         align-items: center;
