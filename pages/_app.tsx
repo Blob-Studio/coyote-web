@@ -1,14 +1,19 @@
 import Head from 'next/head';
-import { ThemeProvider } from 'styled-components';
-import theme from '../utils/theme';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
 import Header from './../components/Header';
 import Sidebar from './../components/Sidebar';
 import MainView from '../components/MainView';
 import MainNav from '../components/MainNav';
+
+import theme from '../utils/theme';
 import GlobalStyle from '../styles/globals';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+
+// export function reportWebVitals(metric: any) {
+//   console.log(metric)
+// }
 
 const App = ({ Component, pageProps }: any) => {
   const [appClass, setAppClass] = useState('home');
