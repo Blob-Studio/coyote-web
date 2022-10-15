@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Tooltip from '@mui/material/Tooltip';
+import { TooltipProps } from '@mui/material';
 
 const OurEmail: string = 'ouremail@gmail.com';
 
-const CopyText = ({ children, textToCopy, ...props }: { children: any; textToCopy?: string }) => {
+const CopyText = ({ children, textToCopy, placement }: { children: any; textToCopy?: string, placement?: TooltipProps['placement'] }) => {
   const [copied, setCopied] = useState<boolean>(false);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const CopyText = ({ children, textToCopy, ...props }: { children: any; textToCop
   return (
     <CopyToClipboard text={textToCopy && textToCopy.length ? textToCopy : OurEmail} onCopy={() => setCopied(true)}>
       <Tooltip
-        placement={props?.placement || 'top'}
+        placement={placement || 'top'}
         open={copied}
         disableHoverListener
         disableFocusListener
