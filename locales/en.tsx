@@ -40,8 +40,8 @@ const en = {
               <p>Coyote Web Studio Associate</p>
             </Link>
             <p className="card-body">
-              Tomás is a frontend developer and visual artist. He worked many years for Auth0. He is also a woodworker and artist and
-              creates amazing pieces at his workshop.
+              Cherna is a frontend developer and visual artist who worked for 6+ years at Auth0 crafting top of the line user experiences. He is also a wood and metalworker and
+              explores these crafts at his workshop.
             </p>
           </Box>
         </Box>
@@ -52,7 +52,7 @@ const en = {
               <h3>Entrecasa</h3>
               <p>Design Studio</p>
             </Link>
-            <p className="card-body">Is a design studio focused on projects which seek to transform the way we communicate.</p>
+            <p className="card-body">Entrecasa is a design studio focused on projects which seek to transform the way we communicate.</p>
           </Box>
           <Box className="content-card">
             <Link href="https://metamensaje.studio/" target="_blank">

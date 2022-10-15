@@ -7,19 +7,18 @@ const TimeInfo = (props: any) => {
   const [time, setTime] = useState('');
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       let date = new Date();
-      let hour = date.getHours();
-      let minutes = date.getMinutes().toString();
-      if (minutes.length < 2) {
-        minutes = '0' + minutes;
-      }
-      let seconds = date.getSeconds().toString();
-      if (seconds.length < 2) {
-        seconds = '0' + seconds;
-      }
-      setTime(`${hour}:${minutes}:${seconds}`);
+      setTime(`${date.toLocaleString('en', {
+        timeStyle: 'medium',
+        hourCycle: 'h23',
+        timeZone: 'America/Argentina/Buenos_Aires'
+      })}`);
     }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    }
   }, []);
 
   return (
