@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { throttle } from 'lodash';
 
 import WorkList from './../../data/works/worklist';
+import IWork from '../../utils/workSchema';
 
 const Works = (props: any) => {
   const [hoveredWork, setHoveredWork] = useState<any>(null);
@@ -33,7 +34,7 @@ const Works = (props: any) => {
 
   return (
     <StyledWorkList onScroll={throttle(updateWorkListTopOffset, 50)} className="work-content">
-      <Box ref={thumbnailRef} className={`thumbnail ${hoveredWork && 'visible'}`}>
+      <Box aria-hidden ref={thumbnailRef} className={`thumbnail ${hoveredWork && 'visible'}`}>
         {hoveredWork && <Image src={hoveredWork.headerImage} layout="fill" alt="Thumbnail" />}
       </Box>
       <Flex as={'ul'} className="work-list" ref={workListRef}>
@@ -68,12 +69,18 @@ const calculateThumbYPos = (thumbnailRef: RefObject<HTMLElement>, listItemRef: R
   return yPos;
 };
 
-const WorkListItem = ({ workData, setHoveredWork, setThumbnailYPosition, offsetTop, thumbnailRef }: any) => {
+const WorkListItem = ({
+  workData, setHoveredWork, setThumbnailYPosition, offsetTop, thumbnailRef
+}: {
+  workData: IWork,
+  [key: string]: any
+} ) => {
   const listItemRef: any = useRef(null);
 
   return (
     <Link href={`works/${workData.workSafeURL}`}>
       <StyledWorkListItem
+        aria-label={workData.name}
         ref={listItemRef}
         onMouseEnter={() => {
           setHoveredWork(workData);

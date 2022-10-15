@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unknown-property */
-import _ from 'lodash';
 import React, { Suspense, useMemo, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Vector2, MathUtils } from 'three';
-import { MeshDistortMaterial, SpotLight } from '@react-three/drei';
+import { Vector2 } from 'three/src/math/Vector2';
+import { damp } from 'three/src/math/MathUtils';
+import { MeshDistortMaterial } from '@react-three/drei';
 import { EffectComposer, RenderPass, EffectPass, ChromaticAberrationEffect, SMAAEffect, SMAAPreset } from 'postprocessing';
 import { useInView } from 'react-intersection-observer';
 
@@ -57,7 +57,7 @@ const DistortedSphereMesh = () => {
 
   useFrame((state, delta) => {
     if (meshDistortMatRef.current) {
-      meshDistortMatRef.current.distort = MathUtils.damp(
+      meshDistortMatRef.current.distort = damp(
         meshDistortMatRef.current.distort,
         mouseOver || clicking ? MAX_DISTORT : BASE_DISTORT,
         mouseOver || clicking ? 4 : 12,

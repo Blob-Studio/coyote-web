@@ -1,13 +1,12 @@
-import { Box, Flex, Link } from 'rebass';
 import styled from 'styled-components';
-import theme from '../utils/theme';
-import MainViewContent from './../components/MainViewContent';
-
-import getLocales from '../utils/getLocales';
 import { useRouter } from 'next/router';
 import { transparentize } from 'polished';
 
-const AboutUs = (props: any) => {
+import MainViewContent from './../components/MainViewContent';
+
+import getLocales from '../utils/getLocales';
+
+const AboutUs = () => {
   const router = useRouter();
   const locale = getLocales(router.locale as 'en' | 'es');
   return (

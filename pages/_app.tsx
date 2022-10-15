@@ -11,10 +11,6 @@ import MainNav from '../components/MainNav';
 import theme from '../utils/theme';
 import GlobalStyle from '../styles/globals';
 
-// export function reportWebVitals(metric: any) {
-//   console.log(metric)
-// }
-
 const App = ({ Component, pageProps }: any) => {
   const [appClass, setAppClass] = useState('home');
   const r = useRouter();
@@ -59,14 +55,14 @@ const StyledOverlay = styled.span`
 `;
 
 const StyledApp = styled.main`
-  background-color: ${(p) => p.theme.colors.background};
-  color: ${(p) => p.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.primary};
   overflow: hidden;
   height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-columns: 30% 70%;
-  grid-template-rows: ${(p) => p.theme.sizes.headerHeight} auto;
+  grid-template-rows: ${(props) => props.theme.sizes.headerHeight} auto;
   grid-template-areas:
     'header header'
     'sidebar main';

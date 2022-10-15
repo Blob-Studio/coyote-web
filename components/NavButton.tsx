@@ -1,4 +1,4 @@
-import { Box, Text } from 'rebass';
+import { Text } from 'rebass';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { transparentize } from 'polished';
@@ -17,7 +17,8 @@ const NavButton = ({
 }) => {
   return (
     <Link href={url}>
-      <StyledNavButton className={`main-navigation-button ${currentPath === url ? 'selected' : ''}`} onClick={onClick}>
+      {/* Passing href to the styled anchor so it renders a robot crawlable tag */}
+      <StyledNavButton href={url} className={`main-navigation-button ${currentPath === url ? 'selected' : ''}`} onClick={onClick}>
         <Text {...props} as="span" className="main-navigation-button-text">
           {children}
         </Text>

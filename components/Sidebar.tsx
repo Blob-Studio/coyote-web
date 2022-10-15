@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 import { Box, Flex } from 'rebass';
 import { useRouter } from 'next/router';
-import getLocales from '../utils/getLocales';
-import ThreeJSPageScene from './ThreeJSPageScene';
+import { transparentize } from 'polished';
+import dynamic from 'next/dynamic';
+
 import TimeInfo from './TimeInfo';
 import NavButton from './NavButton';
 import ContactButton from './ContactButton';
-import { transparentize } from 'polished';
+import getLocales from '../utils/getLocales';
+import { Suspense } from 'react';
+const ThreeJSPageScene = dynamic(() => import('./ThreeJSPageScene'));
+
+
 
 const Sidebar = (props: any) => {
   const router = useRouter();
@@ -31,13 +36,20 @@ const Sidebar = (props: any) => {
             {locale.mainNavigation.services}
           </NavButton>
         </div>
-        <ThreeJSPageScene />
+        <Suspense fallback={StyledLoadingFallback}>
+          <ThreeJSPageScene />
+        </Suspense>
       </Box>
       <StyledContactButton />
       <TimeInfo />
     </StyledSidebar>
   );
 };
+
+const StyledLoadingFallback = styled.span`
+  /* background-color: ${props => props.theme.colors.background}; */
+  background-color: red;
+`;
 
 const StyledContactButton = styled(ContactButton)`
   @media screen and (${(props) => props.theme.breakpoints.mob}) {

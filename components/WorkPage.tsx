@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { Flex, Box, Link } from 'rebass';
 import { transparentize } from 'polished';
-import IWork from '../utils/workSchema';
 import NextLink from 'next/link';
-import MainViewContent from './MainViewContent';
 import Image from 'next/image';
+
+import MainViewContent from './MainViewContent';
 
 type WorkPageProps = {
   url: string;
