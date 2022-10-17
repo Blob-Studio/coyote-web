@@ -1,7 +1,8 @@
-import IWork from '../../utils/workSchema';
 import Image from 'next/image';
+
+import IWork from '../../utils/workSchema';
 import HeaderImage from './../../public/img/works/api3.png';
-import MobileImage1 from './../../public/img/works/api3-mobile-1.png';
+import MobileImage from './../../public/img/works/api3-mobile.png';
 
 const api3Info: IWork = {
   name: 'API3',
@@ -22,7 +23,7 @@ const api3Info: IWork = {
         <h3>About the Development</h3>
         <div className="two-column-block">
           <div className="image-block">
-            <Image src={'/img/works/api3-mobile.png'} width={360} height={720} alt={'API3'} />
+            <Image placeholder="blur" src={MobileImage} width={360} height={720} alt={'API3'} />
           </div>
           <p>
             We were approached by Entrecasa Studio with this project devised by DXdao, one of our former clients. Entrecasa delivered an

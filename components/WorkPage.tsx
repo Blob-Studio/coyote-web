@@ -30,7 +30,7 @@ const WorkPage = ({ url, children, title, topImage }: WorkPageProps) => {
         <MainViewContent className="content-body">
           <h1>{title}</h1>
           <div className="top-image">
-            <Image src={topImage} alt={title} className="top-image" />
+            <Image placeholder="blur" src={topImage} alt={title} className="top-image" />
           </div>
           {children}
         </MainViewContent>
