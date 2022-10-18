@@ -1,6 +1,7 @@
-import { Box, Flex, Link } from 'rebass';
+import { Box, Link } from 'rebass';
+import locale from './localeSchema';
 
-const en = {
+const en: locale = {
   mainNavigation: {
     about: 'ABOUT US',
     work: 'WORK',
@@ -94,6 +95,16 @@ const en = {
     ),
   },
   sidebar: {
+    flags: {
+      US: {
+        alt: "United States flag",
+        title: "Change language to English",
+      },
+      AR: {
+        alt: "Argentina flag",
+        title: "Change language to Spanish",
+      }
+    },
     headerText: (
       <>
         WE ARE A <strong>WEB DESIGN</strong> AND <strong>DEVELOPMENT</strong> STUDIO FROM <br />

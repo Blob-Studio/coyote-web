@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Box, Flex } from 'rebass';
 import { useState, useEffect, useRef } from 'react';
-import { transparentize } from 'polished';
 
 const TimeInfo = (props: any) => {
   const [time, setTime] = useState('');
@@ -22,10 +21,12 @@ const TimeInfo = (props: any) => {
   }, []);
 
   return (
-    <StyledTimeInfo className="time-info">
-      <Box className="country">ARG Time</Box>
-      <Flex className="time">{time}</Flex>
-    </StyledTimeInfo>
+    <>
+      <StyledTimeInfo className="time-info">
+        <Box className="country">ARG Time</Box>
+        <Flex className="time">{time}</Flex>
+      </StyledTimeInfo>
+    </>
   );
 };
 

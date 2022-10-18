@@ -1,6 +1,7 @@
 import { Box, Flex } from 'rebass';
+import locale from './localeSchema';
 
-const es = {
+const es: locale = {
   mainNavigation: {
     about: 'NOSOTROS',
     work: 'TRABAJOS',
@@ -55,6 +56,16 @@ const es = {
     ),
   },
   sidebar: {
+    flags: {
+      US: {
+        alt: "Bandera de Estados Unidos",
+        title: "Cambiar idioma a Ingles",
+      },
+      AR: {
+        alt: "Bandera de Argentina",
+        title: "Cambiar idioma a Espaniol",
+      }
+    },
     headerText: (
       <>
         SOMOS UN ESTUDIO DE <strong>DISEÑO</strong> Y <strong>DESARROLLO WEB</strong> DE <strong>BUENOS AIRES, ARGENTINA.</strong>

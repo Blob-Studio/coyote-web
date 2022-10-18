@@ -9,6 +9,7 @@ import NavButton from './NavButton';
 import ContactButton from './ContactButton';
 import getLocales from '../utils/getLocales';
 import { Suspense } from 'react';
+import LanguageSwitch from './LanguageSwitch';
 const ThreeJSPageScene = dynamic(() => import('./ThreeJSPageScene'));
 
 
@@ -19,6 +20,7 @@ const Sidebar = (props: any) => {
 
   return (
     <StyledSidebar className={`${props.className} side-bar`} flexDirection={'column'}>
+      <LanguageSwitch />
       <Flex alignItems="center" justifyContent="center" className="breakdown">
         <Box as={'p'} className="breakdown-text">
           {locale.sidebar.headerText}
@@ -68,7 +70,7 @@ const StyledSidebar = styled(Flex)`
   .breakdown {
     font-size: 1.6rem;
     text-align: center;
-    padding: 2rem 1rem 0;
+    padding: 1rem;
     line-height: 130%;
   }
   .graphic {
