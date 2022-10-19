@@ -4,37 +4,47 @@ import { Box } from 'rebass';
 import styled from 'styled-components';
 import MainViewContent from './../components/MainViewContent';
 
-import WebIcon from '../public/img/icons/services/web.svg';
+// import WebIcon from '../public/img/icons/services/web.svg';
 import Head from 'next/head';
+import { TbDatabaseOff } from 'react-icons/tb';
+import { MdWeb, MdDesignServices } from 'react-icons/md';
+import { AiOutlineShoppingCart, AiOutlineFileSearch } from 'react-icons/ai';
+import { BsWordpress } from 'react-icons/bs';
 
 const OurServices = [
   {
     name: 'Web Development',
+    icon: <MdWeb />,
     content:
       'Coding is not easy, we all know that. To bring your project to life you not only want people who can code, but also people that care about quality, good practices, SEO, great design, and all stuff that make websites stand out.',
   },
   {
     name: 'Website + CMS',
+    icon: <TbDatabaseOff />,
     content:
       'You probably will need to update the content of your site to make it more dynamic and score higher on search engines. We provide a customized experience for doing this using the Strapi Headless CMS platform.',
   },
   {
     name: 'E-Commerce',
+    icon: <AiOutlineShoppingCart />,
     content:
       'Now imagine that you want to sell your products but you dont want to spend time setting up your e-commerce platform. And lets say that you also want that site to look AMAZING. Well... I think we can help you with that...',
   },
   {
     name: 'Website Design',
+    icon: <MdDesignServices />,
     content:
       "Here at Coyote we have a saying: 'Design is king'`. Well, to be honest, I just made that up. But that doesn't make it less true! We put design at the center of the process because we believe that good design and planning makes a big difference.",
   },
   {
     name: 'Wordpress',
+    icon: <BsWordpress />,
     content:
       "Theres no denying: Wordpress is a widely used tool for making sites that are easy to use and mantain. So yeah... we do Wordpress, but it's not really our cup of tea. We prefer using different tools, but hey, if that's what you want, you got it buddy.",
   },
   {
     name: 'SEO Optimization',
+    icon: <AiOutlineFileSearch />,
     content:
       "If you want to create a website, we assume that you want it to be reachable to your target audiences. SEO Optimization makes that a reality. We can integrate your favorite tools to track your site metric and make sure you are reaching for those good ol' KPIs",
   },
@@ -103,7 +113,7 @@ const Services = (props: any) => {
               {OurServices.map((service, index) => (
                 <li className="service-card" key={index}>
                   <div className="service-image">
-                    <WebIcon />
+                    {service.icon}
                   </div>
                   <h2 className="service-title">{service.name}</h2>
                   <p className="service-content">{service.content}</p>
@@ -160,11 +170,13 @@ const StyledServices = styled(MainViewContent)`
     background: ${(props) => transparentize(0.9, props.theme.colors.primary)};
   }
   .service-image {
-    width: 4.8rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     margin-bottom: 0;
-    path {
-      stroke: ${(props) => props.theme.colors.primary};
+    padding: 0.5rem;
+    svg {
+      width: 100%;
+      height: 100%;
     }
   }
   .service-title {
