@@ -9,6 +9,7 @@ import { throttle } from 'lodash';
 
 import WorkList from './../../data/works/worklist';
 import IWork from '../../utils/workSchema';
+import Head from 'next/head';
 
 const Works = (props: any) => {
   const [hoveredWork, setHoveredWork] = useState<any>(null);
@@ -34,6 +35,11 @@ const Works = (props: any) => {
 
   return (
     <StyledWorkList onScroll={throttle(updateWorkListTopOffset, 50)} className="work-content">
+      <Head>
+        <title>
+          CWS - Works
+        </title>
+      </Head>
       <Box aria-hidden ref={thumbnailRef} className={`thumbnail ${hoveredWork && 'visible'}`}>
         {hoveredWork && <Image src={hoveredWork.headerImage} layout="fill" alt="Thumbnail" />}
       </Box>

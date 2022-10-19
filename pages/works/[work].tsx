@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import WorkPage from '../../components/WorkPage';
@@ -18,6 +19,11 @@ const Work = () => {
   }
   return (
     <WorkPage url={selectedWork.url} title={selectedWork.name} topImage={selectedWork.headerImage}>
+      <Head>
+        <title>
+          CWS - Works - {selectedWork.name}
+        </title>
+      </Head>
       <div className="breakdown">{selectedWork.content}</div>
     </WorkPage>
   );

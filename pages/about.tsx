@@ -5,12 +5,18 @@ import { transparentize } from 'polished';
 import MainViewContent from './../components/MainViewContent';
 
 import getLocales from '../utils/getLocales';
+import Head from 'next/head';
 
 const AboutUs = () => {
   const router = useRouter();
   const locale = getLocales(router.locale as 'en' | 'es');
   return (
     <StyledAboutUs>
+      <Head>
+        <title>
+          CWS - About Us
+        </title>
+      </Head>
       <div className="page-wrapper">{locale.about.content}</div>
     </StyledAboutUs>
   );

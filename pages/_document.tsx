@@ -8,7 +8,20 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'true'} />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet" />
 
+        <meta name="title" content="Coyote Web Studio" />
         <meta name="description" content="Coyote Web Studio is a web design and development studio based in Buenos Aires, Argentina" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://metatags.io/" />
+        <meta property="og:title" content="Coyote Web Studio" />
+        <meta property="og:description" content="We are a web design and development studio based in Buenos Aires, Argentina." />
+        <meta property="og:image" content="" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://metatags.io/" />
+        <meta property="twitter:title" content="Coyote Web Studio" />
+        <meta property="twitter:description" content="We are a web design and development studio based in Buenos Aires, Argentina." />
+        <meta property="twitter:image" content="" />
       </Head>
       <body>
         <Main />

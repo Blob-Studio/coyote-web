@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import MainViewContent from './../components/MainViewContent';
 
 import WebIcon from '../public/img/icons/services/web.svg';
+import Head from 'next/head';
 
 const OurServices = [
   {
@@ -89,6 +90,11 @@ const OurTechStack: Array<{
 const Services = (props: any) => {
   return (
     <StyledServices>
+      <Head>
+        <title>
+          CWS - Services we offer
+        </title>
+      </Head>
       <div className="page-wrapper">
         <Box className="content-block">
           <h1 className="content-welcome-text">We got your back</h1>
