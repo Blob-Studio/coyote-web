@@ -15,13 +15,13 @@ export default function Document() {
         <meta property="og:url" content="" />
         <meta property="og:title" content="Coyote Web Studio" />
         <meta property="og:description" content="We are a web design and development studio based in Buenos Aires, Argentina." />
-        <meta property="og:image" content="CWS-logo-dark.svg" />
+        <meta property="og:image" content="/img/CWS-logo-dark.svg" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="" />
         <meta property="twitter:title" content="Coyote Web Studio" />
         <meta property="twitter:description" content="We are a web design and development studio based in Buenos Aires, Argentina." />
-        <meta property="twitter:image" content="CWS-logo-dark.svg" />
+        <meta property="twitter:image" content="/img/CWS-logo-dark.svg" />
       </Head>
       <body>
         <Main />
